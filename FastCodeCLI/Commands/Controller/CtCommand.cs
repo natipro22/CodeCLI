@@ -7,8 +7,8 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Code.Commands.Controller;
-[Command("g cr", Description = "Creates a new, generic controller definition in the given project.")]
-public class CrCommand : BaseCommand
+[Command("g ct", Description = "Creates a new, generic controller definition in the given project.")]
+public class CtCommand : BaseCommand
 {
     [CommandParameter(0, IsRequired = true, Description = "The name of the controller")]
     public string Name { get; set; }
