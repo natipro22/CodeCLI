@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Code.Commands;
+namespace Code.Commands.Generate;
 [Command("generate", Description = "Generates and/or modifies files based on a schematic.")]
 public class GenerateCommand : ICommand
 {
