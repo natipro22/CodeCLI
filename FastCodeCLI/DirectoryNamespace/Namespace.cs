@@ -11,13 +11,10 @@ public class Namespace
     public static string GetProjectDirectory()
     {
         // Get the currently executing assembly
-        Assembly assembly = Assembly.GetExecutingAssembly();
-
+        Assembly assembly = Assembly.GetEntryAssembly()!;
         // Get the directory of the assembly
         string assemblyLocation = assembly.Location;
-
-        // Get the directory containing the assembly (project directory)
-        string projectDirectory = Path.GetDirectoryName(assemblyLocation);
+        string projectDirectory = Directory.GetParent(assemblyLocation)?.Parent?.Parent?.Parent?.FullName!;
 
         return projectDirectory;
     }
@@ -27,19 +24,23 @@ public class Namespace
         directory ??= GetProjectDirectory();
         // Get the name of the current directory
         string directoryName = new DirectoryInfo(directory).Name;
-
         // Initialize the namespace with the current directory name
         string @namespace = directoryName;
-
+        if(directory == Directory.GetCurrentDirectory())
+        {
+            return @namespace;
+        }
         // Get the subdirectories of the current directory
-        string[] subdirectories = Directory.GetDirectories(directory);
+        string[] subdirectories = Directory.GetCurrentDirectory()
+            .Substring(directory.Length + 1)
+            .Split('\\', '/');
 
-        // If there are subdirectories, recursively call GetNamespace for each subdirectory
+        // If there are subdirectories, recursively get directory name for each subdirectory
         if (subdirectories.Length > 0)
         {
             foreach (string subdirectory in subdirectories)
             {
-                string subNamespace = GetNamespace(subdirectory);
+                string subNamespace = new DirectoryInfo(subdirectory).Name;
 
                 // Append the subnamespace to the current namespace
                 @namespace = $"{@namespace}.{subNamespace}";

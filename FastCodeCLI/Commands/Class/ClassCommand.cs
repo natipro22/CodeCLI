@@ -1,6 +1,8 @@
 ﻿using CliFx;
 using CliFx.Attributes;
 using CliFx.Infrastructure;
+using Code.DirectoryNamespace;
+using FastCodeCLI.commands.generate;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,6 +25,7 @@ public class ClassCommand : BaseCommand
 
     public override ValueTask ExecuteAsync(IConsole console)
     {
-        throw new NotImplementedException();
+        File.WriteAllText($"{Name}.cs", Content.Class(Name));
+        return ValueTask.CompletedTask;
     }
 }
