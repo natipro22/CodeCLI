@@ -8,10 +8,7 @@ public class ClassCommand : BaseCommand
 {
 
     [CommandParameter(0, IsRequired = true, Description = "The name of the class.")]
-    public string Name { get; set; }
-
-    [CommandOption('p', Description = "The name of the project.")]
-    public string Project { get; set; }
+    public string? Name { get; set; }
 
     [CommandOption('a', Description = "abstract class")]
     public bool Abstract { get; set; } = false;
@@ -19,7 +16,7 @@ public class ClassCommand : BaseCommand
     public override ValueTask ExecuteAsync(IConsole console)
     {
         string name = $"{Name}.cs";
-        File.WriteAllText(name, Content.Class(Name));
+        File.WriteAllText(name, Content.Class(Name!));
         console.Output.WriteLine($"{name} created succesfully.");
         return ValueTask.CompletedTask;
     }

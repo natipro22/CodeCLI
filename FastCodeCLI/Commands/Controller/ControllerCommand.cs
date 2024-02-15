@@ -1,20 +1,20 @@
 ﻿using CliFx.Attributes;
 using CliFx.Infrastructure;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Code.Commands.Generate;
+using CodeCLI.Common;
 
 namespace Code.Commands.Controller;
 [Command("generate controller", "(generate|g) (controller|ct)$", Description = "Creates a new, generic controller definition in the given project.")]
 public class ControllerCommand : BaseCommand
 {
     [CommandParameter(0, IsRequired = true, Description = "The name of the controller")]
-    public string Name { get; set; }
+    public string? Name { get; set; }
 
     public override ValueTask ExecuteAsync(IConsole console)
     {
-        throw new NotImplementedException();
+        string name = $"{Name}Controller.cs";
+        File.WriteAllText(name, Content.Controller(Name!));
+        console.FileCreated(name);
+        return ValueTask.CompletedTask;
     }
 }
