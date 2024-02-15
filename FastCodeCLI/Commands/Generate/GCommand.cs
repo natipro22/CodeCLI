@@ -9,10 +9,8 @@ using System.Threading.Tasks;
 
 namespace Code.Commands.Generate;
 [Command("g", Description = "alias of generate command")]
-public class GCommand : ICommand
+public class GCommand : GenerateCommand
 {
-    public ValueTask ExecuteAsync(IConsole console)
-    {
-        throw new NotImplementedException();
-    }
+
 }
+

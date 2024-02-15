@@ -8,13 +8,6 @@ using System.Threading.Tasks;
 
 namespace Code.Commands.REPR;
 [Command("g repr")]
-public class GREPRCommand : BaseCommand
+public class GREPRCommand : REPRCommand
 {
-    [CommandParameter(0, IsRequired = true, Description = "The name of the REPR")]
-    public string Name { get; set; }
-
-    public override ValueTask ExecuteAsync(IConsole console)
-    {
-        throw new NotImplementedException();
-    }
 }

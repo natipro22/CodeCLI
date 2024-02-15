@@ -8,13 +8,7 @@ using System.Threading.Tasks;
 
 namespace Code.Commands.Controller;
 [Command("g ct", Description = "Creates a new, generic controller definition in the given project.")]
-public class CtCommand : BaseCommand
+public class CtCommand : ControllerCommand
 {
-    [CommandParameter(0, IsRequired = true, Description = "The name of the controller")]
-    public string Name { get; set; }
 
-    public override ValueTask ExecuteAsync(IConsole console)
-    {
-        throw new NotImplementedException();
-    }
 }

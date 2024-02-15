@@ -8,13 +8,7 @@ using System.Threading.Tasks;
 
 namespace Code.Commands.Request;
 [Command("g rq", Description = "Creates a new, generic request definition using MediatR in the given project.")]
-public class RqCommand : BaseCommand
+public class RqCommand : RequestCommand
 {
-    [CommandParameter(0, IsRequired = true, Description = "The name of the request.")]
-    public string Name { get; set; }
 
-    public override ValueTask ExecuteAsync(IConsole console)
-    {
-        throw new NotImplementedException();
-    }
 }

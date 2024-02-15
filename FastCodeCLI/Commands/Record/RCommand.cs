@@ -9,13 +9,6 @@ using System.Threading.Tasks;
 
 namespace Code.Commands.Record;
 [Command("generate record", Description = "Creates a new, generic record definition in the given project.")]
-public class RCommand : BaseCommand
+public class RCommand : RecordCommand
 {
-    [CommandParameter(0, IsRequired = true, Description = "The name of the record.")]
-    public string Name { get; set; }
-
-    public override ValueTask ExecuteAsync(IConsole console)
-    {
-        throw new NotImplementedException();
-    }
 }

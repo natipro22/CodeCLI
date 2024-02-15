@@ -1,13 +1,6 @@
-﻿using CliFx;
-using CliFx.Attributes;
+﻿using CliFx.Attributes;
 using CliFx.Infrastructure;
-using Code.DirectoryNamespace;
-using FastCodeCLI.commands.generate;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Code.Commands.Generate;
 
 namespace Code.Commands.Class;
 [Command("generate class", Description = "Creates a new, generic class definition in the given project.")]
@@ -25,7 +18,9 @@ public class ClassCommand : BaseCommand
 
     public override ValueTask ExecuteAsync(IConsole console)
     {
-        File.WriteAllText($"{Name}.cs", Content.Class(Name));
+        string name = $"{Name}.cs";
+        File.WriteAllText(name, Content.Class(Name));
+        console.Output.WriteLine($"{name} created succesfully.");
         return ValueTask.CompletedTask;
     }
 }
