@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Code.Commands.REPR;
-[Command("generate repr")]
+[Command("generate repr", "(generate|g) (repr)")]
 public class REPRCommand : BaseCommand
 {
     [CommandParameter(0, IsRequired = true, Description = "The name of the REPR")]

@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Code.Commands.Controller;
-[Command("generate controller", Description = "Creates a new, generic controller definition in the given project.")]
+[Command("generate controller", "(generate|g) (controller|ct)$", Description = "Creates a new, generic controller definition in the given project.")]
 public class ControllerCommand : BaseCommand
 {
     [CommandParameter(0, IsRequired = true, Description = "The name of the controller")]

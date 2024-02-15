@@ -3,7 +3,7 @@ using CliFx.Infrastructure;
 using Code.Commands.Generate;
 
 namespace Code.Commands.Class;
-[Command("generate class", Description = "Creates a new, generic class definition in the given project.")]
+[Command("generate class", "(generate|g) (class|c)$", Description = "Creates a new, generic class definition in the given project.")]
 public class ClassCommand : BaseCommand
 {
 

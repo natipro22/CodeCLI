@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Code.Commands.Enum;
-[Command("generate enum", Description = "Generates a new, generic enum definition in the given project.")]
+[Command("generate enum", "(generate|g) (enum|e)$", Description = "Generates a new, generic enum definition in the given project.")]
 public class EnumCommand : BaseCommand
 {
 

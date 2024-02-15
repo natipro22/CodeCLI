@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Code.Commands.Interface;
-[Command("generate interface", Description = "Creates a new, generic interface definition in the given project.")]
+[Command("generate interface", "(generate|g) (interface|i)$", Description = "Creates a new, generic interface definition in the given project.")]
 public class InterfaceCommand : BaseCommand
 {
     [CommandParameter(0, IsRequired = true, Description = "The name of the interface.")]

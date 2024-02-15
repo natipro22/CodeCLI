@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Code.Commands.Record;
-[Command("generate record", Description = "Creates a new, generic record definition in the given project.")]
+[Command("generate record", "(generate|g) (record|r)$", Description = "Creates a new, generic record definition in the given project.")]
 public class RecordCommand : BaseCommand
 {
     [CommandParameter(0, IsRequired = true, Description = "The name of the record.")]

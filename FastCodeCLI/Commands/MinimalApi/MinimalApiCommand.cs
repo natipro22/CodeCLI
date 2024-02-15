@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Code.Commands.MinimalApi;
-[Command("generate minimal-api", Description = "Creates a new, generic minimal api definition in the given project.")]
+[Command("generate minimal-api", "(generate|g) (minimal-api|ma)$", Description = "Creates a new, generic minimal api definition in the given project.")]
 public class MinimalApiCommand : BaseCommand
 {
     [CommandParameter(0, IsRequired = true, Description = "The name of the minimal api")]

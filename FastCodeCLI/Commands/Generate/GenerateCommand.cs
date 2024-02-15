@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Code.Commands.Generate;
-[Command("generate", Description = "Generates and/or modifies files based on a schematic.")]
+[Command("generate", "(generate|g)$", Description = "Generates and/or modifies files based on a schematic.")]
 public class GenerateCommand : ICommand
 {
 
