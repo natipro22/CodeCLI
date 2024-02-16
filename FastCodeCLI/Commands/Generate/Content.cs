@@ -5,9 +5,9 @@ namespace Code.Commands.Generate;
 
 public static class Content
 {
-    public static string Class(string name)
+    public static string Class(string name, bool isAbstract)
         => $"namespace {Namespace.GetNamespace()};\n\n" +
-            $"public class {name}\n{{\n    \n}}";
+            $"public {(isAbstract ? "abstract" : string.Empty)} class {name}\n{{\n    \n}}";
     public static string Enum(string name)
         => $"namespace {Namespace.GetNamespace()};\n\n" +
             $"public enum {name}\n{{\n   \n}}";
@@ -86,4 +86,8 @@ public static class Content
             $"{(string.IsNullOrEmpty(extends) && implements == Enumerable.Empty<string>() ? "" : " : ")}{extends.Trim()}" + 
             $"{(implements == Enumerable.Empty<string>() ? "" : ", ")}{string.Join(", ", implements).Trim()}\n{{\n   \n}}";
 
+    public static string Validator(string name)
+        => $"using FluentValidation;\n\n" +
+            $"namespace {Namespace.GetNamespace()};\n\n" +
+            "public class {name}Validator : AbstractValidator<{name}>\n{{\n   \n}}";
 }

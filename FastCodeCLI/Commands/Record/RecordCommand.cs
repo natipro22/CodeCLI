@@ -8,10 +8,8 @@ namespace Code.Commands.Record;
 [Command("generate record", "(generate|g) (record|r)$", Description = "Creates a new, generic record definition in the given project.")]
 public class RecordCommand : BaseCommand
 {
-    private string _name = string.Empty;
-
     [CommandParameter(0, IsRequired = true, Description = "The name of the record.")]
-    public string Name { get => _name; set => _name = value.ToPascalCase(); }
+    public string Name { get; set; } = string.Empty;
 
     public override ValueTask ExecuteAsync(IConsole console)
     {

@@ -1,0 +1,10 @@
+{
+    "version": "0.2.0",
+    "configurations": [],
+    "profiles": {
+        "Code": {
+            "commandName": "Project",
+            "commandLineArgs": "g c my_request"
+        }
+    }
+}

@@ -7,10 +7,8 @@ namespace Code.Commands.Enum;
 [Command("generate enum", "(generate|g) (enum|e)$", Description = "Generates a new, generic enum definition in the given project.")]
 public class EnumCommand : BaseCommand
 {
-    private string _name = string.Empty;
-
     [CommandParameter(0, IsRequired = true, Description = "The name of the interface.")]
-    public string Name { get => _name; set => _name = value.ToPascalCase(); }
+    public string Name { get; set; } = string.Empty;
 
     public override ValueTask ExecuteAsync(IConsole console)
     {

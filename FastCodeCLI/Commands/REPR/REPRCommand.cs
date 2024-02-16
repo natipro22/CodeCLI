@@ -8,10 +8,8 @@ namespace Code.Commands.REPR;
 [Command("generate repr", "(generate|g) (repr)")]
 public class REPRCommand : BaseCommand
 {
-    private string _name = string.Empty;
-
     [CommandParameter(0, IsRequired = true, Description = "The name of the REPR")]
-    public string Name { get => _name; set => _name = value.ToPascalCase(); }
+    public string Name { get; set; } = string.Empty;
 
     public override ValueTask ExecuteAsync(IConsole console)
     {

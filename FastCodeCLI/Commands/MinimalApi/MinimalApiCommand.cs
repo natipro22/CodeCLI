@@ -8,10 +8,8 @@ namespace Code.Commands.MinimalApi;
 [Command("generate minimal-api", "(generate|g) (minimal-api|ma)$", Description = "Creates a new, generic minimal api definition in the given project.")]
 public class MinimalApiCommand : BaseCommand
 {
-    private string _name = string.Empty;
-
     [CommandParameter(0, IsRequired = true, Description = "The name of the minimal api")]
-    public string Name { get => _name; set => _name = value.ToPascalCase(); }
+    public string Name { get; set; } = string.Empty;
 
     public override ValueTask ExecuteAsync(IConsole console)
     {

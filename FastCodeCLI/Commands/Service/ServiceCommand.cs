@@ -7,10 +7,8 @@ namespace Code.Commands.Service;
 [Command("generate service", "(generate|g) (service|s)$", Description = "Creates a new, generic service definition in the given project.")]
 public class ServiceCommand : BaseCommand
 {
-    private string _name = string.Empty;
-
     [CommandParameter(0, IsRequired = true, Description = "The name of the service.")]
-    public string Name { get => _name; set => _name = value.ToPascalCase(); }
+    public string Name { get; set; } = string.Empty;
 
     [CommandParameter(1, IsRequired = false, Description = "The name of the service.")]
     public string Extends { get; set; } = string.Empty;
