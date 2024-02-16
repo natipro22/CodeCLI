@@ -1,15 +1,17 @@
 ﻿using CliFx.Attributes;
 using CliFx.Infrastructure;
 using Code.Commands.Generate;
-using CodeCLI.Common;
+using Code.Common;
+using System.Xml.Linq;
 
 namespace Code.Commands.Interface;
 [Command("generate interface", "(generate|g) (interface|i)$", Description = "Creates a new, generic interface definition in the given project.")]
 public class InterfaceCommand : BaseCommand
 {
-    [CommandParameter(0, IsRequired = true, Description = "The name of the interface.")]
-    public string? Name { get; set; }
+    private string _name = string.Empty;
 
+    [CommandParameter(0, IsRequired = true, Description = "The name of the interface.")]
+    public string Name { get => _name; set => _name = value.ToPascalCase(); }
 
     [CommandOption('x', Description = "A prefix to apply to generated selectors.")]
     public char Prefix { get; set; } = 'I';

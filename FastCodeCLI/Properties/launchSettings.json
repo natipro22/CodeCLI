@@ -2,7 +2,7 @@
   "profiles": {
     "Code": {
       "commandName": "Project",
-      "commandLineArgs": "g ma Stamp"
+      "commandLineArgs": "g c my_request"
     }
   }
 }
