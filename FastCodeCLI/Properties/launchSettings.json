@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Code": {
+      "commandName": "Project",
+      "commandLineArgs": "g ma Stamp"
+    }
+  }
+}

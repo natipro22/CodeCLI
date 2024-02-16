@@ -47,8 +47,26 @@ public static class Content
             "}";
     public static string Interface(string name, char prefix)
         => $"namespace {Namespace.GetNamespace()};\npublic interface {(prefix == ' ' ? "" : prefix)}{name}\n{{\n   \n}}";
-    public static string MinimalApi(string name, char prefix)
-        => $"namespace {Namespace.GetNamespace()};\npublic interface {(prefix == ' ' ? "" : prefix)}{name}\n{{\n   \n}}";
+    public static string MinimalApi(string name)
+        => $"namespace {Namespace.GetNamespace()};\n" +
+            $"public static void Map{name}Endpoints(this WebApplication app)\n" +
+            "{\n" +
+            "\t//Create\n" +
+            $"\tapp.MapPost(\"/{name}s\",async ({name}Request {name.ToLower()}Request, I{name}Service {name.ToLower()}Service)\n" +
+            $"\t\t => await {name.ToLower()}Service.Create{name}({name.ToLower()}Request));\n\n" +
+            "\t//Read All\n" +
+            $"\tapp.MapGet(\"/{name}\", async (I{name}Service {name.ToLower()}Service)\n" +
+            $"\t\t => await {name.ToLower()}Service.Get{name}s());\n\n" +
+            "\t//Read by Id\n" +
+            $"\tapp.MapGet(\"/{name}/{{id}}\", async (Guid id, I{name}Service {name.ToLower()}Service) \n" +
+            $"\t\t => await {name.ToLower()}Service.Get{name}ById(id));\r\n\n\n" +
+            "\t//Update\n" +
+            $"\tapp.MapPut(\"/{name}s/{{id}}\", async (Guid id, {name}Request {name.ToLower()}Request, I{name}Service {name.ToLower()}Service)\n" +
+            $"\t\t => await {name.ToLower()}Service.Update{name}(id, {name.ToLower()}Request));\n\n" +
+            "\t//Delete\n" +
+            $"\tapp.MapDelete(\"/{name}s/{{id}}\", async (Guid id, I{name}Service {name.ToLower()}Service)\n" +
+            $"\t\t => await {name.ToLower()}Service.Delete{name}(id));\n\n" +
+            "}";
     public static string Record(string name)
         => $"namespace {Namespace.GetNamespace()};\npublic record {name}(string Property)\n{{\n   \n}}";
     public static string REPR(string name, char prefix)

@@ -12,8 +12,8 @@ public class MinimalApiCommand : BaseCommand
 
     public override ValueTask ExecuteAsync(IConsole console)
     {
-        string name = $"{Name}.cs";
-        File.WriteAllText(name, Content.Class(Name!));
+        string name = $"{Name}Api.cs";
+        File.WriteAllText(name, Content.MinimalApi(Name!));
         console.FileCreated(name);
         return ValueTask.CompletedTask;
     }
