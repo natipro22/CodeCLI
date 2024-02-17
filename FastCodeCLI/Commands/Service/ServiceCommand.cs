@@ -1,6 +1,7 @@
 ﻿using CliFx.Attributes;
 using CliFx.Infrastructure;
 using Code.Commands.Generate;
+using Code.CommandServices;
 using Code.Common;
 
 namespace Code.Commands.Service;
@@ -16,11 +17,16 @@ public class ServiceCommand : BaseCommand
     [CommandParameter(2, IsRequired = false, Description = "The name of the service.")]
     public IEnumerable<string> Implements { get; set; } = Enumerable.Empty<string>();
 
+    [CommandOption("abstract", 'a', Description = "abstract class")]
+    public bool Abstract { get; set; } = false;
+
     public override ValueTask ExecuteAsync(IConsole console)
     {
-        string name = $"{Name}Service.cs";
-        File.WriteAllText(name, Content.Service(Name!, Extends, Implements));
-        console.FileCreated(name);
+        ICommandService commandService = CommandServiceFactory.GetClassService($"{Name}Service", Extends, Implements, Abstract);
+
+        string fileName = commandService.CreateFile();
+        
+        console.FileCreated(fileName);
         return ValueTask.CompletedTask;
     }
 }

@@ -1,6 +1,7 @@
 ﻿using CliFx.Attributes;
 using CliFx.Infrastructure;
 using Code.Commands.Generate;
+using Code.CommandServices;
 using Code.Common;
 using System.Xml.Linq;
 
@@ -16,9 +17,11 @@ public class RequestCommand : BaseCommand
 
     public override ValueTask ExecuteAsync(IConsole console)
     {
-        string name = $"{Name}.cs";
-        File.WriteAllText(name, Content.Request(Name!, Response));
-        console.FileCreated(name);
+        ICommandService commandService = CommandServiceFactory.GetRequestService(Name, Response);
+
+        string fileName = commandService.CreateFile();
+        
+        console.FileCreated(fileName);
         return ValueTask.CompletedTask;
     }
 }

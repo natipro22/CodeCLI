@@ -1,6 +1,7 @@
 ﻿using CliFx.Attributes;
 using CliFx.Infrastructure;
 using Code.Commands.Generate;
+using Code.CommandServices;
 using Code.Common;
 using System.Xml.Linq;
 
@@ -17,9 +18,13 @@ public class InterfaceCommand : BaseCommand
 
     public override ValueTask ExecuteAsync(IConsole console)
     {
-        string name = $"{Prefix}{Name}.cs";
-        File.WriteAllText(name, Content.Interface(Name!, Prefix));
-        console.FileCreated(name);
+        // Get the service.
+        ICommandService interfaceService = CommandServiceFactory.GetInterfaceService(Name, Prefix);
+        
+        // Create file
+        string fileName = interfaceService.CreateFile();
+        
+        console.FileCreated(fileName);
         return ValueTask.CompletedTask;
     }
 }

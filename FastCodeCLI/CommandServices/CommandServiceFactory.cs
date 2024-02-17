@@ -5,9 +5,27 @@ namespace Code.CommandServices;
 
 public static class CommandServiceFactory
 {
-    public static ICommandService GetClassService(string name, object props)
-    {
-        string propString = JsonSerializer.Serialize(props);
-        return new ClassService(name, propString);
-    }
+    public static ICommandService GetClassService(string name, string extends, IEnumerable<string> implements, bool isAbstract)
+        => new ClassService(name, extends, implements, isAbstract);
+
+    public static ICommandService GetInterfaceService(string name, char prefix)
+        => new InterfaceService(name, prefix);
+
+    public static ICommandService GetEnumService(string name)
+        => new EnumService(name);
+
+    public static ICommandService GetRecordService(string name)
+        => new RecordService(name);
+
+    public static ICommandService GetControllerService(string name)
+        => new ControllerService(name);
+    public static ICommandService GetValidatorService(string name)
+        => new ValidatorService(name);
+
+    public static ICommandService GetRequestService(string name, string response)
+        => new RequestService(name, response);
+    
+    public static ICommandService GetHandlerService(string name, string response)
+        => new HandlerService(name, response);
+    
 }

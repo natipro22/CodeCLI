@@ -1,6 +1,7 @@
 ﻿using CliFx.Attributes;
 using CliFx.Infrastructure;
 using Code.Commands.Generate;
+using Code.CommandServices;
 using Code.Common;
 
 namespace Code.Commands.Enum;
@@ -12,9 +13,11 @@ public class EnumCommand : BaseCommand
 
     public override ValueTask ExecuteAsync(IConsole console)
     {
-        string name = $"{Name}.cs";
-        File.WriteAllText(name, Content.Enum(Name!));
-        console.FileCreated(name);
+        ICommandService enumService = CommandServiceFactory.GetEnumService(Name);
+
+        string fileName = enumService.CreateFile();
+
+        console.FileCreated(fileName);
         return ValueTask.CompletedTask;
     }
 }

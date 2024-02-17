@@ -1,15 +1,10 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using CliFx.Attributes;
 using CliFx.Infrastructure;
-using Code.Commands;
-using Code.Commands.Generate;
+using Code.CommandServices;
 using Code.Common;
 
 namespace Code.Commands.FluentValidation;
-[Command("generate fluent-validation validator", "(generate|g) (fluent-validation|fv)^ (validator|v)$", Description = "Creates a new, generic request validator using MediatR in the given project.")]
+[Command("generate fluent-validation validator", "(generate|g) (fluent-validation|fv) (validator|v)$", Description = "Creates a new, generic request validator using MediatR in the given project.")]
 public class ValidatorCommand : BaseCommand
 {
     
@@ -19,8 +14,10 @@ public class ValidatorCommand : BaseCommand
 
     public override ValueTask ExecuteAsync(IConsole console)
     {
-        string fileName = $"{Name}.cs";
-        File.WriteAllText(fileName, Content.Validator(Name!));
+        ICommandService commandService = CommandServiceFactory.GetValidatorService(Name);
+
+        string fileName = commandService.CreateFile();
+
         console.FileCreated(fileName);
         return ValueTask.CompletedTask;
     }

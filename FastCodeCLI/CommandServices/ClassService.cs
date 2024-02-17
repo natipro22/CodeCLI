@@ -5,29 +5,76 @@ namespace Code.CommandServices;
 
 public class ClassService : CommandService, ICommandService
 {
-    private CommandParam? _params;
-    public ClassService(string name) : base(name)
-    {
+    private readonly string _extends = string.Empty;
+    private readonly IEnumerable<string> _implements = Enumerable.Empty<string>();
+    private readonly bool _isAbstract = false;
+    private readonly IEnumerable<string> _usings = Enumerable.Empty<string>();
+    protected string _body = string.Empty;
 
+    public ClassService(string name)
+        : base(name, fileName: $"{name}.cs")
+    {
     }
 
-    public ClassService(string name, string jsonParam) : base(name)
+    public ClassService(string name, string extends)
+        : base(name, fileName: $"{name}.cs")
     {
-        _params = ToParam(jsonParam);
+        _extends = extends;
     }
-    protected override string FileName { get => _name + "Service"; set => base.FileName = _name; }
-    private CommandParam ToParam(string jsonString)
-    {
-        _fileName = $"{_name}.cs";
-        return JsonSerializer.Deserialize<CommandParam>(jsonString)!;
-    }
-    private record CommandParam(string Name, bool IsAbstract);
 
-    protected override string GetContent(string jsonParam)
+    public ClassService(string name, IEnumerable<string> implements)
+        : this(name)
     {
-        _fileName = $"{_name}Service.cs";
-        var param = ToParam(jsonParam);
-        return $"namespace {Namespace.GetNamespace()};\n\n" +
-                $"public {(param.IsAbstract ? "abstract" : string.Empty)} class {param.Name}\n{{\n    \n}}";
+        _implements = implements;
     }
+
+    public ClassService(string name, IEnumerable<string> implements, IEnumerable<string> usings)
+        : this(name, implements)
+    {
+        _usings = usings;
+    }
+
+    public ClassService(string name, string extends, IEnumerable<string> implements)
+        : this(name, extends)
+    {
+        _implements = implements;
+    }
+
+    public ClassService(string name, string extends, IEnumerable<string> implements, bool isAbstract)
+        : this(name, extends, implements)
+    {
+        _isAbstract = isAbstract;
+    }
+
+    public ClassService(string name, string extends, IEnumerable<string> implements, bool isAbstract, IEnumerable<string> usings)
+        : this(name, extends, implements, isAbstract)
+    {
+        _usings = usings;
+    }
+
+    public ClassService(string name, string extends, IEnumerable<string> implements, IEnumerable<string> usings)
+        : this(name, extends, implements)
+    {
+        _usings = usings;
+    }
+
+    public ClassService(string name, IEnumerable<string> implements, IEnumerable<string> usings, params string[] body)
+        : this(name, implements, usings)
+    {
+        _body = string.Join("\n\n", body);
+    }
+
+    public ClassService(string name, string extends, IEnumerable<string> usings, params string[] body)
+        : this(name, extends, usings)
+    {
+        _body = string.Join("\n\n", body);
+    }
+
+    protected override string GetContent()
+        => $"{string.Join("\n", _usings)}\n\n" +
+            $"namespace {Namespace.GetNamespace()};\n\n" +
+            $"public{(_isAbstract ? " abstract" : string.Empty)} class {_name}" +
+            $"{(string.IsNullOrEmpty(_extends) && _implements == Enumerable.Empty<string>() ? string.Empty : " : ")}{_extends.Trim()}" + 
+            $"{(string.IsNullOrEmpty(_extends) || _implements == Enumerable.Empty<string>() ? string.Empty : ", ")}{string.Join(", ", _implements).Trim()}\n" +
+            $"{{\n{_body}\n}}";
 }

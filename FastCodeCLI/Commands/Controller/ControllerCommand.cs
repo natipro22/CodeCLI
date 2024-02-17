@@ -1,6 +1,7 @@
 ﻿using CliFx.Attributes;
 using CliFx.Infrastructure;
 using Code.Commands.Generate;
+using Code.CommandServices;
 using Code.Common;
 using System.Xml.Linq;
 
@@ -13,9 +14,11 @@ public class ControllerCommand : BaseCommand
 
     public override ValueTask ExecuteAsync(IConsole console)
     {
-        string name = $"{Name}Controller.cs";
-        File.WriteAllText(name, Content.Controller(Name!));
-        console.FileCreated(name);
+        ICommandService commandService = CommandServiceFactory.GetControllerService(Name);
+
+        string fileName = commandService.CreateFile();
+
+        console.FileCreated(fileName);
         return ValueTask.CompletedTask;
     }
 }
