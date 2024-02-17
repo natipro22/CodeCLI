@@ -1,5 +1,7 @@
-﻿using CliFx.Attributes;
+﻿using CliFx;
+using CliFx.Attributes;
 using CliFx.Infrastructure;
+using Code.Commands.Class;
 using Code.Commands.Generate;
 using Code.Common;
 using System.Xml.Linq;

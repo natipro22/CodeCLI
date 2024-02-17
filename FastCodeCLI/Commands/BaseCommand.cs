@@ -7,6 +7,8 @@ namespace Code.Commands;
 public abstract class BaseCommand : ICommand
 {
 
+    protected string _fileName = string.Empty;
+
     [CommandOption('p', Description = "The name of the project.")]
     public string? Project { get; set; }
 
