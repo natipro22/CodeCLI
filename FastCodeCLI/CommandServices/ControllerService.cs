@@ -2,35 +2,57 @@ using Code.DirectoryNamespace;
 
 namespace Code.CommandServices;
 
-public class ControllerService : CommandService, ICommandService
+public class ControllerService : ClassService, ICommandService
 {
+    private static readonly string Extends = "BaseController";
+    private static readonly string GetAllMethod = 
+    @"	[HttpGet]
+	public IActionResult GetAll()
+	{
+  		return Ok(default);
+	}";
+
+    private static readonly string GetByIdMethod =
+    @"	[HttpGet(""{id}"")]
+	public IActionResult GetById(Guid id)
+	{
+  		return Ok(default);
+	}";
+
+    private static readonly string CreateMethod =
+    @"	[HttpPost]
+	public IActionResult Create([FromBody] string userInput)
+	{
+  		return Ok(default);
+	}";
+
+    private static readonly string UpdateMethod =
+    @"	[HttpPut(""{id}"")]
+	public IActionResult Update([FromQuery] Guid id, [FromBody] string userInput)
+	{
+  		return Ok(default);
+	}";
+    
+    private static readonly string DeleteMethod =
+    $@"	[HttpDelete(""{{id}}"")]
+	public IActionResult Delete([FromQuery] Guid id)
+	{{
+  		return Ok(default);
+	}}";
+
+    private static readonly List<string> attributes = new List<string> { "[ApiController]", "[Route(\"[controller]\")]" };
+    private static readonly List<string> usings = new List<string> { "using Microsoft.AspNetCore.Mvc;" };
+
     public ControllerService(string name)
-        : base(name, fileName: $"{name}Controller.cs")
+    : base($"{name}Controller",
+           usings,
+           Extends,
+           attributes,
+           GetAllMethod,
+           GetByIdMethod,
+           CreateMethod,
+           UpdateMethod,
+           DeleteMethod)
     {
-
     }
-
-    protected override string GetContent()
-        => $"using Microsoft.AspNetCore.Mvc;\n\n" +
-            $"namespace {Namespace.GetNamespace()};\n\n" +
-            "[ApiController]\n" +
-            "[Route(\"[controller]\")]\n" +
-            $"public class {_name}Controller : ControllerBase\n" +
-            "{\n" +
-            "\t[HttpGet]\n" +
-            "\tpublic IActionResult GetAll()\n" +
-            "\t{\n  \t\treturn Ok(default);\n\t}\n" +
-            "\t[HttpGet(\"{id}\")]\n" +
-            "\tpublic IActionResult GetById(Guid id)\n" +
-            "\t{\n  \t\treturn Ok(default);\n\t}\n" +
-            "\t[HttpPost]\n" +
-            "\tpublic IActionResult Create([FromBody] string userInput)\n" +
-            "\t{\n  \t\treturn Ok(default);\n\t}\n" +
-            "\t[HttpPut(\"{id}\")]\n" +
-            "\tpublic IActionResult Update([FromQuery] Guid id, [FromBody] string userInput)\n" +
-            "\t{\n  \t\treturn Ok(default);\n\t}\n" +
-            "\t[HttpDelete(\"{id}\")]\n" +
-            "\tpublic IActionResult Delete([FromQuery] Guid id)\n" +
-            "\t{\n  \t\treturn Ok(default);\n\t}\n" +
-            "}";
 }

@@ -19,13 +19,16 @@ public static class CommandServiceFactory
 
     public static ICommandService GetControllerService(string name)
         => new ControllerService(name);
+
+    public static ICommandService GetMinimalApiService(string name)
+        => new MinimalApiService(name);
     public static ICommandService GetValidatorService(string name)
         => new ValidatorService(name);
 
-    public static ICommandService GetRequestService(string name, string response)
-        => new RequestService(name, response);
+    public static ICommandService GetRequestService(string name, string response, string directory = "")
+        => new RequestService(name, response, directory);
     
-    public static ICommandService GetHandlerService(string name, string response)
-        => new HandlerService(name, response);
+    public static ICommandService GetHandlerService(string name, string response, string directory = "")
+        => new HandlerService(name, response, directory);
     
 }

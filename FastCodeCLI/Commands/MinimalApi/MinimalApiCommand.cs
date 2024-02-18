@@ -1,6 +1,7 @@
 ﻿using CliFx.Attributes;
 using CliFx.Infrastructure;
 using Code.Commands.Generate;
+using Code.CommandServices;
 using Code.Common;
 using System.Xml.Linq;
 
@@ -13,9 +14,11 @@ public class MinimalApiCommand : BaseCommand
 
     public override ValueTask ExecuteAsync(IConsole console)
     {
-        string name = $"{Name}Api.cs";
-        File.WriteAllText(name, Content.MinimalApi(Name!));
-        console.FileCreated(name);
+        ICommandService commandService = CommandServiceFactory.GetMinimalApiService(Name);
+
+        string fileName = commandService.CreateFile();
+
+        console.FileCreated(fileName);
         return ValueTask.CompletedTask;
     }
 }

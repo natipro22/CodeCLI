@@ -4,7 +4,7 @@ namespace Code.CommandServices;
 public class HandlerService : ClassService, ICommandService
 {
     private static IEnumerable<string> usings = new List<string> { "using MediatR;" };
-    public HandlerService(string name, string response)
+    public HandlerService(string name, string response, string directory)
         : base(
             name: $"{name}Handler", 
             implements: new List<string> { $"IRequestHandler<{name}, {response}>" },
@@ -15,5 +15,6 @@ public class HandlerService : ClassService, ICommandService
                     "\t}\n"
             )
     {
+        _directory = directory;
     }
 }

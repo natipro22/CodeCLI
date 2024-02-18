@@ -10,6 +10,7 @@ public class ClassService : CommandService, ICommandService
     private readonly bool _isAbstract = false;
     private readonly IEnumerable<string> _usings = Enumerable.Empty<string>();
     protected string _body = string.Empty;
+    protected readonly IEnumerable<string> _attributes = Enumerable.Empty<string>();
 
     public ClassService(string name)
         : base(name, fileName: $"{name}.cs")
@@ -58,21 +59,29 @@ public class ClassService : CommandService, ICommandService
         _usings = usings;
     }
 
+    public ClassService(string name, IEnumerable<string> usings, string extends)
+        : this(name, extends)
+    {
+        _usings = usings;
+    }
+
     public ClassService(string name, IEnumerable<string> implements, IEnumerable<string> usings, params string[] body)
         : this(name, implements, usings)
     {
         _body = string.Join("\n\n", body);
     }
 
-    public ClassService(string name, string extends, IEnumerable<string> usings, params string[] body)
-        : this(name, extends, usings)
+    public ClassService(string name, IEnumerable<string> usings, string extends, IEnumerable<string> attributes, params string[] body)
+        : this(name, usings, extends)
     {
         _body = string.Join("\n\n", body);
+        _attributes = attributes;
     }
 
     protected override string GetContent()
-        => $"{string.Join("\n", _usings)}\n\n" +
-            $"namespace {Namespace.GetNamespace()};\n\n" +
+        => $"{(_usings != Enumerable.Empty<string>() ? $"{string.Join('\n', _usings)}\n\n" : string.Empty)}" +
+            $"namespace {Namespace.GetNamespace(_directory)};\n" +
+            $"{string.Join('\n',_attributes)}\n" +
             $"public{(_isAbstract ? " abstract" : string.Empty)} class {_name}" +
             $"{(string.IsNullOrEmpty(_extends) && _implements == Enumerable.Empty<string>() ? string.Empty : " : ")}{_extends.Trim()}" + 
             $"{(string.IsNullOrEmpty(_extends) || _implements == Enumerable.Empty<string>() ? string.Empty : ", ")}{string.Join(", ", _implements).Trim()}\n" +

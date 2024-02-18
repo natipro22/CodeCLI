@@ -19,19 +19,19 @@ public class Namespace
         return projectDirectory;
     }
 
-    public static string GetNamespace(string? directory = null)
+    public static string GetNamespace(string newDirectory = "", string? directory = null)
     {
         directory ??= GetProjectDirectory();
         // Get the name of the current directory
         string directoryName = new DirectoryInfo(directory).Name;
         // Initialize the namespace with the current directory name
         string @namespace = directoryName;
-        if(directory == Directory.GetCurrentDirectory())
+        if(directory == Directory.GetCurrentDirectory() && string.IsNullOrEmpty(newDirectory))
         {
             return @namespace;
         }
         // Get the subdirectories of the current directory
-        string[] subdirectories = Directory.GetCurrentDirectory()
+        string[] subdirectories = (Directory.GetCurrentDirectory() + "/" + newDirectory)
             .Substring(directory.Length + 1)
             .Split('\\', '/');
 
