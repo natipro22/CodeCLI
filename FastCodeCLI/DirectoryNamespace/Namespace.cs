@@ -3,15 +3,21 @@
 namespace Code.DirectoryNamespace;
 public class Namespace
 {
-    public static string GetProjectDirectory()
+    public static string GetProjectDirectory(string? directory = null)
     {
-        // Get the currently executing assembly
-        Assembly assembly = Assembly.GetEntryAssembly()!;
-        // Get the directory of the assembly
-        string assemblyLocation = assembly.Location;
-        string projectDirectory = Directory.GetParent(assemblyLocation)?.Parent?.Parent?.Parent?.FullName!;
+        directory ??= Directory.GetCurrentDirectory();
+        
+        string[] csprojFiles = Directory.GetFiles(directory, "*.csproj");
 
-        return projectDirectory;
+        if (csprojFiles.Length > 0)
+            return directory;
+        string parentDirectory = Directory.GetParent(directory)?.FullName!;
+        if (parentDirectory is not null && parentDirectory != directory)
+        {
+            return GetProjectDirectory(parentDirectory);
+        }
+
+        throw new FileNotFoundException("No poject file (.csproj) found.");
     }
 
     public static string GetNamespace(string newDirectory = "", string? directory = null)
