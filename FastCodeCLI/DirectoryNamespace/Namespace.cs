@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Reflection;
 
 namespace Code.DirectoryNamespace;
 public class Namespace
@@ -30,8 +25,6 @@ public class Namespace
         {
             return @namespace;
         }
-        throw new Exception(directory);
-        Console.WriteLine(directory);
         // Get the subdirectories of the current directory
         string[] subdirectories = (Directory.GetCurrentDirectory() + "/" + newDirectory)
             .Substring(directory.Length + 1)
