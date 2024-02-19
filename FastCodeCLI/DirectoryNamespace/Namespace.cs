@@ -26,10 +26,12 @@ public class Namespace
         string directoryName = new DirectoryInfo(directory).Name;
         // Initialize the namespace with the current directory name
         string @namespace = directoryName;
-        if(directory == Directory.GetCurrentDirectory() && string.IsNullOrEmpty(newDirectory))
+        if (directory == Directory.GetCurrentDirectory() && string.IsNullOrEmpty(newDirectory))
         {
             return @namespace;
         }
+        throw new Exception(directory);
+        Console.WriteLine(directory);
         // Get the subdirectories of the current directory
         string[] subdirectories = (Directory.GetCurrentDirectory() + "/" + newDirectory)
             .Substring(directory.Length + 1)
@@ -38,7 +40,7 @@ public class Namespace
         // If there are subdirectories, recursively get directory name for each subdirectory
         if (subdirectories.Length > 0)
         {
-            foreach (string subdirectory in subdirectories)
+            foreach (string subdirectory in subdirectories.Where(d => !string.IsNullOrEmpty(d)))
             {
                 string subNamespace = new DirectoryInfo(subdirectory).Name;
 

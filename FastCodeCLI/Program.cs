@@ -5,4 +5,3 @@ await new CliApplicationBuilder()
             .AddCommandsFromThisAssembly()
             .Build()
             .RunAsync();
-string @namespace = Namespace.GetNamespace();

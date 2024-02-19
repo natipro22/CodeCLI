@@ -5,6 +5,9 @@
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+	<PackAsTool>true</PackAsTool>
+    <ToolCommandName>dotnet-code</ToolCommandName>
+    <PackageOutputPath>./nupkg</PackageOutputPath>
   </PropertyGroup>
 
   <ItemGroup>
@@ -13,6 +16,11 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\CliFx\CliFx\CliFx.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Test\" />
+    <Folder Include="nupkg\" />
   </ItemGroup>
 
 </Project>
