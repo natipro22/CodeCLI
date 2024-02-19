@@ -25,13 +25,16 @@ public class ClassCommand : BaseCommand
     {
         // Get the class service
         ICommandService classService = CommandServiceFactory.GetClassService(Name, Extends, Implements, Abstract);
-
-        // create the file
-        string fileName = classService.CreateFile();
-
-        // write success message on the console
-        console.FileCreated(fileName);
-
+        try
+        {
+            string fileName = classService.CreateFile();
+            // write success message on the console
+            console.FileCreated(fileName);
+        }
+        catch (System.Exception e)
+        {
+            console.Error.WriteLine(e.Message);
+        }
         return ValueTask.CompletedTask;
     }
 }
