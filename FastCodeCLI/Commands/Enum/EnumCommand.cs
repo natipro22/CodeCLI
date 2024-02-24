@@ -13,7 +13,7 @@ public class EnumCommand : BaseCommand
 
     public override ValueTask ExecuteAsync(IConsole console)
     {
-        ICommandService enumService = CommandServiceFactory.GetEnumService(Name);
+        ICommandService enumService = CommandServiceFactory.GetEnumService(Name, Path);
 
         string fileName = enumService.CreateFile();
 

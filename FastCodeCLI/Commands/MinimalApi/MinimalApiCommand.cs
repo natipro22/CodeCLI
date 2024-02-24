@@ -14,7 +14,7 @@ public class MinimalApiCommand : BaseCommand
 
     public override ValueTask ExecuteAsync(IConsole console)
     {
-        ICommandService commandService = CommandServiceFactory.GetMinimalApiService(Name);
+        ICommandService commandService = CommandServiceFactory.GetMinimalApiService(Name, Path);
 
         string fileName = commandService.CreateFile();
 

@@ -17,9 +17,9 @@ public class REPRCommand : BaseCommand
     public override ValueTask ExecuteAsync(IConsole console)
     {
         Directory.CreateDirectory(Name);
-        ICommandService request = CommandServiceFactory.GetRequestService(Name, "int", Name);
+        ICommandService request = CommandServiceFactory.GetRequestService(Name, "int", Path + Name);
 
-        ICommandService handler = CommandServiceFactory.GetHandlerService($"{Name}Request", "int", Name);
+        ICommandService handler = CommandServiceFactory.GetHandlerService($"{Name}Request", "int", Path + Name);
 
 
         request.CreateFile();

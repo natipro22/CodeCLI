@@ -17,7 +17,7 @@ public class RequestCommand : BaseCommand
 
     public override ValueTask ExecuteAsync(IConsole console)
     {
-        ICommandService commandService = CommandServiceFactory.GetRequestService(Name, Response);
+        ICommandService commandService = CommandServiceFactory.GetRequestService(Name, Response, Path);
 
         string fileName = commandService.CreateFile();
         

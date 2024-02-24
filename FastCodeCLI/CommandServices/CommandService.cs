@@ -21,6 +21,10 @@ public abstract class CommandService : ICommandService
 
     public string CreateFile()
     {
+        if (!Directory.Exists(_directory))
+        {
+            Directory.CreateDirectory(_directory);
+        }
         File.WriteAllText(!string.IsNullOrEmpty(_directory) ? _directory + "/" + _fileName : _fileName, GetContent());
         return _fileName;
     }

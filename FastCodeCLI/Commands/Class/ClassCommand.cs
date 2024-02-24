@@ -24,7 +24,7 @@ public class ClassCommand : BaseCommand
     public override ValueTask ExecuteAsync(IConsole console)
     {
         // Get the class service
-        ICommandService classService = CommandServiceFactory.GetClassService(Name, Extends, Implements, Abstract);
+        ICommandService classService = CommandServiceFactory.GetClassService(Name, Extends, Implements, Abstract, Path);
         try
         {
             string fileName = classService.CreateFile();

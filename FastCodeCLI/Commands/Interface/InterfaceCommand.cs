@@ -19,7 +19,7 @@ public class InterfaceCommand : BaseCommand
     public override ValueTask ExecuteAsync(IConsole console)
     {
         // Get the service.
-        ICommandService interfaceService = CommandServiceFactory.GetInterfaceService(Name, Prefix);
+        ICommandService interfaceService = CommandServiceFactory.GetInterfaceService(Name, Prefix, Path);
         
         // Create file
         string fileName = interfaceService.CreateFile();

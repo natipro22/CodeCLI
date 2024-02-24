@@ -9,8 +9,8 @@ public abstract class BaseCommand : ICommand
 
     protected string _fileName = string.Empty;
 
-    [CommandOption('p', Description = "The name of the project.")]
-    public string? Project { get; set; }
+    [CommandOption("path", 'p', Description = "The path of the file.")]
+    public string? Path { get; set; }
 
     public abstract ValueTask ExecuteAsync(IConsole console);
     

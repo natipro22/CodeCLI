@@ -14,7 +14,7 @@ public class ValidatorCommand : BaseCommand
 
     public override ValueTask ExecuteAsync(IConsole console)
     {
-        ICommandService commandService = CommandServiceFactory.GetValidatorService(Name);
+        ICommandService commandService = CommandServiceFactory.GetValidatorService(Name, Path);
 
         string fileName = commandService.CreateFile();
 

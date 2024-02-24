@@ -47,6 +47,12 @@ public class ClassService : CommandService, ICommandService
         _isAbstract = isAbstract;
     }
 
+    public ClassService(string name, string extends, IEnumerable<string> implements, bool isAbstract, string path)
+        : this(name, extends, implements, isAbstract)
+    {
+        _directory = path;
+    }
+
     public ClassService(string name, string extends, IEnumerable<string> implements, bool isAbstract, IEnumerable<string> usings)
         : this(name, extends, implements, isAbstract)
     {

@@ -17,7 +17,7 @@ public class HandlerCommand : BaseCommand
 
     public override ValueTask ExecuteAsync(IConsole console)
     {
-        ICommandService commandService = CommandServiceFactory.GetHandlerService(Name, Response);
+        ICommandService commandService = CommandServiceFactory.GetHandlerService(Name, Response, Path);
 
         string fileName = commandService.CreateFile();
         

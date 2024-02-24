@@ -43,7 +43,7 @@ public class ControllerService : ClassService, ICommandService
     private static readonly List<string> attributes = new List<string> { "[ApiController]", "[Route(\"[controller]\")]" };
     private static readonly List<string> usings = new List<string> { "using Microsoft.AspNetCore.Mvc;" };
 
-    public ControllerService(string name)
+    public ControllerService(string name, string path)
     : base($"{name}Controller",
            usings,
            Extends,
@@ -54,5 +54,6 @@ public class ControllerService : ClassService, ICommandService
            UpdateMethod,
            DeleteMethod)
     {
+        _directory = path;
     }
 }

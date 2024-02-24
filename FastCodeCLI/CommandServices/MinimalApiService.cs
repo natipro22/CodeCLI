@@ -6,9 +6,10 @@ namespace Code.CommandServices;
 public class MinimalApiService : ClassService, ICommandService
 {
     private static readonly List<string> usings = new List<string> { "using Microsoft.AspNetCore.Builder;", "using Microsoft.AspNetCore.Mvc;" };
-    public MinimalApiService(string name)
+    public MinimalApiService(string name, string path)
     : base($"{name}Api", usings, string.Empty)
     {
+        _directory = path;
         _variableName = name.ToCamelCase();
         _body = 
     $@"	public static void Map{name}Endpoints(this WebApplication app)

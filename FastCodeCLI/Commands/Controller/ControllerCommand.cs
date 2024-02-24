@@ -14,7 +14,7 @@ public class ControllerCommand : BaseCommand
 
     public override ValueTask ExecuteAsync(IConsole console)
     {
-        ICommandService commandService = CommandServiceFactory.GetControllerService(Name);
+        ICommandService commandService = CommandServiceFactory.GetControllerService(Name, Path);
 
         string fileName = commandService.CreateFile();
 

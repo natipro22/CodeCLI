@@ -14,7 +14,7 @@ public class RecordCommand : BaseCommand
 
     public override ValueTask ExecuteAsync(IConsole console)
     {
-        ICommandService commandService = CommandServiceFactory.GetRecordService(Name);
+        ICommandService commandService = CommandServiceFactory.GetRecordService(Name, Path);
         
         string fileName = commandService.CreateFile();
 

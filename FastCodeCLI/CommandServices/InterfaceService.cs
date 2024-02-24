@@ -15,6 +15,12 @@ public class InterfaceService : CommandService, ICommandService
         _prefix = prefix;
     }
 
+    public InterfaceService(string name, char prefix, string path)
+        : this(name, prefix)
+    {
+        _directory = path;
+    }
+
     protected override string GetContent()
         => $"namespace {Namespace.GetNamespace()};\n\n" +
             $"public interface {(_prefix == ' ' ? string.Empty: _prefix)}{_name}\n{{\n   \n}}";
