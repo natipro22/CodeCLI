@@ -1,19 +1,21 @@
 
 
+using Code.Common;
+using Code.DirectoryNamespace;
+
 namespace Code.CommandServices;
 
 public class RequestService : RecordService, ICommandService
 {
-    private static IEnumerable<string> usings = new List<string> { "using MediatR;" };
+    public string Response { get; set; } = string.Empty;
 
-    public RequestService(string name, string response)
-        : base($"{name}Request", new List<string> { $"IRequest<{response}>" }, usings)
+    protected override string GetContent()
     {
-    }
-
-    public RequestService(string name, string response, string directory)
-        : base($"{name}Request", new List<string> { $"IRequest<{response}>" }, usings)
-    {
-        _directory = directory;
+        string name = "requestTemp.txt";
+        string content = ReadFile(name);
+        content = content.Replace(nameof(Namespace).ToVar(), Namespace.GetNamespace(Directory));
+        content = content.Replace(nameof(Name).ToVar(), Name);
+        content = content.Replace(nameof(Response).ToVar(), Response);
+        return content;
     }
 }

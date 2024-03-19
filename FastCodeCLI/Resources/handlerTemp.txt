@@ -1,0 +1,13 @@
+using MediatR;
+
+namespace @Namespace;
+
+public class @NameRequestHandler : IRequestHandler<@NameRequest, @Response>
+{
+	public Task<@Response> Handle(@NameRequest request, CancellationToken cancellationToken)
+	{
+		// Implement your logic here
+		// Return a response
+		return Task.FromResult(new @Response());
+	}
+}

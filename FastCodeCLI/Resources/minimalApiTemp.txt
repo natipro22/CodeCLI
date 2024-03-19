@@ -1,0 +1,30 @@
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Mvc;
+
+namespace @Namespace;
+
+public static class @Name
+{
+	public static void Map@NameEndpoints(this WebApplication app)
+	{
+		//Create
+		 app.MapPost("/Foos",async (FooRequest fooRequest, IFooService fooService)
+			=> await fooService.CreateFoo(fooRequest));
+
+		 //Read All
+		 app.MapGet("/Foo", async (IFooService fooService)
+			=> await fooService.GetFoos());
+
+		 //Read by Id
+		 app.MapGet("/Foo/{{id}}", async (Guid id, IFooService fooService) 
+			=> await fooService.GetFooById(id));
+
+		 //Update
+		 app.MapPut("/Foos/{{id}}", async (Guid id, FooRequest fooRequest, IFooService fooService)
+			=> await fooService.UpdateFoo(id, fooRequest));
+
+		 //Delete
+		 app.MapDelete("/Foos/{{id}}", async (Guid id, IFooService fooService)
+			=> await fooService.DeleteFoo(id));
+	}
+}

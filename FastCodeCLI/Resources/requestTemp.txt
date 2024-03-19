@@ -1,0 +1,8 @@
+using MediatR;
+
+namespace @Namespace;
+
+public record @NameRequest : IRequest<@Response>
+{
+	// Add properties as needed
+}

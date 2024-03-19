@@ -1,34 +1,19 @@
 
 using Code.Common;
+using Code.DirectoryNamespace;
 
 namespace Code.CommandServices;
 
 public class MinimalApiService : ClassService, ICommandService
 {
-    private static readonly List<string> usings = new List<string> { "using Microsoft.AspNetCore.Builder;", "using Microsoft.AspNetCore.Mvc;" };
-    public MinimalApiService(string name, string path)
-    : base($"{name}Api", usings, string.Empty)
+    protected override string GetContent()
     {
-        _directory = path;
-        _variableName = name.ToCamelCase();
-        _body = 
-    $@"	public static void Map{name}Endpoints(this WebApplication app)
-    {{
-        //Create
-        app.MapPost(""/{name}s"",async ({name}Request {_variableName}Request, I{name}Service {_variableName}Service)
-            => await {_variableName}Service.Create{name}({_variableName}Request));
-		//Read All
-        app.MapGet(""/{name}"", async (I{name}Service {_variableName}Service)
-            => await {_variableName}Service.Get{name}s());
-        //Read by Id
-        app.MapGet(""/{name}/{{id}}"", async (Guid id, I{name}Service {_variableName}Service) 
-            => await {_variableName}Service.Get{name}ById(id));
-        //Update
-        app.MapPut(""/{name}s/{{id}}"", async (Guid id, {name}Request {_variableName}Request, I{name}Service {_variableName}Service)
-            => await {_variableName}Service.Update{name}(id, {_variableName}Request));
-        //Delete
-        app.MapDelete(""/{name}s/{{id}}"", async (Guid id, I{name}Service {_variableName}Service)
-            => await {_variableName}Service.Delete{name}(id));
-    }}";
+        string name = "minimalApiTemp.txt";
+        string content = ReadFile(name);
+        content = content.Replace(nameof(Namespace).ToVar(), Namespace.GetNamespace(Directory));
+        content = content.Replace(nameof(Name).ToVar(), Name);
+        string VarName = Name.ToCamelCase();
+        content = content.Replace(nameof(VarName).ToVar(), VarName);
+        return content;
     }
 }

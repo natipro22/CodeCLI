@@ -11,6 +11,32 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources\classTemp.txt" />
+    <None Remove="Resources\controllerTemp.txt" />
+    <None Remove="Resources\enumTemp.txt" />
+    <None Remove="Resources\handlerTemp.txt" />
+    <None Remove="Resources\interfaceTemp.txt" />
+    <None Remove="Resources\minimalApiTemp.txt" />
+    <None Remove="Resources\recordTemp.txt" />
+    <None Remove="Resources\requestTemp.txt" />
+    <None Remove="Resources\validatorTemp.txt" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\classTemp.txt">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\controllerTemp.txt" />
+    <EmbeddedResource Include="Resources\enumTemp.txt" />
+    <EmbeddedResource Include="Resources\handlerTemp.txt" />
+    <EmbeddedResource Include="Resources\interfaceTemp.txt" />
+    <EmbeddedResource Include="Resources\minimalApiTemp.txt" />
+    <EmbeddedResource Include="Resources\recordTemp.txt" />
+    <EmbeddedResource Include="Resources\requestTemp.txt" />
+    <EmbeddedResource Include="Resources\validatorTemp.txt" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="CliFx" Version="2.3.5" />
   </ItemGroup>
 
@@ -19,8 +45,22 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Test\" />
     <Folder Include="nupkg\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
 
 </Project>

@@ -20,9 +20,12 @@ public class ServiceCommand : BaseCommand
     [CommandOption("abstract", 'a', Description = "abstract class")]
     public bool Abstract { get; set; } = false;
 
+    [CommandOption("seald", 's', Description = "seald class")]
+    public bool Seald { get; set; } = false;
+
     public override ValueTask ExecuteAsync(IConsole console)
     {
-        ICommandService commandService = CommandServiceFactory.GetClassService($"{Name}Service", Extends, Implements, Abstract, Path);
+        ICommandService commandService = CommandServiceFactory.GetClassService($"{Name}Service", Extends, Implements, Abstract, Seald, Path);
 
         string fileName = commandService.CreateFile();
         

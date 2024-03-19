@@ -1,12 +1,17 @@
 
+using Code.Common;
+using Code.DirectoryNamespace;
+
 namespace Code.CommandServices;
 
 public class ValidatorService : ClassService, ICommandService
 {
-    private static readonly IEnumerable<string> usings = new List<string> { "using FluentValidation;" };
-    public ValidatorService(string name, string path)
-        : base($"{name}Validator", $"AbstractValidator<{name}>", Enumerable.Empty<string>(), usings)
+    protected override string GetContent()
     {
-        _directory = path;
+        string name = "validatorTemp.txt";
+        string content = ReadFile(name);
+        content = content.Replace(nameof(Namespace).ToVar(), Namespace.GetNamespace(Directory));
+        content = content.Replace(nameof(Name).ToVar(), Name);
+        return content;
     }
 }

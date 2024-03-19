@@ -1,20 +1,20 @@
 
+using Code.Common;
+using Code.DirectoryNamespace;
+
 namespace Code.CommandServices;
 
 public class HandlerService : ClassService, ICommandService
 {
-    private static IEnumerable<string> usings = new List<string> { "using MediatR;" };
-    public HandlerService(string name, string response, string directory)
-        : base(
-            name: $"{name}Handler", 
-            implements: new List<string> { $"IRequestHandler<{name}, {response}>" },
-            usings: usings,
-            body: $"\tpublic async Task<{response}> Handle({name} request, CancellationToken cancellationToken)\n" +
-                    "\t{\n" +
-                    $"\t\treturn new {response}();\n" +
-                    "\t}\n"
-            )
+    public string Response { get; set; } = string.Empty;
+    
+    protected override string GetContent()
     {
-        _directory = directory;
+        string name = "handlerTemp.txt";
+        string content = ReadFile(name);
+        content = content.Replace(nameof(Namespace).ToVar(), Namespace.GetNamespace(Directory));
+        content = content.Replace(nameof(Name).ToVar(), Name);
+        content = content.Replace(nameof(Response).ToVar(), Response);
+        return content;
     }
 }
