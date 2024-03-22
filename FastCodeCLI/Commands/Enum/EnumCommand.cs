@@ -1,10 +1,10 @@
 ﻿using CliFx.Attributes;
 using CliFx.Infrastructure;
-using Code.Commands.Generate;
-using Code.CommandServices;
-using Code.Common;
+using CodeCLI.Commands.Generate;
+using CodeCLI.CommandServices;
+using CodeCLI.Common;
 
-namespace Code.Commands.Enum;
+namespace CodeCLI.Commands.Enum;
 [Command("generate enum", "(generate|g) (enum|e)$", Description = "Generates a new, generic enum definition in the given project.")]
 public class EnumCommand : BaseCommand
 {

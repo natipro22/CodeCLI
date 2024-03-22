@@ -1,9 +1,9 @@
 using CliFx.Attributes;
 using CliFx.Infrastructure;
-using Code.CommandServices;
-using Code.Common;
+using CodeCLI.CommandServices;
+using CodeCLI.Common;
 
-namespace Code.Commands.FluentValidation;
+namespace CodeCLI.Commands.FluentValidation;
 [Command("generate fluent-validation validator", "(generate|g) (fluent-validation|fv) (validator|v)$", Description = "Creates a new, generic request validator using MediatR in the given project.")]
 public class ValidatorCommand : BaseCommand
 {

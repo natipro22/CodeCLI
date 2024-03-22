@@ -1,5 +1,5 @@
 ﻿using CliFx;
-using Code.DirectoryNamespace;
+using CodeCLI.DirectoryNamespace;
 
 await new CliApplicationBuilder()
             .AddCommandsFromThisAssembly()

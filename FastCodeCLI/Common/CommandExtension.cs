@@ -1,7 +1,7 @@
 using CliFx.Infrastructure;
 using System.Text.RegularExpressions;
 
-namespace Code.Common;
+namespace CodeCLI.Common;
 
 public static class CommandsExtension
 {
@@ -21,5 +21,22 @@ public static class CommandsExtension
     public static string ToVar(this string name)
     {
         return $"@{name}";
+    }
+
+    public static string GetFileDirectory(this string pattern)
+    {
+        var directory = Directory.GetCurrentDirectory();
+
+        string[] csprojFiles = Directory.GetFiles(directory, pattern);
+
+        if (csprojFiles.Length > 0)
+            return directory;
+        string parentDirectory = Directory.GetParent(directory)?.FullName!;
+        if (parentDirectory is not null && parentDirectory != directory)
+        {
+            return GetFileDirectory(parentDirectory);
+        }
+
+        throw new FileNotFoundException($"no {pattern} file found!.");
     }
 }

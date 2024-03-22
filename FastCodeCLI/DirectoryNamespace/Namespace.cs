@@ -1,8 +1,9 @@
 ﻿using System.Reflection;
 
-namespace Code.DirectoryNamespace;
+namespace CodeCLI.DirectoryNamespace;
 public class Namespace
 {
+
     public static string GetProjectDirectory(string? directory = null)
     {
         directory ??= Directory.GetCurrentDirectory();
@@ -50,4 +51,6 @@ public class Namespace
 
         return @namespace;
     }
+
+    
 }

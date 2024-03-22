@@ -2,10 +2,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Code.Common;
-using Code.DirectoryNamespace;
+using CodeCLI.Common;
+using CodeCLI.DirectoryNamespace;
 
-namespace Code.CommandServices;
+namespace CodeCLI.CommandServices;
 
 public class InterfaceService : CommandService, ICommandService
 {

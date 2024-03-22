@@ -1,13 +1,13 @@
 ﻿using CliFx;
 using CliFx.Attributes;
 using CliFx.Infrastructure;
-using Code.Commands.Class;
-using Code.Commands.Generate;
-using Code.CommandServices;
-using Code.Common;
+using CodeCLI.Commands.Class;
+using CodeCLI.Commands.Generate;
+using CodeCLI.CommandServices;
+using CodeCLI.Common;
 using System.Xml.Linq;
 
-namespace Code.Commands.REPR;
+namespace CodeCLI.Commands.REPR;
 [Command("generate repr", "(generate|g) (repr)$")]
 public class REPRCommand : BaseCommand
 {

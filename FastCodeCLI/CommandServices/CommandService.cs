@@ -1,9 +1,9 @@
-﻿using Code.Commands.Generate;
-using Code.Common;
+﻿using CodeCLI.Commands.Generate;
+using CodeCLI.Common;
 using System.Reflection;
 using System.Text.RegularExpressions;
 
-namespace Code.CommandServices;
+namespace CodeCLI.CommandServices;
 
 public abstract class CommandService : ICommandService
 {

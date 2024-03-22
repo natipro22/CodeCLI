@@ -1,11 +1,11 @@
 ﻿using CliFx.Attributes;
 using CliFx.Infrastructure;
-using Code.Commands.Generate;
-using Code.CommandServices;
-using Code.Common;
+using CodeCLI.Commands.Generate;
+using CodeCLI.CommandServices;
+using CodeCLI.Common;
 using System.Text.Json;
 
-namespace Code.Commands.Class;
+namespace CodeCLI.Commands.Class;
 [Command("generate class", "(generate|g) (class|c)$", Description = "Creates a new, generic class definition in the given project.")]
 public class ClassCommand : BaseCommand
 {

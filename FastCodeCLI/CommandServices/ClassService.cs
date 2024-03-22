@@ -1,11 +1,11 @@
-﻿using Code.Common;
-using Code.DirectoryNamespace;
+﻿using CodeCLI.Common;
+using CodeCLI.DirectoryNamespace;
 using System.Reflection;
 using System.Text.Json;
 using System.Text.RegularExpressions;
 using System.Xml.Linq;
 
-namespace Code.CommandServices;
+namespace CodeCLI.CommandServices;
 
 public class ClassService : CommandService, ICommandService
 {

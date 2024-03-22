@@ -8,6 +8,17 @@
 	<PackAsTool>true</PackAsTool>
     <ToolCommandName>dotnet-code</ToolCommandName>
     <PackageOutputPath>./nupkg</PackageOutputPath>
+    <Title>Code CLI</Title>
+    <Description>The Code CLI is a command-line interface tool that you use to initialize, develop, scaffold, and maintain dotnet C# applications directly from a command shell.</Description>
+    <PackageProjectUrl>https://github.com/natipro22/FastCodeCLI</PackageProjectUrl>
+    <PackageIcon>codeCLI.png</PackageIcon>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <RepositoryUrl>https://github.com/natipro22/FastCodeCLI</RepositoryUrl>
+    <Authors>Natnael Yirga</Authors>
+    <Company>AppDiv Systems</Company>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageTags>Dotnet CLI, CLI, code CLI, fast code CLI</PackageTags>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
   </PropertyGroup>
 
   <ItemGroup>
@@ -46,6 +57,17 @@
 
   <ItemGroup>
     <Folder Include="nupkg\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Include="C:\Users\devs\Downloads\codeCLI.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
   </ItemGroup>
 
   <ItemGroup>

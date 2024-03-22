@@ -1,5 +1,5 @@
 namespace @Namespace;
 
-public record @Name @Inheritance
+public record @Name() @Inheritance
 {
 }

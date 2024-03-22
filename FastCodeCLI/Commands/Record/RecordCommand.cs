@@ -1,9 +1,9 @@
 ﻿using CliFx.Attributes;
 using CliFx.Infrastructure;
-using Code.CommandServices;
-using Code.Common;
+using CodeCLI.CommandServices;
+using CodeCLI.Common;
 
-namespace Code.Commands.Record;
+namespace CodeCLI.Commands.Record;
 [Command("generate record", "(generate|g) (record|r)$", Description = "Creates a new, generic record definition in the given project.")]
 public class RecordCommand : BaseCommand
 {

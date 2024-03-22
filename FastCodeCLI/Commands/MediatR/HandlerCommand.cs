@@ -1,11 +1,11 @@
 ﻿using CliFx.Attributes;
 using CliFx.Infrastructure;
-using Code.Commands.Generate;
-using Code.CommandServices;
-using Code.Common;
+using CodeCLI.Commands.Generate;
+using CodeCLI.CommandServices;
+using CodeCLI.Common;
 using System.Xml.Linq;
 
-namespace Code.Commands.MediatR;
+namespace CodeCLI.Commands.MediatR;
 [Command("generate mediatr handler", "(generate|g) (mediatr|m) (handler|h)$", Description = "Creates a new, generic request handler definition using MediatR in the given project.")]
 public class HandlerCommand : BaseCommand
 {

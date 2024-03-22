@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Code.Properties {
+namespace CodeCLI.Properties {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace Code.Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Code.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("CodeCLI.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -79,29 +79,29 @@ namespace Code.Properties {
         ///namespace @Namespace;
         ///
         ///[ApiController]
-        ///[Route(\&quot;[controller]\&quot;)]
+        ///[Route(&quot;[controller]&quot;)]
         ///public seald class @Name : BaseController
         ///{
-        ///    [HttpGet]
+        ///	[HttpGet]
         ///	public IActionResult GetAll()
         ///	{
         ///  		return Ok(default);
         ///	}
         ///
-        ///    [HttpGet(&quot;&quot;{id}&quot;&quot;)]
+        ///	[HttpGet(&quot;{id}&quot;)]
         ///	public IActionResult GetById(Guid id)
         ///	{
         ///  		return Ok(default);
         ///	}
         ///
-        ///    [HttpPost]
+        ///	[HttpPost]
         ///	public IActionResult Create([FromBody] string userInput)
         ///	{
         ///  		return Ok(default);
         ///	}
         ///
-        ///    [HttpPut(&quot;&quot;{id}&quot;&quot;)]
-        ///	public IActionResult Update([FromQuery] Guid [rest of string was truncated]&quot;;.
+        ///	[HttpPut(&quot;{id}&quot;)]
+        ///	public IActionResult Update([FromQuery] Guid id, [FromBody] st [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string controllerTemp {
             get {
@@ -127,14 +127,14 @@ namespace Code.Properties {
         ///
         ///namespace @Namespace;
         ///
-        ///public class @NameRequestHandler : IRequestHandler&lt;@NameRequest, @NameResponse&gt;
+        ///public class @NameRequestHandler : IRequestHandler&lt;@NameRequest, @Response&gt;
         ///{
-        ///    public Task&lt;@NameResponse&gt; Handle(@NameRequest request, CancellationToken cancellationToken)
-        ///    {
-        ///        // Implement your logic here
-        ///        // Return a response
-        ///        return Task.FromResult(new @NameResponse());
-        ///    }
+        ///	public Task&lt;@Response&gt; Handle(@NameRequest request, CancellationToken cancellationToken)
+        ///	{
+        ///		// Implement your logic here
+        ///		// Return a response
+        ///		return Task.FromResult(new @Response());
+        ///	}
         ///}
         ///.
         /// </summary>
@@ -146,6 +146,7 @@ namespace Code.Properties {
         
         /// <summary>
         ///   Looks up a localized string similar to namespace @Namespace;
+        ///
         ///public interface @Name
         ///{
         ///}.
@@ -162,17 +163,20 @@ namespace Code.Properties {
         ///
         ///namespace @Namespace;
         ///
-        ///public static class @Name @Inheritance
+        ///public static class @Name
         ///{
         ///	public static void Map@NameEndpoints(this WebApplication app)
         ///	{
         ///		//Create
-        ///        app.MapPost(&quot;/@Names&quot;,async (@NameRequest @VarNameRequest, I@NameService @VarNameService)
-        ///            =&gt; await @VarNameService.Create@Name(@VarNameRequest));
+        ///		 app.MapPost(&quot;/Foos&quot;,async (FooRequest fooRequest, IFooService fooService)
+        ///			=&gt; await fooService.CreateFoo(fooRequest));
         ///
-        ///		//Read All
-        ///        app.MapGet(&quot;/@Name&quot;, async (I@NameService @VarNameService)
-        ///            =&gt; await @VarNameService.Get [rest of string was truncated]&quot;;.
+        ///		 //Read All
+        ///		 app.MapGet(&quot;/Foo&quot;, async (IFooService fooService)
+        ///			=&gt; await fooService.GetFoos());
+        ///
+        ///		 //Read by Id
+        ///		 app.MapGet(&quot;/Foo/{{id}}&quot;, async (Guid id, IFooServ [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string minimalApiTemp {
             get {
@@ -200,7 +204,7 @@ namespace Code.Properties {
         ///
         ///public record @NameRequest : IRequest&lt;@Response&gt;
         ///{
-        ///    // Add properties as needed
+        ///	// Add properties as needed
         ///}
         ///.
         /// </summary>
@@ -217,10 +221,10 @@ namespace Code.Properties {
         ///
         ///public class @NameValidator : AbstractValidator&lt;@Name&gt;
         ///{
-        ///    public @NameValidator()
-        ///    {
-        ///        
-        ///    }
+        ///	public @NameValidator()
+        ///	{
+        ///
+        ///	}
         ///}
         ///.
         /// </summary>

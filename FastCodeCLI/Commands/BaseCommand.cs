@@ -2,7 +2,7 @@
 using CliFx.Attributes;
 using CliFx.Infrastructure;
 
-namespace Code.Commands;
+namespace CodeCLI.Commands;
 [Command]
 public abstract class BaseCommand : ICommand
 {

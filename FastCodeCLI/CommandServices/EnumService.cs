@@ -1,8 +1,8 @@
-using Code.Common;
-using Code.DirectoryNamespace;
+using CodeCLI.Common;
+using CodeCLI.DirectoryNamespace;
 using System.Text.RegularExpressions;
 
-namespace Code.CommandServices;
+namespace CodeCLI.CommandServices;
 
 public class EnumService : CommandService, ICommandService
 {

@@ -1,7 +1,7 @@
-using Code.Common;
-using Code.DirectoryNamespace;
+using CodeCLI.Common;
+using CodeCLI.DirectoryNamespace;
 
-namespace Code.Commands.Generate;
+namespace CodeCLI.Commands.Generate;
 
 public static class Content
 {

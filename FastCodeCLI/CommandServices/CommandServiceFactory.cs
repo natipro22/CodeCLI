@@ -1,7 +1,7 @@
 ﻿using System.Text.Json;
 using System.Xml.Linq;
 
-namespace Code.CommandServices;
+namespace CodeCLI.CommandServices;
 
 public static class CommandServiceFactory
 {

@@ -1,8 +1,8 @@
 
-using Code.Common;
-using Code.DirectoryNamespace;
+using CodeCLI.Common;
+using CodeCLI.DirectoryNamespace;
 
-namespace Code.CommandServices;
+namespace CodeCLI.CommandServices;
 
 public class HandlerService : ClassService, ICommandService
 {

@@ -1,10 +1,10 @@
 ﻿using CliFx.Attributes;
 using CliFx.Infrastructure;
-using Code.Commands.Generate;
-using Code.CommandServices;
-using Code.Common;
+using CodeCLI.Commands.Generate;
+using CodeCLI.CommandServices;
+using CodeCLI.Common;
 
-namespace Code.Commands.Service;
+namespace CodeCLI.Commands.Service;
 [Command("generate service", "(generate|g) (service|s)$", Description = "Creates a new, generic service definition in the given project.")]
 public class ServiceCommand : BaseCommand
 {
