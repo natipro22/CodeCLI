@@ -1,0 +1,16 @@
+namespace @Namespace;
+
+public class @NameMiddleware : IMiddleware
+{
+	public async Task InvokeAsync(HttpContext context, RequestDelegate next)
+	{
+		try
+		{
+			await next.Invoke(context);
+		}
+		catch (Exception ex)
+		{
+			// Handle the exception
+		}
+	}
+}

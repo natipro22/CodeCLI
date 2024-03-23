@@ -74,6 +74,28 @@ namespace CodeCLI.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to namespace @Namespace;
+        ///
+        ///public static class CodeCLIStartup
+        ///{
+        ///	public static IServiceCollection AddCodeCLIService(this IServiceCollection services, IConfiguration config)
+        ///	{
+        ///		return services;
+        ///	}
+        ///
+        ///	public static IApplicationBuilder UseCodeCLIService(this IApplicationBuilder builder)
+        ///	{
+        ///		return builder;
+        ///	}
+        ///}.
+        /// </summary>
+        internal static string codeCLIStartupTemp {
+            get {
+                return ResourceManager.GetString("codeCLIStartupTemp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to using Microsoft.AspNetCore.Mvc;
         ///
         ///namespace @Namespace;
@@ -158,6 +180,30 @@ namespace CodeCLI.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to namespace @Namespace;
+        ///
+        ///public class @NameMiddleware : IMiddleware
+        ///{
+        ///    public async Task InvokeAsync(HttpContext context, RequestDelegate next)
+        ///    {
+        ///        try
+        ///        {
+        ///            await next.Invoke(context);
+        ///        }
+        ///        catch (Exception ex)
+        ///        {
+        ///            // Handle the exception
+        ///        }
+        ///    }
+        ///}.
+        /// </summary>
+        internal static string middlewareTemp {
+            get {
+                return ResourceManager.GetString("middlewareTemp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to using Microsoft.AspNetCore.Builder;
         ///using Microsoft.AspNetCore.Mvc;
         ///
@@ -187,7 +233,7 @@ namespace CodeCLI.Properties {
         /// <summary>
         ///   Looks up a localized string similar to namespace @Namespace;
         ///
-        ///public record @Name @Inheritance
+        ///public record @Name() @Inheritance
         ///{
         ///}.
         /// </summary>

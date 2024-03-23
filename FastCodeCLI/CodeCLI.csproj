@@ -23,10 +23,13 @@
 
   <ItemGroup>
     <None Remove="Resources\classTemp.txt" />
+    <None Remove="Resources\CodeCLISetup.txt" />
+    <None Remove="Resources\codeCLIStartupTemp.txt" />
     <None Remove="Resources\controllerTemp.txt" />
     <None Remove="Resources\enumTemp.txt" />
     <None Remove="Resources\handlerTemp.txt" />
     <None Remove="Resources\interfaceTemp.txt" />
+    <None Remove="Resources\middlewareTemp.txt" />
     <None Remove="Resources\minimalApiTemp.txt" />
     <None Remove="Resources\recordTemp.txt" />
     <None Remove="Resources\requestTemp.txt" />
@@ -37,10 +40,13 @@
     <EmbeddedResource Include="Resources\classTemp.txt">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CodeCLISetup.txt" />
+    <EmbeddedResource Include="Resources\codeCLIStartupTemp.txt" />
     <EmbeddedResource Include="Resources\controllerTemp.txt" />
     <EmbeddedResource Include="Resources\enumTemp.txt" />
     <EmbeddedResource Include="Resources\handlerTemp.txt" />
     <EmbeddedResource Include="Resources\interfaceTemp.txt" />
+    <EmbeddedResource Include="Resources\middlewareTemp.txt" />
     <EmbeddedResource Include="Resources\minimalApiTemp.txt" />
     <EmbeddedResource Include="Resources\recordTemp.txt" />
     <EmbeddedResource Include="Resources\requestTemp.txt" />

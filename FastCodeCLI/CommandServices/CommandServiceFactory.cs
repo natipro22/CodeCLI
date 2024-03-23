@@ -81,5 +81,13 @@ public static class CommandServiceFactory
             Response = response,
             Directory = path
         };
-    
+
+    public static ICommandService GetMiddlewareService(string name, string path)
+        => new MiddlewareService
+        {
+            FileName = $"{name}Middleware",
+            Name = name,
+            Directory = path
+        };
+
 }

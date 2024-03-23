@@ -18,13 +18,13 @@ public abstract class CommandService : ICommandService
             System.IO.Directory.CreateDirectory(Directory);
         }
         FileName = string.IsNullOrEmpty(FileName) ? Name : FileName;
-        File.WriteAllText(!string.IsNullOrEmpty(Directory) ? Directory + "/" + $"{FileName}.cs" : $"{FileName}.cs",
+        File.WriteAllText(!string.IsNullOrEmpty(Directory) ? Path.Combine(Directory, $"{FileName}.cs") : $"{FileName}.cs",
                           Regex.Replace(GetContent(), @" {2,}", " "));
         return $"{FileName}.cs";
     }
     protected abstract string GetContent();
 
-    protected string ReadFile(string name)
+    public static string ReadFile(string name)
     {
         // Determine path
         var assembly = Assembly.GetEntryAssembly();

@@ -121,6 +121,9 @@
   <data name="classTemp" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\classTemp.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
+  <data name="codeCLIStartupTemp" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\codeCLIStartupTemp.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
   <data name="controllerTemp" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\controllerTemp.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
@@ -132,6 +135,9 @@
   </data>
   <data name="interfaceTemp" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\interfaceTemp.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="middlewareTemp" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\middlewareTemp.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
   <data name="minimalApiTemp" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\minimalApiTemp.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
