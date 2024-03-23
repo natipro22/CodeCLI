@@ -7,7 +7,7 @@ using CodeCLI.CommandServices;
 using CodeCLI.Common;
 using System.Xml.Linq;
 
-namespace CodeCLI.Commands.REPR;
+namespace CodeCLI.Commands.Generate.REPR;
 [Command("generate repr", "(generate|g) (repr)$")]
 public class REPRCommand : BaseCommand
 {

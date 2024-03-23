@@ -5,7 +5,7 @@ using CodeCLI.CommandServices;
 using CodeCLI.Common;
 using System.Xml.Linq;
 
-namespace CodeCLI.Commands.MediatR;
+namespace CodeCLI.Commands.Generate.MediatR;
 [Command("generate mediatr request", "(generate|g) (mediatr|m) (request|r)$", Description = "Creates a new, generic request definition using MediatR in the given project.")]
 public class RequestCommand : BaseCommand
 {
@@ -20,7 +20,7 @@ public class RequestCommand : BaseCommand
         ICommandService commandService = CommandServiceFactory.GetRequestService(Name, Response, Path);
 
         string fileName = commandService.CreateFile();
-        
+
         console.FileCreated(fileName);
         return ValueTask.CompletedTask;
     }

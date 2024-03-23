@@ -3,7 +3,7 @@ using CliFx.Infrastructure;
 using CodeCLI.CommandServices;
 using CodeCLI.Common;
 
-namespace CodeCLI.Commands.Record;
+namespace CodeCLI.Commands.Generate.Record;
 [Command("generate record", "(generate|g) (record|r)$", Description = "Creates a new, generic record definition in the given project.")]
 public class RecordCommand : BaseCommand
 {
@@ -18,7 +18,7 @@ public class RecordCommand : BaseCommand
     public override ValueTask ExecuteAsync(IConsole console)
     {
         ICommandService commandService = CommandServiceFactory.GetRecordService(Name, Extends, Implements, Path);
-        
+
         string fileName = commandService.CreateFile();
 
         console.FileCreated(fileName);

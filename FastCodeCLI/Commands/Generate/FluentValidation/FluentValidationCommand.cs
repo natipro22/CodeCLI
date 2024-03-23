@@ -7,7 +7,7 @@ using CliFx.Attributes;
 using CliFx.Infrastructure;
 using CodeCLI.Common;
 
-namespace FastCodeCLI.Commands.FluentValidation;
+namespace CodeCLI.Commands.Generate.FluentValidation;
 [Command("generate fluent-validation", "(generate|g) (fluent-validation|fv)$", Description = "FluentValidation is a .NET library for building strongly-typed validation rules.")]
 public class FluentValidationCommand : ICommand
 {

@@ -4,7 +4,7 @@ using CodeCLI.Commands.Generate;
 using CodeCLI.CommandServices;
 using CodeCLI.Common;
 
-namespace CodeCLI.Commands.Service;
+namespace CodeCLI.Commands.Generate.Service;
 [Command("generate service", "(generate|g) (service|s)$", Description = "Creates a new, generic service definition in the given project.")]
 public class ServiceCommand : BaseCommand
 {
@@ -28,7 +28,7 @@ public class ServiceCommand : BaseCommand
         ICommandService commandService = CommandServiceFactory.GetClassService($"{Name}Service", Extends, Implements, Abstract, Seald, Path);
 
         string fileName = commandService.CreateFile();
-        
+
         console.FileCreated(fileName);
         return ValueTask.CompletedTask;
     }

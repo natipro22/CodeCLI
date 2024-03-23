@@ -5,7 +5,7 @@ using CodeCLI.CommandServices;
 using CodeCLI.Common;
 using System.Xml.Linq;
 
-namespace CodeCLI.Commands.MinimalApi;
+namespace CodeCLI.Commands.Generate.MinimalApi;
 [Command("generate minimal-api", "(generate|g) (minimal-api|ma)$", Description = "Creates a new, generic minimal api definition in the given project.")]
 public class MinimalApiCommand : BaseCommand
 {

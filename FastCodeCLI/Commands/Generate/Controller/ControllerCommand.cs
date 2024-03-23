@@ -5,7 +5,7 @@ using CodeCLI.CommandServices;
 using CodeCLI.Common;
 using System.Xml.Linq;
 
-namespace CodeCLI.Commands.Controller;
+namespace CodeCLI.Commands.Generate.Controller;
 [Command("generate controller", "(generate|g) (controller|ct)$", Description = "Creates a new, generic controller definition in the given project.")]
 public class ControllerCommand : BaseCommand
 {

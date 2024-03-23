@@ -5,7 +5,7 @@ using CodeCLI.CommandServices;
 using CodeCLI.Common;
 using System.Text.Json;
 
-namespace CodeCLI.Commands.Class;
+namespace CodeCLI.Commands.Generate.Class;
 [Command("generate class", "(generate|g) (class|c)$", Description = "Creates a new, generic class definition in the given project.")]
 public class ClassCommand : BaseCommand
 {
@@ -34,7 +34,7 @@ public class ClassCommand : BaseCommand
             // write success message on the console
             console.FileCreated(fileName);
         }
-        catch (System.Exception e)
+        catch (Exception e)
         {
             console.Error.WriteLine(e.Message);
         }

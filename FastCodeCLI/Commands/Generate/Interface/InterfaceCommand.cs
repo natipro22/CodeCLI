@@ -5,7 +5,7 @@ using CodeCLI.CommandServices;
 using CodeCLI.Common;
 using System.Xml.Linq;
 
-namespace CodeCLI.Commands.Interface;
+namespace CodeCLI.Commands.Generate.Interface;
 [Command("generate interface", "(generate|g) (interface|i)$", Description = "Creates a new, generic interface definition in the given project.")]
 public class InterfaceCommand : BaseCommand
 {
@@ -20,10 +20,10 @@ public class InterfaceCommand : BaseCommand
     {
         // Get the service.
         ICommandService interfaceService = CommandServiceFactory.GetInterfaceService(Name, Prefix, Path);
-        
+
         // Create file
         string fileName = interfaceService.CreateFile();
-        
+
         console.FileCreated(fileName);
         return ValueTask.CompletedTask;
     }
