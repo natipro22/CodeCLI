@@ -1,15 +1,11 @@
 # CodeCLI
 ## Introduction
-The Code CLI is a command-line interface tool that you use to initialize, develop, scaffold, and maintain dotnet C# applications directly from a command shell.
+The Code CLI is a simple command-line interface tool that you use to initialize, develop, scaffold, and maintain dotnet C# applications directly from a command shell.
 
 ## Installation 
-Using the NuGet package manager console within Visual Studio run the following command:
+Using the .net core CLI from a terminal window:
 ```
-Install-Package CodeCLI
-```
-Or using the .net core CLI from a terminal window:
-```
-dotnet add package CodeCLI
+dotnet tool install --global CodeCLI
 ```
 
 ## Usage 
@@ -31,23 +27,47 @@ or
 ```
 dotnet code g -h
 ```
-##Sub Commands 
+
+## Commands
+
++ code
+	- generate
+	- install
+	- config
+
+
+## Generate Sub Commands 
 + C#
-  - Class
-  - Interface
-  - Record
-  - Enum
-  - Service
-+ ASP.NET
-  - Controller
-  - Minimal Api
-  - Service Registration
-+ MediatR
-  - Request
-  - Handler
-+ Fluent Validation
-  - Validator
-+ Vertical slice (REPR)
+  - Class (c)
+  - Interface (i)
+  - Record (r)
+  - Enum (e)
+  - Service (s)
++ ASP.NET 
+  - Controller (ct)
+  - Minimal Api (ma)
+  - Middleware (mw)
++ MediatR (m)
+  - Request (r)
+  - Handler (h)
+  - Notification (n)
+  - Notification Handler (nh)
++ Fluent Validation (fv)
+  - Validator (v)
++ Vertical slice (repr)
+
+### Install Sub Commands
+`dotnet code install` or `dotnet code i` add packages to the ASP.NET Core Project
++ code install (i)
+	- MediatR (m)
+	- FluentValidation (fv)
+### Config Sub Command
+`dotnet code config` comamnd registers the dependency to the ASP.NET Project.
++ code config (c)
+	- MediatR (m)
+	- FluentValidation (fv)
+	- Middleware (mw)
+
 
 
 

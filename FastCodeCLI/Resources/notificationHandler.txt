@@ -1,0 +1,9 @@
+using MediatR;
+namespace @Namespace;
+public class @NameEventHandler : INotificationHandler<@NameEvent>
+{
+	 public async Task Handle(@NameEvent notification, CancellationToken cancellationToken)
+	 {
+		return Task.CompletedTask;
+	 }
+}

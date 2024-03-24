@@ -82,6 +82,22 @@ public static class CommandServiceFactory
             Directory = path
         };
 
+    public static ICommandService GetNotificationService(string name, string path)
+        => new NotificationService
+        {
+            FileName = $"{name}Event",
+            Name = name,
+            Directory = path
+        };
+
+    public static ICommandService GetNotificationHandlerService(string name, string path)
+        => new NotificationHandlerService
+        {
+            FileName = $"{name}EventHandler",
+            Name = name,
+            Directory = path
+        };
+
     public static ICommandService GetMiddlewareService(string name, string path)
         => new MiddlewareService
         {

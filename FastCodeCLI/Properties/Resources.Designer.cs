@@ -184,17 +184,17 @@ namespace CodeCLI.Properties {
         ///
         ///public class @NameMiddleware : IMiddleware
         ///{
-        ///    public async Task InvokeAsync(HttpContext context, RequestDelegate next)
-        ///    {
-        ///        try
-        ///        {
-        ///            await next.Invoke(context);
-        ///        }
-        ///        catch (Exception ex)
-        ///        {
-        ///            // Handle the exception
-        ///        }
-        ///    }
+        ///	public async Task InvokeAsync(HttpContext context, RequestDelegate next)
+        ///	{
+        ///		try
+        ///		{
+        ///			await next.Invoke(context);
+        ///		}
+        ///		catch (Exception ex)
+        ///		{
+        ///			// Handle the exception
+        ///		}
+        ///	}
         ///}.
         /// </summary>
         internal static string middlewareTemp {
@@ -227,6 +227,38 @@ namespace CodeCLI.Properties {
         internal static string minimalApiTemp {
             get {
                 return ResourceManager.GetString("minimalApiTemp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to using MediatR;
+        ///namespace @Namespace;
+        ///public class @NameEventHandler : INotificationHandler&lt;@NameEvent&gt;
+        ///{
+        ///	 public async Task Handle(@NameEvent notification, CancellationToken cancellationToken)
+        ///	 {
+        ///		return Task.CompletedTask;
+        ///	 }
+        ///}.
+        /// </summary>
+        internal static string notificationHandler {
+            get {
+                return ResourceManager.GetString("notificationHandler", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to using MediatR;
+        ///namespace @Namespace;
+        ///
+        ///public class @NameEvent : INotification
+        ///{
+        ///	
+        ///}.
+        /// </summary>
+        internal static string notificationTemp {
+            get {
+                return ResourceManager.GetString("notificationTemp", resourceCulture);
             }
         }
         

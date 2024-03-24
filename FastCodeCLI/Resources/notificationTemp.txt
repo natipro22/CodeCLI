@@ -1,0 +1,7 @@
+using MediatR;
+namespace @Namespace;
+
+public class @NameEvent : INotification
+{
+	
+}
