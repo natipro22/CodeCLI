@@ -6,12 +6,16 @@ using System.Xml.Linq;
 namespace CodeCLI.CommandServices.RegisterCodeCLI;
 public class RegisterServices
 {
+    private static string configFile = "CodeCLIStartup.cs";
+    private static string programFile = "Program.cs";
+
+    private static string build = "\t\treturn services;";
+    private static string app = "\t\treturn builder;";
     public static void RegisterToAspNetProgram()
     {
-        string fileName = "Program.cs"; // Specify the path to your Program.cs file
-        string filePath = fileName.GetFileDirectory();
+        string filePath = programFile.GetFileDirectory();
 
-        var path = Path.Combine(filePath, fileName);
+        var path = Path.Combine(filePath, programFile);
 
         // Define the pattern to search for builder.Run()
         string buildPattern = @"var app = builder\.Build\(\s*\);";
@@ -20,7 +24,7 @@ public class RegisterServices
         string buildReplacement = "builder.Services.AddCodeCLIServices();\nvar app = builder.Build();";
 
         // Perform the replacement
-        fileName.Replace(path, buildPattern, buildReplacement);
+        programFile.Replace(path, buildPattern, buildReplacement);
 
         // Define the pattern to search for builder.Run()
         string runPattern = @"app\.Run\(\s*\);";
@@ -29,15 +33,13 @@ public class RegisterServices
         string runReplacement = "app.UseCodeCLIServices();\napp.Run();";
 
         // Perform the replacement
-        fileName.Replace(path, runPattern, runReplacement);
+        programFile.Replace(path, runPattern, runReplacement);
     }
 
     private static string CreateStartup()
     {
-        string fileName = "Program.cs"; // Specify the path to your Program.cs file
-
-        string filePath = fileName.GetFileDirectory();
-        var path = Path.Combine(filePath, "CodeCLIStartup.cs");
+        string filePath = programFile.GetFileDirectory();
+        var path = Path.Combine(filePath, configFile);
 
         string name = "codeCLIStartupTemp.txt";
         string content = CommandService.ReadFile(name);
@@ -50,38 +52,63 @@ public class RegisterServices
         return filePath;
     }
 
-    public static void RegisterMiddleware(string name)
+    private static string GetStartup()
     {
-        string fileName = "CodeCLIStartup.cs"; // Specify the path to your Program.cs file
-        string filePath;
+        string configPath;
         try
         {
-            filePath = fileName.GetFileDirectory();
+            configPath = configFile.GetFileDirectory();
         }
         catch (FileNotFoundException)
         {
-            filePath = CreateStartup();
+            configPath = CreateStartup();
         }
+        return configPath;
+    }
 
-        var path = Path.Combine(filePath, fileName);
-
-        // Define the pattern to search for builder.Run()
-        string buildPattern = "\t\treturn services;";
-
-        // Define the replacement line
-        string buildReplacement = $"\t\tservices.AddTransient<{name}Middleware>();\n{buildPattern}";
-
-        // Perform the replacement
-        fileName.Replace(path, buildPattern, buildReplacement);
-
-        // Define the pattern to search for builder.Run()
-        string appPattern = "\t\treturn builder;";
+    public static void RegisterMiddleware(string name)
+    {
+        var path = Path.Combine(GetStartup(), configFile);
 
         // Define the replacement line
-        string appReplacement = $"\t\tbuilder.UseMiddleware<{name}Middleware>();\n{appPattern}";
+        string buildReplacement = $"\t\tservices.AddTransient<{name}Middleware>();\n{build}";
 
         // Perform the replacement
-        fileName.Replace(path, appPattern, appReplacement);
+        configFile.Replace(path, build, buildReplacement);
+
+        // Define the replacement line
+        string appReplacement = $"\t\tbuilder.UseMiddleware<{name}Middleware>();\n{app}";
+
+        // Perform the replacement
+        configFile.Replace(path, app, appReplacement);
 
     }
+
+    public static void RegisterMediatR()
+    {
+        var path = Path.Combine(GetStartup(), configFile);
+
+        // Define the replacement line
+        string replacement = $"\t\tservices.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(Program).Assembly));\n{build}";
+        string usings = "using MediatR;";
+        // Perform the replacement
+        configFile.Replace(path, build, replacement, usings);
+    }
+
+    public static void RegisterFluentValidation()
+    {
+        var path = Path.Combine(GetStartup(), configFile);
+
+        // Define the replacement line
+        string replacement = $"\t\tservices.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly(), ServiceLifetime.Transient);\n{build}";
+
+        string usings = """
+            using FluentValidation.AspNetCore;
+            using System.Reflection;
+            """;
+        // Perform the replacement
+        configFile.Replace(path, build, replacement, usings);
+    }
+
+
 }

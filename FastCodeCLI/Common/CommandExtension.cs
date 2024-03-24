@@ -40,7 +40,7 @@ public static class CommandsExtension
         throw new FileNotFoundException($"no {pattern} file found!.");
     }
 
-    public static void Replace(this string fileName, string path, string pattern, string replacement)
+    public static void Replace(this string fileName, string path, string pattern, string replacement, string? usings = null)
     {
         string content = File.ReadAllText(path);
 
@@ -48,6 +48,6 @@ public static class CommandsExtension
         string buildModifiedContent = Regex.Replace(content, pattern, replacement);
 
         // Write the modified content back to the file
-        File.WriteAllText(fileName, buildModifiedContent);
+        File.WriteAllText(fileName, $"{usings ??= string.Empty}\n{buildModifiedContent}");
     }
 }
