@@ -2,7 +2,7 @@
   "profiles": {
     "Code": {
       "commandName": "Project",
-      "commandLineArgs": "c fv"
+      "commandLineArgs": "g m nh user_created"
     }
   }
 }

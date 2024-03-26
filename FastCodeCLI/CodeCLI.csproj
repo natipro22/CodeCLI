@@ -31,6 +31,8 @@
     <None Remove="Resources\interfaceTemp.txt" />
     <None Remove="Resources\middlewareTemp.txt" />
     <None Remove="Resources\minimalApiTemp.txt" />
+    <None Remove="Resources\notificationHandler.txt" />
+    <None Remove="Resources\notificationTemp.txt" />
     <None Remove="Resources\recordTemp.txt" />
     <None Remove="Resources\requestTemp.txt" />
     <None Remove="Resources\validatorTemp.txt" />
@@ -48,6 +50,8 @@
     <EmbeddedResource Include="Resources\interfaceTemp.txt" />
     <EmbeddedResource Include="Resources\middlewareTemp.txt" />
     <EmbeddedResource Include="Resources\minimalApiTemp.txt" />
+    <EmbeddedResource Include="Resources\notificationHandler.txt" />
+    <EmbeddedResource Include="Resources\notificationTemp.txt" />
     <EmbeddedResource Include="Resources\recordTemp.txt" />
     <EmbeddedResource Include="Resources\requestTemp.txt" />
     <EmbeddedResource Include="Resources\validatorTemp.txt" />

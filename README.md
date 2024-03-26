@@ -7,7 +7,7 @@ Using the .net core CLI from a terminal window:
 ```
 dotnet tool install --global CodeCLI
 ```
-
+> Note: restart your IDE after installation.
 ## Usage 
 Invoke the tool on the command line through the `dotnet code` executable.
 
@@ -17,6 +17,13 @@ dotnet code .
 ```
 ## Help 
 ``` dotnet code --help ```
+
+## Commands
+
++ code
+	- generate (g)
+	- install (i)
+	- config (c)
 
 ## Generate Command 
 Generates and/or modifies files based on a schematic.
@@ -28,15 +35,8 @@ or
 dotnet code g -h
 ```
 
-## Commands
-
-+ code
-	- generate
-	- install
-	- config
-
-
-## Generate Sub Commands 
+### Generate Sub Commands 
+`dotnet code genarate` or `dotnet code g` 
 + C#
   - Class (c)
   - Interface (i)
@@ -44,9 +44,10 @@ dotnet code g -h
   - Enum (e)
   - Service (s)
 + ASP.NET 
-  - Controller (ct)
+  - Controller (cvt)
   - Minimal Api (ma)
   - Middleware (mw)
++ Vertical slice (repr)
 + MediatR (m)
   - Request (r)
   - Handler (h)
@@ -54,7 +55,6 @@ dotnet code g -h
   - Notification Handler (nh)
 + Fluent Validation (fv)
   - Validator (v)
-+ Vertical slice (repr)
 
 ### Install Sub Commands
 `dotnet code install` or `dotnet code i` add packages to the ASP.NET Core Project
@@ -66,7 +66,6 @@ dotnet code g -h
 + code config (c)
 	- MediatR (m)
 	- FluentValidation (fv)
-	- Middleware (mw)
 
 
 
