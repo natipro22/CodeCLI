@@ -2,9 +2,9 @@ using MediatR;
 
 namespace @Namespace;
 
-public class @NameRequestHandler : IRequestHandler<@NameRequest, @Response>
+public class @Name@TypeHandler : IRequestHandler<@Name@Type, @Response>
 {
-	public Task<@Response> Handle(@NameRequest request, CancellationToken cancellationToken)
+	public Task<@Response> Handle(@Name@Type request, CancellationToken cancellationToken)
 	{
 		// Implement your logic here
 		// Return a response

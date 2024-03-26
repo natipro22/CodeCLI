@@ -4,7 +4,7 @@ namespace @Namespace;
 
 [ApiController]
 [Route("[controller]")]
-public seald class @Name : BaseController
+public sealed class @Name : ControllerBase
 {
 	[HttpGet]
 	public IActionResult GetAll()

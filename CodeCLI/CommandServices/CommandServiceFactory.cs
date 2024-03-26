@@ -1,4 +1,5 @@
 ﻿using CodeCLI.CommandServices.Blazor;
+using CodeCLI.CommandServices.MediatR;
 using System.Text.Json;
 using System.Xml.Linq;
 
@@ -65,22 +66,24 @@ public static class CommandServiceFactory
             Directory = path
         };
 
-    public static ICommandService GetRequestService(string name, string response, string path)
+    public static ICommandService GetRequestService(string name, string response, CQRS type, string path)
         => new RequestService
         {
-            FileName = $"{name}Request",
+            FileName = $"{name}{type}",
             Name = name,
             Response = response,
-            Directory = path
+            Directory = path,
+            Type = type
         };
     
-    public static ICommandService GetHandlerService(string name, string response, string path)
+    public static ICommandService GetHandlerService(string name, string response, CQRS type, string path)
         => new HandlerService
         {
-            FileName = $"{name}RequestHandler",
+            FileName = $"{name}{type}Handler",
             Name = name,
             Response = response,
-            Directory = path
+            Directory = path,
+            Type = type
         };
 
     public static ICommandService GetNotificationService(string name, string path)

@@ -15,14 +15,10 @@
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <RepositoryUrl>https://github.com/natipro22/FastCodeCLI</RepositoryUrl>
     <Authors>Natnael Yirga</Authors>
-    <Company></Company>
+    <Company>AppDiv Systems</Company>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageTags>Dotnet CLI, CLI, code CLI, fast code CLI</PackageTags>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-	<AssemblyVersion>1.1.0.0</AssemblyVersion>
-	  <AssemblyPrefix>1.1.0</AssemblyPrefix>
-	<FileVersion>$(AssemblyVersion)</FileVersion>
-	<Version>$(AssemblyPrefix)</Version>
   </PropertyGroup>
 
   <ItemGroup>

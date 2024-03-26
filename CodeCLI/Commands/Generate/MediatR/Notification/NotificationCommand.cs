@@ -4,7 +4,7 @@ using CodeCLI.CommandServices;
 using CodeCLI.Common;
 using System.Xml.Linq;
 
-namespace CodeCLI.Commands.Generate.MediatR;
+namespace CodeCLI.Commands.Generate.MediatR.Notification;
 [Command("generate mediatr notification", "(generate|g) (mediatr|m) (notification|n)$", Description = "Creates a new, generic event notification definition using MediatR in the given project.")]
 public class NotificationCommand : BaseCommand
 {

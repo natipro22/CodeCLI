@@ -2,7 +2,7 @@ using MediatR;
 
 namespace @Namespace;
 
-public record @NameRequest : IRequest<@Response>
+public record @Name@Type() : IRequest<@Response>
 {
 	// Add properties as needed
 }

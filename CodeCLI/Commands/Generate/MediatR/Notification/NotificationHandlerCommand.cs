@@ -3,7 +3,7 @@ using CliFx.Infrastructure;
 using CodeCLI.CommandServices;
 using CodeCLI.Common;
 
-namespace CodeCLI.Commands.Generate.MediatR;
+namespace CodeCLI.Commands.Generate.MediatR.Notification;
 [Command("generate mediatr notification-handler", "(generate|g) (mediatr|m) (notification-handler|nh)$", Description = "Creates a new, generic event notification handler definition using MediatR in the given project.")]
 
 public class NotificationHandlerCommand : BaseCommand

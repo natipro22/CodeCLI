@@ -44,13 +44,17 @@ dotnet code g -h
   - Enum (e)
   - Service (s)
 + ASP.NET 
-  - Controller (cvt)
+  - Controller (ct)
   - Minimal Api (ma)
   - Middleware (mw)
 + Vertical slice (repr)
+  - command (c)
+  - query (q)
 + MediatR (m)
-  - Request (r)
-  - Handler (h)
+  - command (c)
+  - query (q)
+  - command-handler (ch)
+  - query-handler (qh)
   - Notification (n)
   - Notification Handler (nh)
 + Fluent Validation (fv)
@@ -66,6 +70,16 @@ dotnet code g -h
 + code config (c)
 	- MediatR (m)
 	- FluentValidation (fv)
+
+## Examples
+``` shell
+dotnet code g c test-class // generate a class with the name of TestClass
+dotnet code g i test-name // generate an interface with the name of test-name
+dotnet code g e enum_name // enum
+dotnet code g fv v nameValidator // fluent validation validator
+```
+
+> Note: You can use any naming convention for the name parameter
 
 
 

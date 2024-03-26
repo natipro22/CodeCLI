@@ -2,12 +2,13 @@
 using CliFx.Infrastructure;
 using CodeCLI.Commands.Generate;
 using CodeCLI.CommandServices;
+using CodeCLI.CommandServices.MediatR;
 using CodeCLI.Common;
 using System.Xml.Linq;
 
 namespace CodeCLI.Commands.Generate.MediatR;
-[Command("generate mediatr request", "(generate|g) (mediatr|m) (request|r)$", Description = "Creates a new, generic request definition using MediatR in the given project.")]
-public class RequestCommand : BaseCommand
+[Command("generate mediatr query", "(generate|g) (mediatr|m) (query|q)$", Description = "Creates a new, generic request definition using MediatR in the given project.")]
+public class RequestQueryCommand : BaseCommand
 {
     [CommandParameter(0, IsRequired = true, Description = "The name of the request.")]
     public string Name { get; set; } = string.Empty;
@@ -17,7 +18,7 @@ public class RequestCommand : BaseCommand
 
     public override ValueTask ExecuteAsync(IConsole console)
     {
-        ICommandService commandService = CommandServiceFactory.GetRequestService(Name, Response, Path);
+        ICommandService commandService = CommandServiceFactory.GetRequestService(Name, Response, CQRS.Query, Path);
 
         string fileName = commandService.CreateFile();
 
