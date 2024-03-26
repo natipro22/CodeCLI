@@ -11,6 +11,8 @@ public abstract class CommandService : ICommandService
     public string Name { get; set; } = string.Empty;
     public string Directory { get; set; } = string.Empty;
     public string FileName { get; set; } = string.Empty;
+    public string Extension { get; set; } = "cs";
+
     public string CreateFile()
     {
         if (!string.IsNullOrEmpty(Directory) && !System.IO.Directory.Exists(Directory))
@@ -18,9 +20,9 @@ public abstract class CommandService : ICommandService
             System.IO.Directory.CreateDirectory(Directory);
         }
         FileName = string.IsNullOrEmpty(FileName) ? Name : FileName;
-        File.WriteAllText(!string.IsNullOrEmpty(Directory) ? Path.Combine(Directory, $"{FileName}.cs") : $"{FileName}.cs",
+        File.WriteAllText(!string.IsNullOrEmpty(Directory) ? Path.Combine(Directory, $"{FileName}.{Extension}") : $"{FileName}.{Extension}",
                           Regex.Replace(GetContent(), @" {2,}", " "));
-        return $"{FileName}.cs";
+        return $"{FileName}.{Extension}";
     }
     protected abstract string GetContent();
 

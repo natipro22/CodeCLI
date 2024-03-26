@@ -124,8 +124,14 @@
   <data name="codeCLIStartupTemp" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\codeCLIStartupTemp.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
+  <data name="ComponentTemp" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ComponentTemp.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
   <data name="controllerTemp" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\controllerTemp.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="CssTemp" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CssTemp.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
   <data name="enumTemp" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\enumTemp.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
@@ -147,6 +153,9 @@
   </data>
   <data name="notificationTemp" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\notificationTemp.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="RazorTemp" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\RazorTemp.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
   <data name="recordTemp" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\recordTemp.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>

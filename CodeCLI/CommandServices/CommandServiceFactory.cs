@@ -1,4 +1,5 @@
-﻿using System.Text.Json;
+﻿using CodeCLI.CommandServices.Blazor;
+using System.Text.Json;
 using System.Xml.Linq;
 
 namespace CodeCLI.CommandServices;
@@ -104,6 +105,30 @@ public static class CommandServiceFactory
             FileName = $"{name}Middleware",
             Name = name,
             Directory = path
+        };
+
+    public static ICommandService GetRazorService(string name, string path)
+        => new RazorService
+        {
+            Name = name,
+            Directory = path,
+            Extension = "razor"
+        };
+
+    public static ICommandService GetCssService(string name, string path)
+        => new CssService
+        {
+            Name = name,
+            Directory = path,
+            Extension = "css"
+        };
+
+    public static ICommandService GetComponentService(string name, string path)
+        => new ComponentService
+        {
+            FileName = $"{name}.razor",
+            Name = name,
+            Directory = path,
         };
 
 }

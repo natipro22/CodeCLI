@@ -25,7 +25,9 @@
     <None Remove="Resources\classTemp.txt" />
     <None Remove="Resources\CodeCLISetup.txt" />
     <None Remove="Resources\codeCLIStartupTemp.txt" />
+    <None Remove="Resources\ComponentTemp.txt" />
     <None Remove="Resources\controllerTemp.txt" />
+    <None Remove="Resources\CssTemp.txt" />
     <None Remove="Resources\enumTemp.txt" />
     <None Remove="Resources\handlerTemp.txt" />
     <None Remove="Resources\interfaceTemp.txt" />
@@ -33,6 +35,7 @@
     <None Remove="Resources\minimalApiTemp.txt" />
     <None Remove="Resources\notificationHandler.txt" />
     <None Remove="Resources\notificationTemp.txt" />
+    <None Remove="Resources\RazorTemp.txt" />
     <None Remove="Resources\recordTemp.txt" />
     <None Remove="Resources\requestTemp.txt" />
     <None Remove="Resources\validatorTemp.txt" />
@@ -44,7 +47,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\CodeCLISetup.txt" />
     <EmbeddedResource Include="Resources\codeCLIStartupTemp.txt" />
+    <EmbeddedResource Include="Resources\ComponentTemp.txt" />
     <EmbeddedResource Include="Resources\controllerTemp.txt" />
+    <EmbeddedResource Include="Resources\CssTemp.txt" />
     <EmbeddedResource Include="Resources\enumTemp.txt" />
     <EmbeddedResource Include="Resources\handlerTemp.txt" />
     <EmbeddedResource Include="Resources\interfaceTemp.txt" />
@@ -52,6 +57,7 @@
     <EmbeddedResource Include="Resources\minimalApiTemp.txt" />
     <EmbeddedResource Include="Resources\notificationHandler.txt" />
     <EmbeddedResource Include="Resources\notificationTemp.txt" />
+    <EmbeddedResource Include="Resources\RazorTemp.txt" />
     <EmbeddedResource Include="Resources\recordTemp.txt" />
     <EmbeddedResource Include="Resources\requestTemp.txt" />
     <EmbeddedResource Include="Resources\validatorTemp.txt" />

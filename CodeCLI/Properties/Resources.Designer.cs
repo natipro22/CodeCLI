@@ -96,6 +96,20 @@ namespace CodeCLI.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to namespace @Namespace;
+        ///
+        ///public partial class @Name
+        ///{
+        ///	
+        ///}.
+        /// </summary>
+        internal static string ComponentTemp {
+            get {
+                return ResourceManager.GetString("ComponentTemp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to using Microsoft.AspNetCore.Mvc;
         ///
         ///namespace @Namespace;
@@ -128,6 +142,23 @@ namespace CodeCLI.Properties {
         internal static string controllerTemp {
             get {
                 return ResourceManager.GetString("controllerTemp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 
+        ///p {
+        ///  font-size: 18px;
+        ///  color: #333;
+        ///  background-color: #f0f0f0;
+        ///  padding: 20px;
+        ///  border-radius: 5px;
+        ///  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        ///}.
+        /// </summary>
+        internal static string CssTemp {
+            get {
+                return ResourceManager.GetString("CssTemp", resourceCulture);
             }
         }
         
@@ -259,6 +290,17 @@ namespace CodeCLI.Properties {
         internal static string notificationTemp {
             get {
                 return ResourceManager.GetString("notificationTemp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;p&gt;
+        ///	@Name works!
+        ///&lt;/ps&gt;.
+        /// </summary>
+        internal static string RazorTemp {
+            get {
+                return ResourceManager.GetString("RazorTemp", resourceCulture);
             }
         }
         
