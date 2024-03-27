@@ -4,7 +4,7 @@ using CliFx.Infrastructure;
 using CodeCLI.Common;
 
 namespace CodeCLI.Commands.Install;
-[Command("install", "(install|i)$")]
+[Command("install", "^(install|i)$")]
 public class InstallCommand : ICommand
 {
     public ValueTask ExecuteAsync(IConsole console)

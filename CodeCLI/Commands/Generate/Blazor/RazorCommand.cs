@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace CodeCLI.Commands.Generate.Blazor;
 
-[Command("generate blazor razor", "(generate|g) (blazor|b) (razor|r)$", Description = "Creates a new, generic razor page definition in the given project.")]
+[Command("generate blazor razor(r)", "(generate|g) (blazor|b) (razor|r)$", Description = "Creates a new, generic razor page definition in the given project.")]
 public class RazorCommand : BaseCommand
 {
     [CommandParameter(0, IsRequired = true, Description = "The name of the razor.")]

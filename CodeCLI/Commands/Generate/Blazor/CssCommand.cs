@@ -12,7 +12,7 @@ public class CssCommand : BaseCommand
     public string Name { get; set; } = string.Empty;
     public override ValueTask ExecuteAsync(IConsole console)
     {
-        ICommandService commandService = CommandServiceFactory.GetRazorService(Name, Path!);
+        ICommandService commandService = CommandServiceFactory.GetCssService(Name, Path!);
         try
         {
             string fileName = commandService.CreateFile();

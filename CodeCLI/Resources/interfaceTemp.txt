@@ -1,5 +1,5 @@
 namespace @Namespace;
 
-public interface @Name
+public interface @Name @Inheritance
 {
 }

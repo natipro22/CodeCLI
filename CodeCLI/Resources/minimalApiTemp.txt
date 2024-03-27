@@ -3,28 +3,28 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace @Namespace;
 
-public static class @Name
+public static class @NameEndPoints
 {
-	public static void Map@NameEndpoints(this WebApplication app)
+	public static void Map(this WebApplication app)
 	{
 		//Create
-		 app.MapPost("/Foos",async (FooRequest fooRequest, IFooService fooService)
-			=> await fooService.CreateFoo(fooRequest));
+		 app.MapPost("/@Names",async (@NameRequest @VarNameRequest, I@NameService @VarNameService)
+			=> await @VarNameService.Create@Name(@VarNameRequest));
 
 		 //Read All
-		 app.MapGet("/Foo", async (IFooService fooService)
-			=> await fooService.GetFoos());
+		 app.MapGet("/@Name", async (I@NameService @VarNameService)
+			=> await @VarNameService.Get@Names());
 
 		 //Read by Id
-		 app.MapGet("/Foo/{{id}}", async (Guid id, IFooService fooService) 
-			=> await fooService.GetFooById(id));
+		 app.MapGet("/@Name/{{id}}", async (Guid id, I@NameService @VarNameService) 
+			=> await @VarNameService.Get@NameById(id));
 
 		 //Update
-		 app.MapPut("/Foos/{{id}}", async (Guid id, FooRequest fooRequest, IFooService fooService)
-			=> await fooService.UpdateFoo(id, fooRequest));
+		 app.MapPut("/@Names/{{id}}", async (Guid id, @NameRequest @VarNameRequest, I@NameService @VarNameService)
+			=> await @VarNameService.Update@Name(id, @VarNameRequest));
 
 		 //Delete
-		 app.MapDelete("/Foos/{{id}}", async (Guid id, IFooService fooService)
-			=> await fooService.DeleteFoo(id));
+		 app.MapDelete("/@Names/{{id}}", async (Guid id, I@NameService @VarNameService)
+			=> await @VarNameService.Delete@Name(id));
 	}
 }

@@ -18,11 +18,12 @@ public static class CommandServiceFactory
             Directory = path,
         };
 
-    public static ICommandService GetInterfaceService(string name, char prefix, string path)
+    public static ICommandService GetInterfaceService(string name, IEnumerable<string> extends, char prefix, string path)
         => new InterfaceService
         {
             FileName = $"{(prefix.Equals(' ') ? string.Empty : prefix)}{name}",
             Name = name,
+            Extends = extends,
             Prefix = prefix,
             Directory = path
         };

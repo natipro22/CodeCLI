@@ -2,7 +2,7 @@ using MediatR;
 
 namespace @Namespace;
 
-public class @Name@TypeHandler : IRequestHandler<@Name@Type, @Response>
+public sealed class @Name@TypeHandler : IRequestHandler<@Name@Type, @Response>
 {
 	public Task<@Response> Handle(@Name@Type request, CancellationToken cancellationToken)
 	{

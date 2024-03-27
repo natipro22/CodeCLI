@@ -2,4 +2,5 @@ namespace @Namespace;
 
 public @IsAbstract @IsSeald class @Name @Inheritance
 {
+	
 }

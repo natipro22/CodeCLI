@@ -6,7 +6,7 @@ using CodeCLI.Common;
 using System.Text.Json;
 
 namespace CodeCLI.Commands.Generate.Class;
-[Command("generate class", "(generate|g) (class|c)$", Description = "Creates a new, generic class definition in the given project.")]
+[Command("generate class(c)", "(generate|g) (class|c)$", Description = "Creates a new, generic class definition in the given project.")]
 public class ClassCommand : BaseCommand
 {
     [CommandParameter(0, IsRequired = true, Description = "The name of the class.")]

@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace CodeCLI.Commands.Generate.Blazor;
-[Command("generate blazor component", "(generate|g) (blazor|b) (component|c)$", Description = "Creates a new, generic component definition in the given project.")]
+[Command("generate blazor component(c)", "(generate|g) (blazor|b) (component|c)$", Description = "Creates a new, generic component definition in the given project.")]
 public class ComponentCommand : BaseCommand
 {
     [CommandParameter(0, IsRequired = true, Description = "The name of the component.")]

@@ -11,7 +11,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace CodeCLI.Commands.Generate.Middleware;
-[Command("generate middleware", "(generate|g) (middleware|mw)$", Description = "Creates a new, generic ASP.NET Core middleware definition in the given project.")]
+[Command("generate middleware(mw)", "(generate|g) (middleware|mw)$", Description = "Creates a new, generic ASP.NET Core middleware definition in the given project.")]
 public class MiddlewareCommand : BaseCommand
 {
     [CommandParameter(0, IsRequired = true, Description = "The name of the middleware.")]

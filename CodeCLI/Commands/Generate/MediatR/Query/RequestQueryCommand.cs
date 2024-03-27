@@ -7,7 +7,7 @@ using CodeCLI.Common;
 using System.Xml.Linq;
 
 namespace CodeCLI.Commands.Generate.MediatR;
-[Command("generate mediatr query", "(generate|g) (mediatr|m) (query|q)$", Description = "Creates a new, generic request definition using MediatR in the given project.")]
+[Command("generate mediatr query(q)", "(generate|g) (mediatr|m) (query|q)$", Description = "Creates a new, generic request query definition using MediatR in the given project.")]
 public class RequestQueryCommand : BaseCommand
 {
     [CommandParameter(0, IsRequired = true, Description = "The name of the request.")]

@@ -4,7 +4,7 @@ using CodeCLI.CommandServices;
 using CodeCLI.Common;
 
 namespace CodeCLI.Commands.Generate.FluentValidation;
-[Command("generate fluent-validation validator", "(generate|g) (fluent-validation|fv) (validator|v)$", Description = "Creates a new, generic request validator using MediatR in the given project.")]
+[Command("generate fluent-validation validator(v)", "(generate|g) (fluent-validation|fv) (validator|v)$", Description = "Creates a new, generic request validator using MediatR in the given project.")]
 public class ValidatorCommand : BaseCommand
 {
 

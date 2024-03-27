@@ -5,7 +5,7 @@ using CodeCLI.CommandServices;
 using CodeCLI.Common;
 
 namespace CodeCLI.Commands.Generate.Service;
-[Command("generate service", "(generate|g) (service|s)$", Description = "Creates a new, generic service definition in the given project.")]
+[Command("generate service(s)", "(generate|g) (service|s)$", Description = "Creates a new, generic service definition in the given project.")]
 public class ServiceCommand : BaseCommand
 {
     [CommandParameter(0, IsRequired = true, Description = "The name of the service.")]

@@ -20,7 +20,7 @@ public class ClassService : CommandService, ICommandService
         string content = ReadFile(name);
 
         content = content.Replace(nameof(IsAbstract).ToVar(), IsAbstract ? "abstract" : string.Empty);
-        content = content.Replace(nameof(IsSeald).ToVar(), IsSeald ? "seald" : string.Empty);
+        content = content.Replace(nameof(IsSeald).ToVar(), IsSeald ? "sealed" : string.Empty);
         content = content.Replace(nameof(Namespace).ToVar(), Namespace.GetNamespace(Directory));
         content = content.Replace(nameof(Name).ToVar(), Name);
         string Inheritance = string.Empty;

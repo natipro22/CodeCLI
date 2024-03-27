@@ -8,7 +8,7 @@ using CliFx.Infrastructure;
 using CodeCLI.Common;
 
 namespace CodeCLI.Commands.Generate.FluentValidation;
-[Command("generate fluent-validation", "(generate|g) (fluent-validation|fv)$", Description = "FluentValidation is a .NET library for building strongly-typed validation rules.")]
+[Command("generate fluent-validation(fv)", "(generate|g) (fluent-validation|fv)$", Description = "FluentValidation is a .NET library for building strongly-typed validation rules.")]
 public class FluentValidationCommand : ICommand
 {
     public ValueTask ExecuteAsync(IConsole console)
