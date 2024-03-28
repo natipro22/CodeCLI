@@ -1,5 +1,7 @@
 using CliFx.Infrastructure;
+using Humanizer;
 using System.Globalization;
+using System.IO;
 using System.Text.RegularExpressions;
 
 namespace CodeCLI.Common;
@@ -9,7 +11,13 @@ public static class CommandsExtension
     public static void FileCreated(this IConsole console, string name)
         => console.Output.WriteLine($"{name} created successfully.");
     public static string ToPascalCase(this string name)
-        => Regex.Replace(name, "(?:^|-|_)([a-z])", m => m.Groups[1].Value.ToUpper());
+    {
+        string[] directories = name.Split('/');
+
+        var pascalizeDirectory = directories.Select(d => d = d.Pascalize());
+
+        return string.Join("/", pascalizeDirectory);
+    }
 
     public static string ToCamelCase(this string name)
         => Regex.Replace(name, @"^.", m => m.Value.ToLowerInvariant());

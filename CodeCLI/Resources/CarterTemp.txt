@@ -27,7 +27,7 @@ public class @NameEndpoint : CarterModule
 		// Get by id
 		app.MapGet("/{id}", async (Guid id, ISender sender) =>
 		{
-			var result = await sender.Send(request);
+			var result = await sender.Send(new GetById@NameQuery(id));
 			return Results.Ok(result);
 		});
 
@@ -41,7 +41,7 @@ public class @NameEndpoint : CarterModule
 		// Delete
 		app.MapDelete("/{id}", async (Guid id, ISender sender) =>
 		{
-			var result = await sender.Send(request);
+			var result = await sender.Send(new Delete@NameCommand(id));
 			return Results.Ok(result);
 		});
 	}

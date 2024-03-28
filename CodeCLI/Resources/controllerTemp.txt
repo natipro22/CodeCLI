@@ -41,6 +41,6 @@ public sealed class @NameController : ControllerBase
 	[HttpDelete("{id}")]
 	public async Task<IActionResult> Delete([FromQuery] Guid id)
 	{
-		return Ok(await _sender.Send(new Delete@NameQuery(id)));
+		return Ok(await _sender.Send(new Delete@NameCommand(id)));
 	}
 }

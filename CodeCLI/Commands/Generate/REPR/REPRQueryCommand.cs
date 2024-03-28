@@ -20,15 +20,28 @@ public class REPRQueryCommand : BaseCommand
         {
             Path = Name;
         }
-        ICommandService request = CommandServiceFactory.GetRequestService(Name, "int", CQRS.Query, Path + Name);
-        ICommandService handler = CommandServiceFactory.GetHandlerService(Name, "int", CQRS.Query, Path + Name);
+        Name = System.IO.Path.GetFileName(Name);
+        string response = $"{Name}ResponseDto";
+        ICommandService request = CommandServiceFactory.GetRequestService(Name, response, CQRS.Query, Path);
+        ICommandService handler = CommandServiceFactory.GetHandlerService(Name, response, CQRS.Query, Path);
         ICommandService validator = CommandServiceFactory.GetValidatorService($"{Name}{nameof(CQRS.Query)}", Path);
+        ICommandService endpoint = CommandServiceFactory.GetEndpointService(Name, Path);
+        ICommandService recordService = CommandServiceFactory.GetRecordService(response, string.Empty, Enumerable.Empty<string>(), Path);
 
+        try
+        {
+            request.CreateFile();
+            handler.CreateFile();
+            validator.CreateFile();
+            endpoint.CreateFile();
+            recordService.CreateFile();
 
-        request.CreateFile();
-        handler.CreateFile();
-        validator.CreateFile();
-        console.Output.WriteLine($"{Name} feature created succesfully.");
+            console.Output.WriteLine($"{Name} feature created succesfully.");
+        }
+        catch (Exception e)
+        {
+            console.Error.WriteLine(e.Message);
+        }
 
         return ValueTask.CompletedTask;
 

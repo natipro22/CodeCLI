@@ -2,7 +2,7 @@
   "profiles": {
     "Code": {
       "commandName": "Project",
-      "commandLineArgs": "g \r\n"
+      "commandLineArgs": "g repr q features/get-student\r\n"
     }
   }
 }

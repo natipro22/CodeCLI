@@ -21,21 +21,28 @@ public class REPRCommandCommand : BaseCommand
         {
             Path = Name;
         }
-        ICommandService request = CommandServiceFactory.GetRequestService(Name, "int", CQRS.Command, Path);
-
-        ICommandService handler = CommandServiceFactory.GetHandlerService(Name, "int", CQRS.Command, Path);
-
+        string response = $"{Name}ResponseDto";
+        ICommandService request = CommandServiceFactory.GetRequestService(Name, response, CQRS.Command, Path);
+        ICommandService handler = CommandServiceFactory.GetHandlerService(Name, response, CQRS.Command, Path);
         ICommandService validator = CommandServiceFactory.GetValidatorService($"{Name}{nameof(CQRS.Command)}", Path);
         ICommandService endpoint = CommandServiceFactory.GetEndpointService(Name, Path);
+        ICommandService recordService = CommandServiceFactory.GetRecordService(response, string.Empty, Enumerable.Empty<string>(), Path);
 
 
-        request.CreateFile();
-        handler.CreateFile();
-        validator.CreateFile();
-        endpoint.CreateFile();
-        console.Output.WriteLine($"{Name} feature created succesfully.");
-        // ICommandService minimalApi = CommandServiceFactory.GetMinimalApiService(Name);
-
+        try
+        {
+            request.CreateFile();
+            handler.CreateFile();
+            validator.CreateFile();
+            endpoint.CreateFile();
+            recordService.CreateFile();
+            console.Output.WriteLine($"{Name} feature created succesfully.");
+        }
+        catch (Exception e)
+        {
+            console.Error.WriteLine(e.Message);
+        }
+        
         return ValueTask.CompletedTask;
 
     }
