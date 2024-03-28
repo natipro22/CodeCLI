@@ -1,0 +1,7 @@
+{
+  "forceReCreateRepo": true,
+  "targetRepoPath": "CodeCli",
+  "sourceRepoPath": ".",
+  "allowedPaths": [ "*" ],
+  "ignoredPaths": [ "CodeCLI/*" ]
+}
