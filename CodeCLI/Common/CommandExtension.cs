@@ -12,9 +12,9 @@ public static class CommandsExtension
         => console.Output.WriteLine($"{name} created successfully.");
     public static string ToPascalCase(this string name)
     {
-        string[] directories = name.Split('/');
+        string[] directories = Directory.GetDirectories(name);
 
-        var pascalizeDirectory = directories.Select(d => d = d.Pascalize());
+        var pascalizeDirectory = directories.Select(d => d.Pascalize());
 
         return string.Join("/", pascalizeDirectory);
     }

@@ -18,7 +18,14 @@ public class DotCommand : ICommand
         if (getFiles.Any())
         {
             string solution = getFiles.First();
-            Process.Start("devenv", solution);
+            try
+            {
+                Process.Start("devenv", $"\"{solution}\"");
+            }
+            catch (Exception e)
+            {
+                console.Error.WriteLine(e.Message);
+            }
         }
         else
         {
