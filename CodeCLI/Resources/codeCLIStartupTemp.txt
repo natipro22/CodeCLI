@@ -2,12 +2,12 @@ namespace @Namespace;
 
 public static class CodeCLIStartup
 {
-	public static IServiceCollection AddCodeCLIService(this IServiceCollection services, IConfiguration config)
+	public static IServiceCollection AddCodeCLIServices(this IServiceCollection services)
 	{
 		return services;
 	}
 
-	public static IApplicationBuilder UseCodeCLIService(this IApplicationBuilder builder)
+	public static IEndpointRouteBuilder UseCodeCLIServices(this IEndpointRouteBuilder builder)
 	{
 		return builder;
 	}

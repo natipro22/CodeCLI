@@ -61,10 +61,32 @@ namespace CodeCLI.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to namespace @Namespace
+        ///
+        ///public class @NameModule : ICarterModule
+        ///{
+        ///    public void AddRoutes(IEndpointRouteBuilder app)
+        ///    {
+        ///        app.MapGet(&quot;/&quot;, () =&gt; new Person
+        ///        {
+        ///            FirstName = &quot;Andrew&quot;,
+        ///            LastName = &quot;Lock&quot;
+        ///        });
+        ///    }
+        ///}.
+        /// </summary>
+        internal static string CarterTemp {
+            get {
+                return ResourceManager.GetString("CarterTemp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to namespace @Namespace;
         ///
         ///public @IsAbstract @IsSeald class @Name @Inheritance
         ///{
+        ///	
         ///}.
         /// </summary>
         internal static string classTemp {
@@ -78,12 +100,12 @@ namespace CodeCLI.Properties {
         ///
         ///public static class CodeCLIStartup
         ///{
-        ///	public static IServiceCollection AddCodeCLIService(this IServiceCollection services, IConfiguration config)
+        ///	public static IServiceCollection AddCodeCLIServices(this IServiceCollection services)
         ///	{
         ///		return services;
         ///	}
         ///
-        ///	public static IApplicationBuilder UseCodeCLIService(this IApplicationBuilder builder)
+        ///	public static IEndpointRouteBuilder UseCodeCLIServices(this IEndpointRouteBuilder builder)
         ///	{
         ///		return builder;
         ///	}
@@ -116,7 +138,7 @@ namespace CodeCLI.Properties {
         ///
         ///[ApiController]
         ///[Route(&quot;[controller]&quot;)]
-        ///public seald class @Name : BaseController
+        ///public sealed class @Name : ControllerBase
         ///{
         ///	[HttpGet]
         ///	public IActionResult GetAll()
@@ -137,7 +159,7 @@ namespace CodeCLI.Properties {
         ///	}
         ///
         ///	[HttpPut(&quot;{id}&quot;)]
-        ///	public IActionResult Update([FromQuery] Guid id, [FromBody] st [rest of string was truncated]&quot;;.
+        ///	public IActionResult Update([FromQuery] Guid id, [FromBody] s [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string controllerTemp {
             get {
@@ -146,14 +168,14 @@ namespace CodeCLI.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 
+        ///   Looks up a localized string similar to // @Name style
         ///p {
-        ///  font-size: 18px;
-        ///  color: #333;
-        ///  background-color: #f0f0f0;
-        ///  padding: 20px;
-        ///  border-radius: 5px;
-        ///  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        ///	font-size: 18px;
+        ///	color: #333;
+        ///	background-color: #f0f0f0;
+        ///	padding: 20px;
+        ///	border-radius: 5px;
+        ///	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         ///}.
         /// </summary>
         internal static string CssTemp {
@@ -180,9 +202,9 @@ namespace CodeCLI.Properties {
         ///
         ///namespace @Namespace;
         ///
-        ///public class @NameRequestHandler : IRequestHandler&lt;@NameRequest, @Response&gt;
+        ///public sealed class @Name@TypeHandler : IRequestHandler&lt;@Name@Type, @Response&gt;
         ///{
-        ///	public Task&lt;@Response&gt; Handle(@NameRequest request, CancellationToken cancellationToken)
+        ///	public Task&lt;@Response&gt; Handle(@Name@Type request, CancellationToken cancellationToken)
         ///	{
         ///		// Implement your logic here
         ///		// Return a response
@@ -200,7 +222,7 @@ namespace CodeCLI.Properties {
         /// <summary>
         ///   Looks up a localized string similar to namespace @Namespace;
         ///
-        ///public interface @Name
+        ///public interface @Name @Inheritance
         ///{
         ///}.
         /// </summary>
@@ -240,20 +262,20 @@ namespace CodeCLI.Properties {
         ///
         ///namespace @Namespace;
         ///
-        ///public static class @Name
+        ///public static class @NameEndPoints
         ///{
-        ///	public static void Map@NameEndpoints(this WebApplication app)
+        ///	public static void Map(this WebApplication app)
         ///	{
         ///		//Create
-        ///		 app.MapPost(&quot;/Foos&quot;,async (FooRequest fooRequest, IFooService fooService)
-        ///			=&gt; await fooService.CreateFoo(fooRequest));
+        ///		 app.MapPost(&quot;/@Names&quot;,async (@NameRequest @VarNameRequest, I@NameService @VarNameService)
+        ///			=&gt; await @VarNameService.Create@Name(@VarNameRequest));
         ///
         ///		 //Read All
-        ///		 app.MapGet(&quot;/Foo&quot;, async (IFooService fooService)
-        ///			=&gt; await fooService.GetFoos());
+        ///		 app.MapGet(&quot;/@Name&quot;, async (I@NameService @VarNameService)
+        ///			=&gt; await @VarNameService.Get@Names());
         ///
         ///		 //Read by Id
-        ///		 app.MapGet(&quot;/Foo/{{id}}&quot;, async (Guid id, IFooServ [rest of string was truncated]&quot;;.
+        ///		 app.MapGet( [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string minimalApiTemp {
             get {
@@ -296,7 +318,7 @@ namespace CodeCLI.Properties {
         /// <summary>
         ///   Looks up a localized string similar to &lt;p&gt;
         ///	@Name works!
-        ///&lt;/ps&gt;.
+        ///&lt;/p&gt;.
         /// </summary>
         internal static string RazorTemp {
             get {
@@ -322,7 +344,7 @@ namespace CodeCLI.Properties {
         ///
         ///namespace @Namespace;
         ///
-        ///public record @NameRequest : IRequest&lt;@Response&gt;
+        ///public sealed record @Name@Type() : IRequest&lt;@Response&gt;
         ///{
         ///	// Add properties as needed
         ///}

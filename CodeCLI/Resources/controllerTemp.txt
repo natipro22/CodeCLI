@@ -1,38 +1,46 @@
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
 namespace @Namespace;
 
 [ApiController]
 [Route("[controller]")]
-public sealed class @Name : ControllerBase
+public sealed class @NameController : ControllerBase
 {
+	private readonly ISender _sender;
+	
+    public @NameController(ISender sender)
+    {
+        _sender = sender;
+    }
+
 	[HttpGet]
-	public IActionResult GetAll()
+	public async Task<IActionResult> GetAll(GetAll@NameQuery request)
 	{
-  		return Ok(default);
+		return Ok(await _sender.Send(request));
 	}
 
 	[HttpGet("{id}")]
-	public IActionResult GetById(Guid id)
+	public async Task<IActionResult> GetById([FromQuery] Guid id)
 	{
-  		return Ok(default);
+		return Ok(await _sender.Send(new GetById@NameQuery(id)));
 	}
 
 	[HttpPost]
-	public IActionResult Create([FromBody] string userInput)
+	public async Task<IActionResult> Create([FromBody] Create@NameCommand request)
 	{
-  		return Ok(default);
+		return Ok(await _sender.Send(request));
 	}
 
 	[HttpPut("{id}")]
-	public IActionResult Update([FromQuery] Guid id, [FromBody] string userInput)
+	public async Task<IActionResult> Update([FromQuery] Guid id, [FromBody] Update@NameCommand request)
 	{
-  		return Ok(default);
+		return Ok(await _sender.Send(request));
 	}
 
 	[HttpDelete("{id}")]
-	public IActionResult   Delete([FromQuery] Guid id)
+	public async Task<IActionResult> Delete([FromQuery] Guid id)
 	{
-  		return Ok(default);
+		return Ok(await _sender.Send(new Delete@NameQuery(id)));
 	}
 }

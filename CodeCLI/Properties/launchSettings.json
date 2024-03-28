@@ -2,7 +2,7 @@
   "profiles": {
     "Code": {
       "commandName": "Project",
-      "commandLineArgs": "g\r\n"
+      "commandLineArgs": "g \r\n"
     }
   }
 }

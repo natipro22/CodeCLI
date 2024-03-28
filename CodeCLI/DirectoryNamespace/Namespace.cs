@@ -3,7 +3,6 @@
 namespace CodeCLI.DirectoryNamespace;
 public class Namespace
 {
-
     public static string GetProjectDirectory(string? directory = null)
     {
         directory ??= Directory.GetCurrentDirectory();
@@ -23,18 +22,19 @@ public class Namespace
 
     public static string GetNamespace(string newDirectory = "", string? directory = null)
     {
-        directory ??= GetProjectDirectory();
+        var projectDirectory = GetProjectDirectory();
+        directory ??= Directory.GetCurrentDirectory();
         // Get the name of the current directory
-        string directoryName = new DirectoryInfo(directory).Name;
+        string directoryName = new DirectoryInfo(projectDirectory).Name;
         // Initialize the namespace with the current directory name
         string @namespace = directoryName;
-        if (directory == Directory.GetCurrentDirectory() && string.IsNullOrEmpty(newDirectory))
+        if (projectDirectory == directory && string.IsNullOrEmpty(newDirectory))
         {
             return @namespace;
         }
         // Get the subdirectories of the current directory
-        string[] subdirectories = (Directory.GetCurrentDirectory() + "/" + newDirectory)
-            .Substring(directory.Length + 1)
+        string[] subdirectories = Path.Combine(directory, newDirectory)
+            .Substring(projectDirectory.Length + 1)
             .Split('\\', '/');
 
         // If there are subdirectories, recursively get directory name for each subdirectory

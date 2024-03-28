@@ -1,4 +1,5 @@
 using CliFx.Infrastructure;
+using System.Globalization;
 using System.Text.RegularExpressions;
 
 namespace CodeCLI.Common;
@@ -48,6 +49,6 @@ public static class CommandsExtension
         string buildModifiedContent = Regex.Replace(content, pattern, replacement);
 
         // Write the modified content back to the file
-        File.WriteAllText(fileName, $"{usings ??= string.Empty}\n{buildModifiedContent}");
+        File.WriteAllText(path, $"{usings ??= string.Empty}\n{buildModifiedContent}");
     }
 }

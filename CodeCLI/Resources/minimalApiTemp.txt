@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Mvc;
+using MediatR;
 
 namespace @Namespace;
 
@@ -7,24 +8,39 @@ public static class @NameEndPoints
 {
 	public static void Map(this WebApplication app)
 	{
-		//Create
-		 app.MapPost("/@Names",async (@NameRequest @VarNameRequest, I@NameService @VarNameService)
-			=> await @VarNameService.Create@Name(@VarNameRequest));
+		// Create
+		app.MapPost("/@PlularName", async (Create@NameCommand request, ISender sender) =>
+		{
+			var result = await sender.Send(request);
+			return Results.Ok(result);
+		});
 
-		 //Read All
-		 app.MapGet("/@Name", async (I@NameService @VarNameService)
-			=> await @VarNameService.Get@Names());
+		// Get all
+		app.MapGet("/@PlularName", async (GetAll@NameQuery request, ISender sender) =>
+		{
+			var result = await sender.Send(request);
+			return Results.Ok(result);
+		});
 
-		 //Read by Id
-		 app.MapGet("/@Name/{{id}}", async (Guid id, I@NameService @VarNameService) 
-			=> await @VarNameService.Get@NameById(id));
+		// Get by id
+		app.MapGet("/@PlularName/{id}", async (Guid id, ISender sender) =>
+		{
+			var result = await sender.Send(new GetById@NameQuery(id));
+			return Results.Ok(result);
+		});
 
-		 //Update
-		 app.MapPut("/@Names/{{id}}", async (Guid id, @NameRequest @VarNameRequest, I@NameService @VarNameService)
-			=> await @VarNameService.Update@Name(id, @VarNameRequest));
+		// Update
+		app.MapPut("/@PlularName/{id}", async (Guid id, Update@NameCommand request, ISender sender) =>
+		{
+			var result = await sender.Send(request);
+			return Results.Ok(result);
+		});
 
-		 //Delete
-		 app.MapDelete("/@Names/{{id}}", async (Guid id, I@NameService @VarNameService)
-			=> await @VarNameService.Delete@Name(id));
+		// Delete
+		app.MapDelete("/@PlularName/{id}", async (Guid id, ISender sender) =>
+		{
+			var result = await sender.Send(new Delete@NameCommand(id));
+			return Results.Ok(result);
+		});
 	}
 }

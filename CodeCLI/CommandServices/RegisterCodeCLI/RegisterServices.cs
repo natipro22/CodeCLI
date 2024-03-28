@@ -31,20 +31,21 @@ public class RegisterServices
 
         // Define the replacement line
         string runReplacement = "app.UseCodeCLIServices();\napp.Run();";
-
+        var usings = $"using {Namespace.GetNamespace(string.Empty, filePath)};";
         // Perform the replacement
-        programFile.Replace(path, runPattern, runReplacement);
+        programFile.Replace(path, runPattern, runReplacement, usings);
     }
 
     private static string CreateStartup()
     {
         string filePath = programFile.GetFileDirectory();
         var path = Path.Combine(filePath, configFile);
+        Console.WriteLine("CreateStartup: " + path);
 
         string name = "codeCLIStartupTemp.txt";
         string content = CommandService.ReadFile(name);
 
-        content = content.Replace(nameof(Namespace).ToVar(), Namespace.GetNamespace());
+        content = content.Replace(nameof(Namespace).ToVar(), Namespace.GetNamespace(string.Empty, filePath));
 
         File.WriteAllText(path, content);
 
@@ -54,16 +55,14 @@ public class RegisterServices
 
     private static string GetStartup()
     {
-        string configPath;
         try
         {
-            configPath = configFile.GetFileDirectory();
+            return configFile.GetFileDirectory();
         }
         catch (FileNotFoundException)
         {
-            configPath = CreateStartup();
+            return CreateStartup();
         }
-        return configPath;
     }
 
     public static void RegisterMiddleware(string name)
@@ -97,18 +96,35 @@ public class RegisterServices
 
     public static void RegisterFluentValidation()
     {
-        var path = Path.Combine(GetStartup(), configFile);
+        var startup = GetStartup();
+        Console.WriteLine($"startup: {startup}");
+        var path = Path.Combine(startup, configFile);
 
         // Define the replacement line
         string replacement = $"\t\tservices.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly(), ServiceLifetime.Transient);\n{build}";
 
         string usings = """
-            using FluentValidation.AspNetCore;
+            using FluentValidation;
             using System.Reflection;
             """;
         // Perform the replacement
         configFile.Replace(path, build, replacement, usings);
     }
 
+    public static void RegisterCarter()
+    {
+        var path = Path.Combine(GetStartup(), configFile);
 
+        // Define the replacement line
+        string replacement = $"\t\tservices.AddCarter();\n{build}";
+        string usings = "using Carter;";
+        // Perform the replacement
+        configFile.Replace(path, build, replacement, usings);
+
+        // Define the replacement line
+        string appReplacement = $"\t\tbuilder.MapCarter();\n{app}";
+
+        // Perform the replacement
+        configFile.Replace(path, app, appReplacement);
+    }
 }

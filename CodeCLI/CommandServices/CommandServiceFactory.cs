@@ -1,4 +1,5 @@
 ﻿using CodeCLI.CommandServices.Blazor;
+using CodeCLI.CommandServices.Carter;
 using CodeCLI.CommandServices.MediatR;
 using System.Text.Json;
 using System.Xml.Linq;
@@ -131,6 +132,14 @@ public static class CommandServiceFactory
         => new ComponentService
         {
             FileName = $"{name}.razor",
+            Name = name,
+            Directory = path,
+        };
+
+    public static ICommandService GetEndpointService(string name, string path)
+        => new EndpointService
+        {
+            FileName = $"{name}Endpoint",
             Name = name,
             Directory = path,
         };

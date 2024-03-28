@@ -10,10 +10,10 @@
     <PackageOutputPath>./nupkg</PackageOutputPath>
     <Title>Code CLI</Title>
     <Description>The Code CLI is a command-line interface tool that you use to initialize, develop, scaffold, and maintain dotnet C# applications directly from a command shell.</Description>
-    <PackageProjectUrl>https://github.com/natipro22/FastCodeCLI</PackageProjectUrl>
+    <PackageProjectUrl>https://github.com/natipro22/CodeCLI</PackageProjectUrl>
     <PackageIcon>codeCLI.png</PackageIcon>
     <PackageReadmeFile>README.md</PackageReadmeFile>
-    <RepositoryUrl>https://github.com/natipro22/FastCodeCLI</RepositoryUrl>
+    <RepositoryUrl>https://github.com/natipro22/CodeCLI</RepositoryUrl>
     <Authors>Natnael Yirga</Authors>
     <Company></Company>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
@@ -26,6 +26,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources\CarterTemp.txt" />
     <None Remove="Resources\classTemp.txt" />
     <None Remove="Resources\CodeCLISetup.txt" />
     <None Remove="Resources\codeCLIStartupTemp.txt" />
@@ -46,6 +47,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="Resources\CarterTemp.txt" />
     <EmbeddedResource Include="Resources\classTemp.txt">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </EmbeddedResource>
@@ -68,7 +70,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="CliFx" Version="2.3.5" />
+    <PackageReference Include="Humanizer.Core" Version="2.14.1" />
   </ItemGroup>
 
   <ItemGroup>

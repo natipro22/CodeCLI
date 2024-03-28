@@ -47,6 +47,7 @@ dotnet code g -h
   - Controller (ct)
   - Minimal Api (ma)
   - Middleware (mw)
+  - Endpoint (ep) // with carter
 + Vertical slice (repr)
   - command (c)
   - query (q)
@@ -65,11 +66,13 @@ dotnet code g -h
 + code install (i)
 	- MediatR (m)
 	- FluentValidation (fv)
+	- Carter (c)
 ### Config Sub Command
 `dotnet code config` comamnd registers the dependency to the ASP.NET Project.
 + code config (c)
 	- MediatR (m)
 	- FluentValidation (fv)
+	- Carter (c)
 
 ## Examples
 ``` shell

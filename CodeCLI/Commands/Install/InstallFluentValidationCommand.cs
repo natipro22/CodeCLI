@@ -19,8 +19,28 @@ public class InstallFluentValidationCommand : ICommand
         {
             var projectPath = Namespace.GetProjectDirectory();
             string arg = $"add \"{projectPath}\" package FluentValidation.AspNetCore";
-            Process.Start("dotnet", arg);
-            console.WriteLine("fluent validation installed successfully.");
+
+            // Start the process
+            Process process = Process.Start("dotnet", arg);
+
+            // Wait for the process to exit
+            process.WaitForExit();
+
+            // Check the exit code
+            int exitCode = process.ExitCode;
+
+            // Dispose the process to release resources
+            process.Dispose();
+
+            // Optionally, you can check the exit code and take further actions based on it
+            if (exitCode == 0)
+            {
+                console.Output.WriteLine("Package installed successfully.");
+            }
+            else
+            {
+                console.Error.WriteLine($"Package installation failed with exit code {exitCode}.");
+            }
         }
         catch (Exception e)
         {

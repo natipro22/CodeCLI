@@ -21,14 +21,14 @@ public class REPRQueryCommand : BaseCommand
             Path = Name;
         }
         ICommandService request = CommandServiceFactory.GetRequestService(Name, "int", CQRS.Query, Path + Name);
-
         ICommandService handler = CommandServiceFactory.GetHandlerService(Name, "int", CQRS.Query, Path + Name);
+        ICommandService validator = CommandServiceFactory.GetValidatorService($"{Name}{nameof(CQRS.Query)}", Path);
 
 
         request.CreateFile();
         handler.CreateFile();
-        console.Output.WriteLine("files created succesfully.");
-        // ICommandService minimalApi = CommandServiceFactory.GetMinimalApiService(Name);
+        validator.CreateFile();
+        console.Output.WriteLine($"{Name} feature created succesfully.");
 
         return ValueTask.CompletedTask;
 
