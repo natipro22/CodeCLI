@@ -61,19 +61,29 @@ namespace CodeCLI.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to namespace @Namespace
+        ///   Looks up a localized string similar to using MediatR;
+        ///using Carter;
         ///
-        ///public class @NameModule : ICarterModule
+        ///namespace @Namespace;
+        ///
+        ///public class @NameEndpoint : CarterModule
         ///{
-        ///    public void AddRoutes(IEndpointRouteBuilder app)
-        ///    {
-        ///        app.MapGet(&quot;/&quot;, () =&gt; new Person
-        ///        {
-        ///            FirstName = &quot;Andrew&quot;,
-        ///            LastName = &quot;Lock&quot;
-        ///        });
-        ///    }
-        ///}.
+        ///	public @NameEndpoint() : base(&quot;/@PlularName&quot;)
+        ///	{
+        ///	}
+        ///	public override void AddRoutes(IEndpointRouteBuilder app)
+        ///	{
+        ///		// Create
+        ///		app.MapPost(&quot;/&quot;, async (@NameCommand request, ISender sender) =&gt;
+        ///		{
+        ///			var result = await sender.Send(request);
+        ///			return Results.Ok(result);
+        ///		});
+        ///
+        ///		// Get all
+        ///		app.MapGet(&quot;/&quot;, async (@NameQuery request, ISender sender) =&gt;
+        ///		{
+        ///			var result = await sender.Send [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string CarterTemp {
             get {
@@ -132,34 +142,30 @@ namespace CodeCLI.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to using Microsoft.AspNetCore.Mvc;
+        ///   Looks up a localized string similar to using MediatR;
+        ///using Microsoft.AspNetCore.Mvc;
         ///
         ///namespace @Namespace;
         ///
         ///[ApiController]
         ///[Route(&quot;[controller]&quot;)]
-        ///public sealed class @Name : ControllerBase
+        ///public sealed class @NameController : ControllerBase
         ///{
+        ///	private readonly ISender _sender;
+        ///	
+        ///    public @NameController(ISender sender)
+        ///    {
+        ///        _sender = sender;
+        ///    }
+        ///
         ///	[HttpGet]
-        ///	public IActionResult GetAll()
+        ///	public async Task&lt;IActionResult&gt; GetAll(GetAll@NameQuery request)
         ///	{
-        ///  		return Ok(default);
+        ///		return Ok(await _sender.Send(request));
         ///	}
         ///
         ///	[HttpGet(&quot;{id}&quot;)]
-        ///	public IActionResult GetById(Guid id)
-        ///	{
-        ///  		return Ok(default);
-        ///	}
-        ///
-        ///	[HttpPost]
-        ///	public IActionResult Create([FromBody] string userInput)
-        ///	{
-        ///  		return Ok(default);
-        ///	}
-        ///
-        ///	[HttpPut(&quot;{id}&quot;)]
-        ///	public IActionResult Update([FromQuery] Guid id, [FromBody] s [rest of string was truncated]&quot;;.
+        ///	public async Task&lt;IActionResult&gt; GetById([FromQuery] Guid [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string controllerTemp {
             get {
@@ -259,6 +265,7 @@ namespace CodeCLI.Properties {
         /// <summary>
         ///   Looks up a localized string similar to using Microsoft.AspNetCore.Builder;
         ///using Microsoft.AspNetCore.Mvc;
+        ///using MediatR;
         ///
         ///namespace @Namespace;
         ///
@@ -266,16 +273,17 @@ namespace CodeCLI.Properties {
         ///{
         ///	public static void Map(this WebApplication app)
         ///	{
-        ///		//Create
-        ///		 app.MapPost(&quot;/@Names&quot;,async (@NameRequest @VarNameRequest, I@NameService @VarNameService)
-        ///			=&gt; await @VarNameService.Create@Name(@VarNameRequest));
+        ///		// Create
+        ///		app.MapPost(&quot;/@PlularName&quot;, async (Create@NameCommand request, ISender sender) =&gt;
+        ///		{
+        ///			var result = await sender.Send(request);
+        ///			return Results.Ok(result);
+        ///		});
         ///
-        ///		 //Read All
-        ///		 app.MapGet(&quot;/@Name&quot;, async (I@NameService @VarNameService)
-        ///			=&gt; await @VarNameService.Get@Names());
-        ///
-        ///		 //Read by Id
-        ///		 app.MapGet( [rest of string was truncated]&quot;;.
+        ///		// Get all
+        ///		app.MapGet(&quot;/@PlularName&quot;, async (GetAll@NameQuery request, ISender sender) =&gt;
+        ///		{
+        ///			var result = a [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string minimalApiTemp {
             get {
