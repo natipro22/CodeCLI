@@ -20,9 +20,10 @@
     <PackageTags>dotnetcli, CLI, code, fastcodeCLI, codecli, clicode, dotnetcode, dotnet-code</PackageTags>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
 	<AssemblyVersion>1.1.0.0</AssemblyVersion>
-	  <AssemblyPrefix>1.1.3</AssemblyPrefix>
+	  <AssemblyPrefix>1.1.4</AssemblyPrefix>
 	<FileVersion>$(AssemblyVersion)</FileVersion>
 	<Version>$(AssemblyPrefix)</Version>
+	<PackageReleaseNotes>support .NET 6 and beyond.</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
