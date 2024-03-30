@@ -103,10 +103,7 @@ public class RegisterServices
         // Define the replacement line
         string replacement = $"\t\tservices.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly(), ServiceLifetime.Transient);\n{build}";
 
-        string usings = """
-            using FluentValidation;
-            using System.Reflection;
-            """;
+        string usings = "using FluentValidation;\nusing System.Reflection;";
         // Perform the replacement
         configFile.Replace(path, build, replacement, usings);
     }
