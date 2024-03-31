@@ -1,6 +1,4 @@
-﻿using System.Reflection;
-
-namespace CodeCLI.DirectoryNamespace;
+﻿namespace CodeCLI.DirectoryNamespace;
 public class Namespace
 {
     public static string GetProjectDirectory(string? directory = null)

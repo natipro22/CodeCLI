@@ -1,14 +1,11 @@
 ﻿using CodeCLI.Common;
 using CodeCLI.DirectoryNamespace;
-using System.Reflection;
-using System.Text.Json;
-using System.Text.RegularExpressions;
-using System.Xml.Linq;
 
 namespace CodeCLI.CommandServices;
 
 public class ClassService : CommandService, ICommandService
 {
+    private readonly string _templateName = "classTemp.txt";
     public string Extends { get; set; }
     public IEnumerable<string> Implements { get; set; }
     public bool IsAbstract { get; set; }
@@ -16,8 +13,7 @@ public class ClassService : CommandService, ICommandService
 
     protected override string GetContent()
     {
-        string name = "classTemp.txt";
-        string content = ReadFile(name);
+        string content = ReadFile(_templateName);
 
         content = content.Replace(nameof(IsAbstract).ToVar(), IsAbstract ? "abstract" : string.Empty);
         content = content.Replace(nameof(IsSeald).ToVar(), IsSeald ? "sealed" : string.Empty);

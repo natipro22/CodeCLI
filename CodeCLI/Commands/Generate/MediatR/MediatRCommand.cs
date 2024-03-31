@@ -5,10 +5,10 @@ using CodeCLI.Common;
 
 namespace CodeCLI.Commands.Generate.MediatR;
 [Command("generate mediatr(m)", "(generate|g) (mediatr|m)$", Description = "MediatR Library. Simple mediator implementation in .NET.")]
-public class MediatRCommand : ICommand
+public class MediatRCommand : CommandBase
 {
-    public ValueTask ExecuteAsync(IConsole console)
+    public override ValueTask ExecuteCommandAsync(IConsole console, CancellationToken cancellationToken)
     {
-        throw new ShowHelpException("MediatR Command Help");
+        return ShowCommandHelpAsync();
     }
 }

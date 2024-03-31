@@ -14,7 +14,7 @@ public class REPRQueryCommand : BaseCommand
     [CommandParameter(0, IsRequired = true, Description = "The name of the REPR")]
     public string Name { get; set; } = string.Empty;
 
-    public override ValueTask ExecuteAsync(IConsole console)
+    public override ValueTask ExecuteCommandAsync(IConsole console, CancellationToken cancellationToken)
     {
         if (string.IsNullOrEmpty(Path))
         {
@@ -28,21 +28,14 @@ public class REPRQueryCommand : BaseCommand
         ICommandService endpoint = CommandServiceFactory.GetEndpointService(Name, Path);
         ICommandService recordService = CommandServiceFactory.GetRecordService(response, string.Empty, Enumerable.Empty<string>(), Path);
 
-        try
-        {
-            request.CreateFile();
-            handler.CreateFile();
-            validator.CreateFile();
-            endpoint.CreateFile();
-            recordService.CreateFile();
+        request.CreateFile();
+        handler.CreateFile();
+        validator.CreateFile();
+        endpoint.CreateFile();
+        recordService.CreateFile();
 
-            console.Output.WriteLine($"{Name} feature created succesfully.");
-        }
-        catch (Exception e)
-        {
-            console.Error.WriteLine(e.Message);
-        }
-
+        console.Output.WriteLine($"{Name} feature created succesfully.");
+        
         return ValueTask.CompletedTask;
 
     }

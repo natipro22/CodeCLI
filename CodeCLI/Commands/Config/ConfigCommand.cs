@@ -1,14 +1,12 @@
-﻿using CliFx;
-using CliFx.Attributes;
+﻿using CliFx.Attributes;
 using CliFx.Infrastructure;
-using CodeCLI.Common;
 
 namespace CodeCLI.Commands.Config;
 [Command("config", "(config|c)$", Description = "configure dependency to the ASP.NET CORE projects")]
-public class ConfigCommand : ICommand
+public class ConfigCommand : CommandBase
 {
-    public ValueTask ExecuteAsync(IConsole console)
+    public override ValueTask ExecuteCommandAsync(IConsole console, CancellationToken cancellationToken)
     {
-        throw new ShowHelpException("Config Help");
+        return ShowCommandHelpAsync();
     }
 }

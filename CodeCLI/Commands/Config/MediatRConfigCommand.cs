@@ -6,9 +6,9 @@ using CodeCLI.CommandServices.RegisterCodeCLI;
 
 namespace CodeCLI.Commands.Config;
 [Command("config mediatr", "(config|c) (mediatr|m)$", Description = "Register MediatR library to the project.")]
-public class MediatRConfigCommand : ICommand
+public class MediatRConfigCommand : CommandBase
 {
-    public ValueTask ExecuteAsync(IConsole console)
+    public override ValueTask ExecuteCommandAsync(IConsole console, CancellationToken cancellationToken)
     {
         try
         {

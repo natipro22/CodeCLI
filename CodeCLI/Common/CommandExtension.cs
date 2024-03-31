@@ -16,11 +16,13 @@ public static class CommandsExtension
         {
             return string.Empty;
         }
-        string[] directories = Directory.GetDirectories(name);
+        string[] directories = name.Split('\\', '/');
 
-        var pascalizeDirectory = directories.Select(d => d.Pascalize());
+        // Filter out the dot (current directory) and handle the parent directory '..'
+        directories = directories.Select(d => d.Pascalize()).ToArray();
 
-        return string.Join("/", pascalizeDirectory);
+        return directories
+            .Aggregate((current, next) => Path.Combine(current, next));
     }
 
     public static string ToCamelCase(this string name)

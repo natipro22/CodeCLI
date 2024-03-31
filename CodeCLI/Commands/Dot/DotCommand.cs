@@ -6,26 +6,20 @@ using System.Threading.Tasks;
 using CliFx;
 using CliFx.Attributes;
 using CliFx.Infrastructure;
+using CodeCLI.Commands;
 
 namespace FastCodeCLI.Commands.Dot;
-[Command("dot", "[.]", Description = "Launch Visual studio with the specified solution")]
-public class DotCommand : ICommand
+[Command("dot", "^[.]$", Description = "Launch Visual studio with the specified solution")]
+public class DotCommand : CommandBase
 {
-    public ValueTask ExecuteAsync(IConsole console)
+    public override ValueTask ExecuteCommandAsync(IConsole console, CancellationToken cancellation)
     {
         string currentDirectory = Directory.GetCurrentDirectory();
         string[] getFiles = Directory.GetFiles(currentDirectory, "*.sln");
         if (getFiles.Any())
         {
             string solution = getFiles.First();
-            try
-            {
-                Process.Start("devenv", $"\"{solution}\"");
-            }
-            catch (Exception e)
-            {
-                console.Error.WriteLine(e.Message);
-            }
+            Process.Start("devenv", $"\"{solution}\"");
         }
         else
         {

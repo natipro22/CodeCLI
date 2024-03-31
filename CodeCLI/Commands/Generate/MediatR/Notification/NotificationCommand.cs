@@ -11,7 +11,7 @@ public class NotificationCommand : BaseCommand
     [CommandParameter(0, IsRequired = true, Description = "The name of the notification.")]
     public string Name { get; set; } = string.Empty;
 
-    public override ValueTask ExecuteAsync(IConsole console)
+    public override ValueTask ExecuteCommandAsync(IConsole console, CancellationToken cancellation)
     {
         ICommandService commandService = CommandServiceFactory.GetNotificationService(Name, Path);
 

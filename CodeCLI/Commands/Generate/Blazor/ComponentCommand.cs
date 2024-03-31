@@ -14,29 +14,18 @@ public class ComponentCommand : BaseCommand
 {
     [CommandParameter(0, IsRequired = true, Description = "The name of the component.")]
     public string Name { get; set; } = string.Empty;
-    public override ValueTask ExecuteAsync(IConsole console)
+    public override ValueTask ExecuteCommandAsync(IConsole console, CancellationToken cancellation)
     {
-		if (string.IsNullOrEmpty(Path))
-		{
-			Path = Name;
-		}
-		try
-		{
+        Path = string.IsNullOrEmpty(Path) ? Name : Path;
+		ICommandService component = CommandServiceFactory.GetComponentService(Name, Path);
+        ICommandService razor = CommandServiceFactory.GetRazorService(Name, Path);
+        ICommandService css = CommandServiceFactory.GetCssService(Name, Path);
 
-			ICommandService component = CommandServiceFactory.GetComponentService(Name, Path);
-            ICommandService razor = CommandServiceFactory.GetRazorService(Name, Path);
-            ICommandService css = CommandServiceFactory.GetCssService(Name, Path);
+		component.CreateFile();
+        razor.CreateFile();
+        css.CreateFile();
 
-			var file = component.CreateFile();
-            razor.CreateFile();
-            css.CreateFile();
-			console.WriteLine($"{Name} component created succesfully");
-
-		}
-		catch (Exception)
-		{
-			throw;
-		}
+		console.Output.WriteLine($"{Name} component created succesfully");
 		return ValueTask.CompletedTask;
     }
 }

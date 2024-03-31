@@ -16,7 +16,7 @@ public class RequestCommandCommand : BaseCommand
     [CommandParameter(1, IsRequired = false, Description = "The name of the response.")]
     public string Response { get; set; } = "int";
 
-    public override ValueTask ExecuteAsync(IConsole console)
+    public override ValueTask ExecuteCommandAsync(IConsole console, CancellationToken cancellation)
     {
         ICommandService commandService = CommandServiceFactory.GetRequestService(Name, Response, CQRS.Command, Path);
 

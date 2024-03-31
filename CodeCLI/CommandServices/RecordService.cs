@@ -1,15 +1,14 @@
 using CodeCLI.Common;
 using CodeCLI.DirectoryNamespace;
-using System.Text.RegularExpressions;
 
 namespace CodeCLI.CommandServices;
 
 public class RecordService : ClassService, ICommandService
 {
+    private readonly string _templateName = "recordTemp.txt";
     protected override string GetContent()
     {
-        string name = "recordTemp.txt";
-        string content = ReadFile(name);
+        string content = ReadFile(_templateName);
         content = content.Replace(nameof(IsAbstract).ToVar(), IsAbstract ? "abstract" : string.Empty);
         content = content.Replace(nameof(IsSeald).ToVar(), IsSeald ? "sealed" : string.Empty);
         content = content.Replace(nameof(Namespace).ToVar(), Namespace.GetNamespace(Directory));

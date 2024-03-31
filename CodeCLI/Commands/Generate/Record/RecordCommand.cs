@@ -15,7 +15,7 @@ public class RecordCommand : BaseCommand
 
     [CommandParameter(2, IsRequired = false, Description = "The names of the interfaces.")]
     public IEnumerable<string> Implements { get; set; } = Enumerable.Empty<string>();
-    public override ValueTask ExecuteAsync(IConsole console)
+    public override ValueTask ExecuteCommandAsync(IConsole console, CancellationToken cancellationToken)
     {
         ICommandService commandService = CommandServiceFactory.GetRecordService(Name, Extends, Implements, Path);
 

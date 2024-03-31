@@ -1,10 +1,4 @@
 ﻿using CodeCLI.Common;
-using CodeCLI.DirectoryNamespace;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CodeCLI.CommandServices.Blazor;
 public class RazorService : CommandService

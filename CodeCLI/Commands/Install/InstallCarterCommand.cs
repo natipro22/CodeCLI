@@ -6,39 +6,32 @@ using System.Diagnostics;
 
 namespace CodeCLI.Commands.Install;
 [Command("install carter(c)", "(install|i) (carter|c)$", Description = "Carter is a framework that is a thin layer of extension methods and functionality over ASP.NET Core allowing the code to be more explicit and most importantly more enjoyable.")]
-internal class InstallCarterCommand : ICommand
+internal class InstallCarterCommand : CommandBase
 {
-    public ValueTask ExecuteAsync(IConsole console)
+    public override ValueTask ExecuteCommandAsync(IConsole console, CancellationToken cancellationToken)
     {
-        try
+        var projectPath = Namespace.GetProjectDirectory();
+        string arg = $"add \"{projectPath}\" package carter";
+        // Start the process
+        Process process = Process.Start("dotnet", arg);
+
+        // Wait for the process to exit
+        process.WaitForExit();
+
+        // Check the exit code
+        int exitCode = process.ExitCode;
+
+        // Dispose the process to release resources
+        process.Dispose();
+
+        // Optionally, you can check the exit code and take further actions based on it
+        if (exitCode == 0)
         {
-            var projectPath = Namespace.GetProjectDirectory();
-            string arg = $"add \"{projectPath}\" package carter";
-            // Start the process
-            Process process = Process.Start("dotnet", arg);
-
-            // Wait for the process to exit
-            process.WaitForExit();
-
-            // Check the exit code
-            int exitCode = process.ExitCode;
-
-            // Dispose the process to release resources
-            process.Dispose();
-
-            // Optionally, you can check the exit code and take further actions based on it
-            if (exitCode == 0)
-            {
-                console.Output.WriteLine("Package installed successfully.");
-            }
-            else
-            {
-                console.Error.WriteLine($"Package installation failed with exit code {exitCode}.");
-            }
+            console.Output.WriteLine("Package installed successfully.");
         }
-        catch (Exception e)
+        else
         {
-            console.Error.WriteLine(e.Message);
+            console.Error.WriteLine($"Package installation failed with exit code {exitCode}.");
         }
         return ValueTask.CompletedTask;
     }

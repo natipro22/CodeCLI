@@ -1,14 +1,12 @@
-﻿using CliFx;
-using CliFx.Attributes;
+﻿using CliFx.Attributes;
 using CliFx.Infrastructure;
-using CodeCLI.Common;
 
 namespace CodeCLI.Commands.Install;
 [Command("install", "^(install|i)$")]
-public class InstallCommand : ICommand
+public class InstallCommand : CommandBase
 {
-    public ValueTask ExecuteAsync(IConsole console)
+    public override ValueTask ExecuteCommandAsync(IConsole console, CancellationToken cancellationToken)
     {
-        throw new ShowHelpException("Install Help");
+        return ShowCommandHelpAsync();
     }
 }

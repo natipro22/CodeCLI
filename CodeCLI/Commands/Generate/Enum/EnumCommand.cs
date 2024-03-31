@@ -11,7 +11,7 @@ public class EnumCommand : BaseCommand
     [CommandParameter(0, IsRequired = true, Description = "The name of the enum.")]
     public string Name { get; set; } = string.Empty;
 
-    public override ValueTask ExecuteAsync(IConsole console)
+    public override ValueTask ExecuteCommandAsync(IConsole console, CancellationToken cancellation)
     {
         ICommandService enumService = CommandServiceFactory.GetEnumService(Name, Path);
 

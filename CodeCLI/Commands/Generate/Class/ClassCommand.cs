@@ -1,9 +1,7 @@
 ﻿using CliFx.Attributes;
 using CliFx.Infrastructure;
-using CodeCLI.Commands.Generate;
 using CodeCLI.CommandServices;
 using CodeCLI.Common;
-using System.Text.Json;
 
 namespace CodeCLI.Commands.Generate.Class;
 [Command("generate class(c)", "(generate|g) (class|c)$", Description = "Creates a new, generic class definition in the given project.")]
@@ -24,20 +22,13 @@ public class ClassCommand : BaseCommand
     [CommandOption("seald", 's', Description = "seald class")]
     public bool Seald { get; set; } = false;
 
-    public override ValueTask ExecuteAsync(IConsole console)
+    public override ValueTask ExecuteCommandAsync(IConsole console, CancellationToken cancellation)
     {
         // Get the class service
         ICommandService classService = CommandServiceFactory.GetClassService(Name, Extends, Implements, Abstract, Seald, Path);
-        try
-        {
-            string fileName = classService.CreateFile();
-            // write success message on the console
-            console.FileCreated(fileName);
-        }
-        catch (Exception e)
-        {
-            console.Error.WriteLine(e.Message);
-        }
+        string fileName = classService.CreateFile();
+        // write success message on the console
+        console.FileCreated(fileName);
         return ValueTask.CompletedTask;
     }
 }

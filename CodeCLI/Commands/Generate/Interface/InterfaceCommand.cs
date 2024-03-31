@@ -19,7 +19,7 @@ public class InterfaceCommand : BaseCommand
     public char Prefix { get; set; } = 'I';
 
 
-    public override ValueTask ExecuteAsync(IConsole console)
+    public override ValueTask ExecuteCommandAsync(IConsole console, CancellationToken cancellation)
     {
         // Get the service.
         ICommandService interfaceService = CommandServiceFactory.GetInterfaceService(Name, Extends, Prefix, Path);

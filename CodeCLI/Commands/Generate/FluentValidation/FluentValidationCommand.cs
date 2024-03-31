@@ -9,10 +9,11 @@ using CodeCLI.Common;
 
 namespace CodeCLI.Commands.Generate.FluentValidation;
 [Command("generate fluent-validation(fv)", "(generate|g) (fluent-validation|fv)$", Description = "FluentValidation is a .NET library for building strongly-typed validation rules.")]
-public class FluentValidationCommand : ICommand
+public class FluentValidationCommand : CommandBase
 {
-    public ValueTask ExecuteAsync(IConsole console)
+
+    public override ValueTask ExecuteCommandAsync(IConsole console, CancellationToken cancellationToken)
     {
-        throw new ShowHelpException("Fluent Validation Command Help");
+        return ShowCommandHelpAsync();
     }
 }

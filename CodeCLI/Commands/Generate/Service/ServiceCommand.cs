@@ -1,6 +1,5 @@
 ﻿using CliFx.Attributes;
 using CliFx.Infrastructure;
-using CodeCLI.Commands.Generate;
 using CodeCLI.CommandServices;
 using CodeCLI.Common;
 
@@ -23,7 +22,7 @@ public class ServiceCommand : BaseCommand
     [CommandOption("seald", 's', Description = "seald class")]
     public bool Seald { get; set; } = false;
 
-    public override ValueTask ExecuteAsync(IConsole console)
+    public override ValueTask ExecuteCommandAsync(IConsole console, CancellationToken cancellationToken)
     {
         ICommandService commandService = CommandServiceFactory.GetClassService($"{Name}Service", Extends, Implements, Abstract, Seald, Path);
 

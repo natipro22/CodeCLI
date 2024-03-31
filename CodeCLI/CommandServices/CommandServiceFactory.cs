@@ -1,8 +1,6 @@
 ﻿using CodeCLI.CommandServices.Blazor;
 using CodeCLI.CommandServices.Carter;
 using CodeCLI.CommandServices.MediatR;
-using System.Text.Json;
-using System.Xml.Linq;
 
 namespace CodeCLI.CommandServices;
 

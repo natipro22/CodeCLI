@@ -6,9 +6,9 @@ using CodeCLI.CommandServices.RegisterCodeCLI;
 
 namespace CodeCLI.Commands.Config;
 [Command("config fluent-validation", "(config|c) (fluent-validation|fv)$", Description = "Register FluentValidation library to the project.")]
-public class FluentValidationConfigCommand : ICommand
+public class FluentValidationConfigCommand : CommandBase
 {
-    public ValueTask ExecuteAsync(IConsole console)
+    public override ValueTask ExecuteCommandAsync(IConsole console, CancellationToken cancellationToken)
     {
         try
         {

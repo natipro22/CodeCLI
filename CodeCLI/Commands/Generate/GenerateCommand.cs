@@ -5,11 +5,11 @@ using CodeCLI.Common;
 
 namespace CodeCLI.Commands.Generate;
 [Command("generate", "(generate|g)$", Description = "Generates and/or modifies files based on a schematic.")]
-public class GenerateCommand : ICommand
+public class GenerateCommand : CommandBase
 {
 
-    public ValueTask ExecuteAsync(IConsole console)
+    public override ValueTask ExecuteCommandAsync(IConsole console, CancellationToken cancellationToken)
     {
-        throw new ShowHelpException("Generate Help");
+        return ShowCommandHelpAsync();
     }
 }

@@ -5,10 +5,10 @@ namespace CodeCLI.CommandServices;
 
 public class ControllerService : ClassService, ICommandService
 {
+    private readonly string _templateName = "controllerTemp.txt";
     protected override string GetContent()
     {
-        string name = "controllerTemp.txt";
-        string content = ReadFile(name);
+        string content = ReadFile(_templateName);
         content = content.Replace(nameof(Namespace).ToVar(), Namespace.GetNamespace(Directory));
         content = content.Replace(nameof(Name).ToVar(), Name);
         return content;

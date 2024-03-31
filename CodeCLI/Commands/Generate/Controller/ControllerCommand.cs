@@ -12,7 +12,7 @@ public class ControllerCommand : BaseCommand
     [CommandParameter(0, IsRequired = true, Description = "The name of the controller")]
     public string Name { get; set; } = string.Empty;
 
-    public override ValueTask ExecuteAsync(IConsole console)
+    public override ValueTask ExecuteCommandAsync(IConsole console, CancellationToken cancellation)
     {
         ICommandService commandService = CommandServiceFactory.GetControllerService(Name, Path);
 

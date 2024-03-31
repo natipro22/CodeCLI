@@ -1,7 +1,5 @@
 ﻿using CodeCLI.Common;
 using CodeCLI.DirectoryNamespace;
-using System.Text.RegularExpressions;
-using System.Xml.Linq;
 
 namespace CodeCLI.CommandServices.RegisterCodeCLI;
 public class RegisterServices

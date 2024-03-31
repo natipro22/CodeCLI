@@ -1,15 +1,14 @@
 using CodeCLI.Common;
 using CodeCLI.DirectoryNamespace;
-using System.Text.RegularExpressions;
 
 namespace CodeCLI.CommandServices;
 
 public class EnumService : CommandService, ICommandService
 {
+    private readonly string _templateName = "enumTemp.txt";
     protected override string GetContent()
     {
-        string name = "enumTemp.txt";
-        string content = ReadFile(name);
+        string content = ReadFile(_templateName);
 
         content = content.Replace(nameof(Namespace).ToVar(), Namespace.GetNamespace(Directory));
         content = content.Replace(nameof(Name).ToVar(), Name);

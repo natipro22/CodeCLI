@@ -6,9 +6,9 @@ using CodeCLI.CommandServices.RegisterCodeCLI;
 
 namespace CodeCLI.Commands.Config;
 [Command("config carter(c)", "(config|c) (carter|c)$", Description = "Register Carter library to the project.")]
-public class CarterConfigCommand : ICommand
+public class CarterConfigCommand : CommandBase
 {
-    public ValueTask ExecuteAsync(IConsole console)
+    public override ValueTask ExecuteCommandAsync(IConsole console, CancellationToken cancellationToken)
     {
         try
         {
