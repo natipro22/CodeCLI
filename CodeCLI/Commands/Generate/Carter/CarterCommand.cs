@@ -4,7 +4,7 @@ using CodeCLI.CommandServices;
 using CodeCLI.Common;
 
 namespace CodeCLI.Commands.Generate.Carter;
-[Command("generate endpoint(ep)", "(generate|g) (endpoint|ep)$", Description = "Creates a new, generic endpoint definition using carter in the given project.")]
+[Command("generate endpoint(ep)", @"(generate|g)?\s?(endpoint|ep)$", Description = "Creates a new, generic endpoint definition using carter in the given project.")]
 public class CarterCommand : BaseCommand
 {
     [CommandParameter(0, IsRequired = true, Description = "The name of the endpoint.")]

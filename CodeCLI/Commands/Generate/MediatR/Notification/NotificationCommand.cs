@@ -2,10 +2,9 @@
 using CliFx.Infrastructure;
 using CodeCLI.CommandServices;
 using CodeCLI.Common;
-using System.Xml.Linq;
 
 namespace CodeCLI.Commands.Generate.MediatR.Notification;
-[Command("generate mediatr notification(n)", "(generate|g) (mediatr|m) (notification|n)$", Description = "Creates a new, generic event notification definition using MediatR in the given project.")]
+[Command("generate mediatr notification(n)", @"(generate|g)?\s?(mediatr|m) (notification|n)$", Description = "Creates a new, generic event notification definition using MediatR in the given project.")]
 public class NotificationCommand : BaseCommand
 {
     [CommandParameter(0, IsRequired = true, Description = "The name of the notification.")]

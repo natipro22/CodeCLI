@@ -8,7 +8,7 @@ public class InterfaceService : CommandService, ICommandService
     private readonly string _templateName = "interfaceTemp.txt";
     public IEnumerable<string> Extends { get; set; }
     public char Prefix { get; set; } = 'I';
-    
+
     protected override string GetContent()
     {
         string content = ReadFile(_templateName);

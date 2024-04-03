@@ -34,7 +34,7 @@ public class InstallMediatRCommand : ICommand
         {
             console.Error.WriteLine($"Package installation failed with exit code {exitCode}.");
         }
-        
+
         return ValueTask.CompletedTask;
     }
 }

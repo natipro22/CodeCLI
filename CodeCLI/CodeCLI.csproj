@@ -19,7 +19,7 @@
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageTags>dotnetcli, CLI, code, fastcodeCLI, codecli, clicode, dotnetcode, dotnet-code</PackageTags>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-	<AssemblyVersion>1.1.5</AssemblyVersion>
+	<AssemblyVersion>1.2.0</AssemblyVersion>
 	  <AssemblyPrefix>$(AssemblyVersion)</AssemblyPrefix>
 	<FileVersion>$(AssemblyVersion)</FileVersion>
 	<Version>$(AssemblyPrefix)</Version>

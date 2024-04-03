@@ -4,7 +4,7 @@ public class Namespace
     public static string GetProjectDirectory(string? directory = null)
     {
         directory ??= Directory.GetCurrentDirectory();
-        
+
         string[] csprojFiles = Directory.GetFiles(directory, "*.csproj");
 
         if (csprojFiles.Length > 0)
@@ -50,5 +50,5 @@ public class Namespace
         return @namespace;
     }
 
-    
+
 }

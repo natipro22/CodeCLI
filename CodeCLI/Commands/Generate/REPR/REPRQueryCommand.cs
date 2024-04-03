@@ -1,14 +1,10 @@
-﻿using CliFx;
-using CliFx.Attributes;
+﻿using CliFx.Attributes;
 using CliFx.Infrastructure;
-using CodeCLI.Commands.Generate;
 using CodeCLI.CommandServices;
 using CodeCLI.CommandServices.MediatR;
-using CodeCLI.Common;
-using System.Xml.Linq;
 
 namespace CodeCLI.Commands.Generate.REPR;
-[Command("generate repr query", "(generate|g) (repr) (query|q)$")]
+[Command("generate repr query", @"(generate|g)?\s?(repr) (query|q)$")]
 public class REPRQueryCommand : BaseCommand
 {
     [CommandParameter(0, IsRequired = true, Description = "The name of the REPR")]
@@ -35,7 +31,7 @@ public class REPRQueryCommand : BaseCommand
         recordService.CreateFile();
 
         console.Output.WriteLine($"{Name} feature created succesfully.");
-        
+
         return ValueTask.CompletedTask;
 
     }

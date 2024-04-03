@@ -1,10 +1,8 @@
-﻿using CliFx;
-using CliFx.Attributes;
+﻿using CliFx.Attributes;
 using CliFx.Infrastructure;
-using CodeCLI.Common;
 
 namespace CodeCLI.Commands.Generate;
-[Command("generate", "(generate|g)$", Description = "Generates and/or modifies files based on a schematic.")]
+[Command("generate", "^(generate|g)$", Description = "Generates and/or modifies files based on a schematic.")]
 public class GenerateCommand : CommandBase
 {
 

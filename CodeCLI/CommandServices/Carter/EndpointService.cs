@@ -24,7 +24,7 @@ internal class EndpointService : CommandService
         //{
         //    RequestType = "object";
         //}
-        
+
         content = content.Replace(nameof(Namespace).ToVar(), Namespace.GetNamespace(Directory));
         content = content.Replace(nameof(Name).ToVar(), Name);
         content = content.Replace(nameof(PlularName).ToVar(), PlularName);

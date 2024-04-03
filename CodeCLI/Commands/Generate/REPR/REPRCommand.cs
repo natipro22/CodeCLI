@@ -2,7 +2,7 @@
 using CliFx.Infrastructure;
 
 namespace CodeCLI.Commands.Generate.REPR;
-[Command("generate repr", "(generate|g) (repr)$", Description = "")]
+[Command("generate repr", @"(generate|g)(?:\s|$)(repr)$", Description = "Request-EndPoint-Response")]
 public class REPRCommand : BaseCommand
 {
     public override ValueTask ExecuteCommandAsync(IConsole console, CancellationToken cancellationToken)

@@ -1,13 +1,11 @@
 ﻿using CliFx.Attributes;
 using CliFx.Infrastructure;
-using CodeCLI.Commands.Generate;
 using CodeCLI.CommandServices;
 using CodeCLI.CommandServices.MediatR;
 using CodeCLI.Common;
-using System.Xml.Linq;
 
 namespace CodeCLI.Commands.Generate.MediatR;
-[Command("generate mediatr command(c)", "(generate|g) (mediatr|m) (command|c)$", Description = "Creates a new, generic CQRS command definition using MediatR in the given project.")]
+[Command("generate mediatr command(c)", @"(generate|g)?\s?(mediatr|m) (command|c)$", Description = "Creates a new, generic CQRS command definition using MediatR in the given project.")]
 public class RequestCommandCommand : BaseCommand
 {
     [CommandParameter(0, IsRequired = true, Description = "The name of the command.")]

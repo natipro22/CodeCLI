@@ -1,12 +1,10 @@
 ﻿using CliFx.Attributes;
 using CliFx.Infrastructure;
-using CodeCLI.Commands.Generate;
 using CodeCLI.CommandServices;
 using CodeCLI.Common;
-using System.Xml.Linq;
 
 namespace CodeCLI.Commands.Generate.Interface;
-[Command("generate interface(i)", "(generate|g) (interface|i)$", Description = "Creates a new, generic interface definition in the given project.")]
+[Command("generate interface(i)", @"(generate|g)?\s?(interface|i)$", Description = "Creates a new, generic interface definition in the given project.")]
 public class InterfaceCommand : BaseCommand
 {
     [CommandParameter(0, IsRequired = true, Description = "The name of the interface.")]

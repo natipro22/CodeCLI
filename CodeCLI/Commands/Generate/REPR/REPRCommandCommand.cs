@@ -4,7 +4,7 @@ using CodeCLI.CommandServices;
 using CodeCLI.CommandServices.MediatR;
 
 namespace CodeCLI.Commands.Generate.REPR;
-[Command("generate repr command", "(generate|g) (repr) (command|c)$")]
+[Command("generate repr command", @"(generate|g)?\s?(repr) (command|c)$")]
 public class REPRCommandCommand : BaseCommand
 {
     [CommandParameter(0, IsRequired = true, Description = "The name of the REPR")]

@@ -26,7 +26,7 @@ public abstract class CommandBase : ICommand
         {
             await console.Error.WriteLineAsync(e.Message);
         }
-            
+
     }
 
     /// <summary>

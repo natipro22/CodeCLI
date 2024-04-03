@@ -5,7 +5,7 @@ using CodeCLI.Common;
 
 namespace CodeCLI.Commands.Generate.Blazor;
 
-[Command("generate blazor razor(r)", "(generate|g) (blazor|b) (razor|r)$", Description = "Creates a new, generic razor page definition in the given project.")]
+[Command("generate blazor razor(r)", @"(generate|g)?\s?(blazor|b) (razor|r)$", Description = "Creates a new, generic razor page definition in the given project.")]
 public class RazorCommand : BaseCommand
 {
     [CommandParameter(0, IsRequired = true, Description = "The name of the razor.")]
@@ -13,7 +13,7 @@ public class RazorCommand : BaseCommand
     public override ValueTask ExecuteCommandAsync(IConsole console, CancellationToken cancellation)
     {
         ICommandService commandService = CommandServiceFactory.GetRazorService(Name, Path);
-        
+
         string fileName = commandService.CreateFile();
         // write success message on the console
         console.FileCreated(fileName);

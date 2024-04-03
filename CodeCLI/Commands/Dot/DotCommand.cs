@@ -1,12 +1,55 @@
+
+/* Unmerged change from project 'CodeCLI (net7.0)'
+Before:
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
+After:
+using CliFx;
+using CliFx.Collections.Generic;
+*/
+
+/* Unmerged change from project 'CodeCLI (net8.0)'
+Before:
+using System;
+using System.Collections.Generic;
+After:
+using CliFx;
+using CliFx.Collections.Generic;
+*/
+using CliFx.Attributes;
+using CliFx.Infrastructure;
+using CodeCLI.Commands;
+
+/* Unmerged change from project 'CodeCLI (net7.0)'
+Before:
 using System.Threading.Tasks;
 using CliFx;
 using CliFx.Attributes;
 using CliFx.Infrastructure;
 using CodeCLI.Commands;
+After:
+using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Linq;
+using System.Threading.Tasks;
+*/
+
+/* Unmerged change from project 'CodeCLI (net8.0)'
+Before:
+using System.Threading.Tasks;
+using CliFx;
+using CliFx.Attributes;
+using CliFx.Infrastructure;
+using CodeCLI.Commands;
+After:
+using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Linq;
+using System.Threading.Tasks;
+*/
+using System.Diagnostics;
 
 namespace FastCodeCLI.Commands.Dot;
 [Command("dot", "^[.]$", Description = "Launch Visual studio with the specified solution")]

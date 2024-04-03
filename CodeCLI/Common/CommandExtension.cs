@@ -1,7 +1,5 @@
 using CliFx.Infrastructure;
 using Humanizer;
-using System.Globalization;
-using System.IO;
 using System.Text.RegularExpressions;
 
 namespace CodeCLI.Common;

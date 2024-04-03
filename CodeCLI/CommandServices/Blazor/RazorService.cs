@@ -9,7 +9,7 @@ public class RazorService : CommandService
         string content = ReadFile(_templateName);
 
         content = content.Replace(nameof(Name).ToVar(), Name);
-        
+
         return content;
     }
 }

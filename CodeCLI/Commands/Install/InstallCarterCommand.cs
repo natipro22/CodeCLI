@@ -1,5 +1,4 @@
-﻿using CliFx;
-using CliFx.Attributes;
+﻿using CliFx.Attributes;
 using CliFx.Infrastructure;
 using CodeCLI.DirectoryNamespace;
 using System.Diagnostics;

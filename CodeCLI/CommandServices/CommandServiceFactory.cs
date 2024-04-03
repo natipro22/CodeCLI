@@ -75,7 +75,7 @@ public static class CommandServiceFactory
             Directory = path,
             Type = type
         };
-    
+
     public static ICommandService GetHandlerService(string name, string response, CQRS type, string path)
         => new HandlerService
         {
