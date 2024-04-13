@@ -4,7 +4,7 @@ using CodeCLI.CommandServices;
 using CodeCLI.Common;
 
 namespace CodeCLI.Commands.Generate.Interface;
-[Command("generate interface(i)", @"(generate|g)?\s?(interface|i)$", Description = "Creates a new, generic interface definition in the given project.")]
+[Command("generate(g) interface(i)", @"(generate|g)\b (interface|i)$", Description = "Creates a new, generic interface definition in the given project.")]
 public class InterfaceCommand : BaseCommand
 {
     [CommandParameter(0, IsRequired = true, Description = "The name of the interface.")]

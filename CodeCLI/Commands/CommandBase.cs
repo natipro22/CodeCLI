@@ -1,13 +1,18 @@
 ﻿using CliFx;
+using CliFx.Attributes;
 using CliFx.Exceptions;
 using CliFx.Infrastructure;
 
 namespace CodeCLI.Commands;
-
+[Command]
 public abstract class CommandBase : ICommand
 {
+
+    //[CommandOption("path", 'p', Description = "The path of the file.")]
+    //public string Path { get; set; } = string.Empty;
     public async ValueTask ExecuteAsync(IConsole console)
     {
+
         var cancellationToken = console.RegisterCancellationHandler();
         try
         {

@@ -1,9 +1,10 @@
 ﻿using CliFx;
 using CliFx.Attributes;
+using CliFx.Infrastructure;
 
 namespace CodeCLI.Commands;
 [Command]
-public abstract class BaseCommand : CommandBase, ICommand
+public abstract class BaseCommand : CommandBase
 {
 
     protected string _fileName = string.Empty;

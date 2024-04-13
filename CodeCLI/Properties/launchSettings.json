@@ -2,7 +2,7 @@
   "profiles": {
     "Code": {
       "commandName": "Project",
-      "commandLineArgs": "c mombm"
+      "commandLineArgs": "g m"
     },
     "WSL": {
       "commandName": "WSL2",

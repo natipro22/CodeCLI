@@ -4,7 +4,7 @@ using CodeCLI.CommandServices;
 using CodeCLI.Common;
 
 namespace CodeCLI.Commands.Generate.Blazor;
-[Command("generate blazor css", @"(generate|g)?\s?(blazor|b) (css)$", Description = "It is a style sheet language used for describing the presentation of a document written in a markup language like HTML.")]
+[Command("generate(g) blazor(b) css", @"(generate|g)\b (blazor|b)\b (css)$", Description = "It is a style sheet language used for describing the presentation of a document written in a markup language like HTML.")]
 public class CssCommand : BaseCommand
 {
     [CommandParameter(0, IsRequired = true, Description = "The name of the css.")]

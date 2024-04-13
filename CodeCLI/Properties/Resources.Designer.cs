@@ -74,16 +74,47 @@ namespace CodeCLI.Properties {
         ///	public override void AddRoutes(IEndpointRouteBuilder app)
         ///	{
         ///		// Create
-        ///		app.MapPost(&quot;/&quot;, async (@NameCommand request, ISender sender) =&gt;
-        ///		{
-        ///			var result = await sender.Send(request);
-        ///			return Results.Ok(result);
-        ///		});
+        ///		// app.MapPost(&quot;/&quot;, async (@NameCommand request, ISender sender) =&gt;
+        ///		// {
+        ///		// 		var result = await sender.Send(request);
+        ///		// 		return Results.Ok(result);
+        ///		// });
         ///
         ///		// Get all
-        ///		app.MapGet(&quot;/&quot;, async (@NameQuery request, ISender sender) =&gt;
-        ///		{
-        ///			var result = await sender.Send [rest of string was truncated]&quot;;.
+        ///		// app.MapGet(&quot;/&quot;, async (@NameQuery request, ISender sender) =&gt;
+        ///		// {
+        ///		// 		var [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string CarterEndpointTemp {
+            get {
+                return ResourceManager.GetString("CarterEndpointTemp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to using MediatR;
+        ///using Carter;
+        ///
+        ///namespace @Namespace;
+        ///
+        ///public class @NameEndpoint : CarterModule
+        ///{
+        ///	public @NameEndpoint() : base(&quot;/@PlularName&quot;)
+        ///	{
+        ///	}
+        ///	public override void AddRoutes(IEndpointRouteBuilder app)
+        ///	{
+        ///		// Create
+        ///		// app.MapPost(&quot;/&quot;, async (@NameCommand request, ISender sender) =&gt;
+        ///		// {
+        ///		// 		var result = await sender.Send(request);
+        ///		// 		return Results.Ok(result);
+        ///		// });
+        ///
+        ///		// Get all
+        ///		// app.MapGet(&quot;/&quot;, async (@NameQuery request, ISender sender) =&gt;
+        ///		// {
+        ///		// 		var [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string CarterTemp {
             get {

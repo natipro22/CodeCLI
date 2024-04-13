@@ -5,7 +5,7 @@ using CodeCLI.CommandServices.RegisterCodeCLI;
 using CodeCLI.Common;
 
 namespace CodeCLI.Commands.Generate.Middleware;
-[Command("generate middleware(mw)", @"(generate|g)?\s?(middleware|mw)$", Description = "Creates a new, generic ASP.NET Core middleware definition in the given project.")]
+[Command("generate(g) middleware(mw)", @"(generate|g)\b (middleware|mw)\b$", Description = "Creates a new, generic ASP.NET Core middleware definition in the given project.")]
 public class MiddlewareCommand : BaseCommand
 {
     [CommandParameter(0, IsRequired = true, Description = "The name of the middleware.")]

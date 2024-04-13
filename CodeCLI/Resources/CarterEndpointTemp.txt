@@ -1,0 +1,48 @@
+using MediatR;
+using Carter;
+
+namespace @Namespace;
+
+public class @NameEndpoint : CarterModule
+{
+	public @NameEndpoint() : base("/@PlularName")
+	{
+	}
+	public override void AddRoutes(IEndpointRouteBuilder app)
+	{
+		// Create
+		// app.MapPost("/", async (@NameCommand request, ISender sender) =>
+		// {
+		// 		var result = await sender.Send(request);
+		// 		return Results.Ok(result);
+		// });
+
+		// Get all
+		// app.MapGet("/", async (@NameQuery request, ISender sender) =>
+		// {
+		// 		var result = await sender.Send(request);
+		// 		return Results.Ok(result);
+		// });
+
+		// Get by id
+		// app.MapGet("/{id}", async (Guid id, ISender sender) =>
+		// {
+		// 		var result = await sender.Send(new GetById@NameQuery(id));
+		// 		return Results.Ok(result);
+		// });
+
+		// Update
+		// app.MapPut("/{id}", async (Guid id, @NameCommand request, ISender sender) =>
+		// {
+		// 		var result = await sender.Send(request);
+		// 		return Results.Ok(result);
+		// });
+
+		// Delete
+		// app.MapDelete("/{id}", async (Guid id, ISender sender) =>
+		// {
+		//		var result = await sender.Send(new Delete@NameCommand(id));
+		//		return Results.Ok(result);
+		// });
+	}
+}
