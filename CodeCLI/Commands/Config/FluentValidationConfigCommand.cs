@@ -5,7 +5,7 @@ using CodeCLI.Commands.Install;
 using CodeCLI.CommandServices.RegisterCodeCLI;
 
 namespace CodeCLI.Commands.Config;
-[Command("config fluent-validation", "(config|c) (fluent-validation|fv)$", Description = "Register FluentValidation library to the project.")]
+[Command("config fluent-validation", @"^\b(config|c)\b \b(fluent-validation|fv)\b$", Description = "Register FluentValidation library to the project.")]
 public class FluentValidationConfigCommand : CommandBase
 {
     public override ValueTask ExecuteCommandAsync(IConsole console, CancellationToken cancellationToken)

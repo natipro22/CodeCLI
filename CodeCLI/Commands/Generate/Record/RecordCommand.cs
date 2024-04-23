@@ -4,7 +4,7 @@ using CodeCLI.CommandServices;
 using CodeCLI.Common;
 
 namespace CodeCLI.Commands.Generate.Record;
-[Command("generate(g) record(r)", @"(generate|g)\b (record|r)\b$", Description = "Creates a new, generic record definition in the given project.")]
+[Command("generate(g) record(r)", @"^\b(generate|g)\b \b(record|r)\b$", Description = "Creates a new, generic record definition in the given project.")]
 public class RecordCommand : BaseCommand
 {
     [CommandParameter(0, IsRequired = true, Description = "The name of the record.")]

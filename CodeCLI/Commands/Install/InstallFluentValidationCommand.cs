@@ -4,7 +4,7 @@ using CodeCLI.DirectoryNamespace;
 using System.Diagnostics;
 
 namespace CodeCLI.Commands.Install;
-[Command("install fluent validation", "(install|i) (fluent-validation|fv)$")]
+[Command("install fluent validation", @"^\b(install|i)\b \b(fluent-validation|fv)\b$")]
 public class InstallFluentValidationCommand : CommandBase
 {
     public override ValueTask ExecuteCommandAsync(IConsole console, CancellationToken cancellationToken)

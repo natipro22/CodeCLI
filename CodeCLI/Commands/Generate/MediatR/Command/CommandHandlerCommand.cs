@@ -5,7 +5,7 @@ using CodeCLI.CommandServices.MediatR;
 using CodeCLI.Common;
 
 namespace CodeCLI.Commands.Generate.MediatR;
-[Command("generate(g) mediatr(m) command-handler(ch)", @"(generate|g)\b (mediatr|m)? (command-handler|ch)\b$", Description = "Creates a new, generic request command handler definition using MediatR in the given project.")]
+[Command("generate(g) mediatr(m) command-handler(ch)", @"\b(generate|g)\b \b(mediatr|m)\b? \b(command-handler|ch)\b$", Description = "Creates a new, generic request command handler definition using MediatR in the given project.")]
 public class CommandHandlerCommand : BaseCommand
 {
     [CommandParameter(0, IsRequired = true, Description = "The name of the command handler.")]

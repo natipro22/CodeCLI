@@ -5,7 +5,7 @@ using CodeCLI.Commands.Install;
 using CodeCLI.CommandServices.RegisterCodeCLI;
 
 namespace CodeCLI.Commands.Config;
-[Command("config carter(c)", "(config|c) (carter|c)$", Description = "Register Carter library to the project.")]
+[Command("config carter(c)", @"^\b(config|c)\b \b(carter|c)\b$", Description = "Register Carter library to the project.")]
 public class CarterConfigCommand : CommandBase
 {
     public override ValueTask ExecuteCommandAsync(IConsole console, CancellationToken cancellationToken)

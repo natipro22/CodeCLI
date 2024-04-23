@@ -4,7 +4,7 @@ using CodeCLI.CommandServices;
 using CodeCLI.Common;
 
 namespace CodeCLI.Commands.Generate.Service;
-[Command("generate(g) service(s)", @"^(generate|g)\b (service|s)$", Description = "Creates a new, generic service definition in the given project.")]
+[Command("generate(g) service(s)", @"^\b(generate|g)\b \b(service|s)\b$", Description = "Creates a new, generic service definition in the given project.")]
 public class ServiceCommand : BaseCommand
 {
     [CommandParameter(0, IsRequired = true, Description = "The name of the service.")]
@@ -19,12 +19,12 @@ public class ServiceCommand : BaseCommand
     [CommandOption("abstract", 'a', Description = "abstract class")]
     public bool Abstract { get; set; } = false;
 
-    [CommandOption("seald", 's', Description = "seald class")]
-    public bool Seald { get; set; } = false;
+    [CommandOption("sealed", 's', Description = "seald class")]
+    public bool Sealed { get; set; } = false;
 
     public override ValueTask ExecuteCommandAsync(IConsole console, CancellationToken cancellationToken)
     {
-        ICommandService commandService = CommandServiceFactory.GetClassService($"{Name}Service", Extends, Implements, Abstract, Seald, Path);
+        ICommandService commandService = CommandServiceFactory.GetClassService($"{Name}Service", Extends, Implements, Abstract, Sealed, Path);
 
         string fileName = commandService.CreateFile();
 

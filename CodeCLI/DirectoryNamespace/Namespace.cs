@@ -30,8 +30,9 @@ public class Namespace
         {
             return @namespace;
         }
+        var path = Path.Combine(directory, newDirectory.Trim('.').Trim('\\', '/'));
         // Get the subdirectories of the current directory
-        string[] subdirectories = Path.Combine(directory, newDirectory)
+        string[] subdirectories = path
             .Substring(projectDirectory.Length + 1)
             .Split('\\', '/');
 

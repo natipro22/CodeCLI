@@ -4,7 +4,7 @@ using CodeCLI.CommandServices;
 using CodeCLI.Common;
 
 namespace CodeCLI.Commands.Generate.Interface;
-[Command("generate(g) interface(i)", @"(generate|g)\b (interface|i)$", Description = "Creates a new, generic interface definition in the given project.")]
+[Command("generate(g) interface(i)", @"^\b(generate|g)\b \b(interface|i)\b$", Description = "Creates a new, generic interface definition in the given project.")]
 public class InterfaceCommand : BaseCommand
 {
     [CommandParameter(0, IsRequired = true, Description = "The name of the interface.")]
@@ -13,7 +13,7 @@ public class InterfaceCommand : BaseCommand
     [CommandParameter(1, IsRequired = false, Description = "The name of the base interface.")]
     public IEnumerable<string> Extends { get; set; } = Enumerable.Empty<string>();
 
-    [CommandOption('x', Description = "A prefix to apply to generated selectors.")]
+    [CommandOption("prefix",'x', Description = "The name prefix for the interface.")]
     public char Prefix { get; set; } = 'I';
 
 

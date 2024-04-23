@@ -4,7 +4,7 @@ using CodeCLI.CommandServices;
 using CodeCLI.CommandServices.MediatR;
 
 namespace CodeCLI.Commands.Generate.REPR;
-[Command("generate(g) repr query(q)", @"(generate|g)\b (repr)\b (query|q)\b$")]
+[Command("generate(g) repr query(q)", @"^\b(generate|g)\b \b(repr)\b \b(query|q)\b$", Description = "Creates a new, generic feature using MediatR, FluentValidation and Carter definition in the given project.")]
 public class REPRQueryCommand : BaseCommand
 {
     [CommandParameter(0, IsRequired = true, Description = "The name of the REPR")]

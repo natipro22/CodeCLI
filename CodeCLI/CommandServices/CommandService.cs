@@ -26,8 +26,10 @@ public abstract class CommandService : ICommandService
             System.IO.Directory.CreateDirectory(Directory);
         }
 
-        FileName = string.IsNullOrEmpty(FileName) ? Name : FileName;
-        File.WriteAllText(!string.IsNullOrEmpty(Directory) ? Path.Combine(Directory, $"{FileName.Pascalize()}.{Extension}") : $"{FileName.Pascalize()}.{Extension}",
+        FileName = string.IsNullOrEmpty(FileName) ? Name : Path.GetFileName(FileName);
+        File.WriteAllText(!string.IsNullOrEmpty(Directory) 
+                            ? Path.Combine(Directory, $"{FileName.Pascalize()}.{Extension}") 
+                            : $"{FileName.Pascalize()}.{Extension}",
                           Regex.Replace(GetContent(), @" {2,}", " "));
 
         return $"{FileName.Pascalize()}.{Extension}";

@@ -4,7 +4,7 @@ using CodeCLI.DirectoryNamespace;
 using System.Diagnostics;
 
 namespace CodeCLI.Commands.Install;
-[Command("install carter(c)", "(install|i) (carter|c)$", Description = "Carter is a framework that is a thin layer of extension methods and functionality over ASP.NET Core allowing the code to be more explicit and most importantly more enjoyable.")]
+[Command("install carter(c)", @"^\b(install|i)\b \b(carter|c)\b$", Description = "Carter is a framework that is a thin layer of extension methods and functionality over ASP.NET Core allowing the code to be more explicit and most importantly more enjoyable.")]
 internal class InstallCarterCommand : CommandBase
 {
     public override ValueTask ExecuteCommandAsync(IConsole console, CancellationToken cancellationToken)

@@ -5,7 +5,7 @@ using CodeCLI.DirectoryNamespace;
 using System.Diagnostics;
 
 namespace CodeCLI.Commands.Install;
-[Command("install mediatR", "(install|i) (mediatr|m)$")]
+[Command("install mediatR", @"^\b(install|i)\b \b(mediatr|m)\b$")]
 public class InstallMediatRCommand : ICommand
 {
     public ValueTask ExecuteAsync(IConsole console)

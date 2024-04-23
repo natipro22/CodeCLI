@@ -4,7 +4,7 @@ using CodeCLI.CommandServices;
 using CodeCLI.Common;
 
 namespace CodeCLI.Commands.Generate.Enum;
-[Command("generate(g) enum(e)", @"(generate|g)\b (enum|e)$", Description = "Generates a new, generic enum definition in the given project.")]
+[Command("generate(g) enum(e)", @"^\b(generate|g)\b \b(enum|e)\b$", Description = "Generates a new, generic enum definition in the given project.")]
 public class EnumCommand : BaseCommand
 {
     [CommandParameter(0, IsRequired = true, Description = "The name of the enum.")]
