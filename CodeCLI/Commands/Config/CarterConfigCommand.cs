@@ -8,6 +8,8 @@ namespace CodeCLI.Commands.Config;
 [Command("config carter(c)", @"^\b(config|c)\b \b(carter|c)\b$", Description = "Register Carter library to the project.")]
 public class CarterConfigCommand : CommandBase
 {
+    [CommandParameter(0, IsRequired = false, Description = "The name of the startup class.")]
+    public string FileName { get; set; } = "Program.cs";
     public override ValueTask ExecuteCommandAsync(IConsole console, CancellationToken cancellationToken)
     {
         try
@@ -22,7 +24,7 @@ public class CarterConfigCommand : CommandBase
         }
         try
         {
-            RegisterServices.RegisterCarter();
+            RegisterServices.RegisterCarter(FileName);
 
             console.WriteLine("Carter registerd successfully.");
         }

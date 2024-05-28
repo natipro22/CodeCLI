@@ -8,6 +8,8 @@ namespace CodeCLI.Commands.Config;
 [Command("config fluent-validation", @"^\b(config|c)\b \b(fluent-validation|fv)\b$", Description = "Register FluentValidation library to the project.")]
 public class FluentValidationConfigCommand : CommandBase
 {
+    [CommandParameter(0, IsRequired = false, Description = "The name of the startup class.")]
+    public string FileName { get; set; } = "Program.cs";
     public override ValueTask ExecuteCommandAsync(IConsole console, CancellationToken cancellationToken)
     {
         try
@@ -23,7 +25,7 @@ public class FluentValidationConfigCommand : CommandBase
 
         try
         {
-            RegisterServices.RegisterFluentValidation();
+            RegisterServices.RegisterFluentValidation(FileName);
 
             console.WriteLine("Fluent validation registerd successfully.");
         }

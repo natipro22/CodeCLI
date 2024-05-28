@@ -8,6 +8,8 @@ namespace CodeCLI.Commands.Config;
 [Command("config mediatr", @"^\b(config|c)\b \b(mediatr|m)\b$", Description = "Register MediatR library to the project.")]
 public class MediatRConfigCommand : CommandBase
 {
+    [CommandParameter(0, IsRequired = false, Description = "The name of the startup class.")]
+    public string FileName { get; set; } = "Program.cs";
     public override ValueTask ExecuteCommandAsync(IConsole console, CancellationToken cancellationToken)
     {
         try
@@ -22,7 +24,7 @@ public class MediatRConfigCommand : CommandBase
         }
         try
         {
-            RegisterServices.RegisterMediatR();
+            RegisterServices.RegisterMediatR(FileName);
 
             console.WriteLine("MediatR registerd successfully.");
         }

@@ -5,7 +5,7 @@ namespace CodeCLI.CommandServices.RegisterCodeCLI;
 public class RegisterServices
 {
     private static string configFile = "CodeCLIStartup.cs";
-    private static string programFile = "Program.cs";
+    private const string programFile = "Program.cs";
 
     private static string build = "\t\treturn services;";
     private static string app = "\t\treturn builder;";
@@ -34,16 +34,17 @@ public class RegisterServices
         programFile.Replace(path, runPattern, runReplacement, usings);
     }
 
-    private static string CreateStartup()
+    private static string CreateStartup(string file = programFile)
     {
-        string filePath = programFile.GetFileDirectory();
+        string filePath = file.GetFileDirectory();
         var path = Path.Combine(filePath, configFile);
         Console.WriteLine("CreateStartup: " + path);
 
         string name = "codeCLIStartupTemp.txt";
         string content = CommandService.ReadFile(name);
 
-        content = content.Replace(nameof(Namespace).ToVar(), Namespace.GetNamespace(string.Empty, filePath));
+        content = content.Replace(nameof(Namespace).ToVar(),
+                                  Namespace.GetNamespace(string.Empty, filePath));
 
         File.WriteAllText(path, content);
 
@@ -51,7 +52,7 @@ public class RegisterServices
         return filePath;
     }
 
-    private static string GetStartup()
+    private static string GetStartup(string startupFile)
     {
         try
         {
@@ -59,13 +60,13 @@ public class RegisterServices
         }
         catch (FileNotFoundException)
         {
-            return CreateStartup();
+            return CreateStartup(startupFile);
         }
     }
 
-    public static void RegisterMiddleware(string name)
+    public static void RegisterMiddleware(string name, string startup)
     {
-        var path = Path.Combine(GetStartup(), configFile);
+        var path = Path.Combine(GetStartup(startup), configFile);
 
         // Define the replacement line
         string buildReplacement = $"\t\tservices.AddTransient<{name}Middleware>();\n{build}";
@@ -81,9 +82,9 @@ public class RegisterServices
 
     }
 
-    public static void RegisterMediatR()
+    public static void RegisterMediatR(string startup)
     {
-        var path = Path.Combine(GetStartup(), configFile);
+        var path = Path.Combine(GetStartup(startup), configFile);
 
         // Define the replacement line
         string replacement = $"\t\tservices.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(Program).Assembly));\n{build}";
@@ -92,10 +93,9 @@ public class RegisterServices
         configFile.Replace(path, build, replacement, usings);
     }
 
-    public static void RegisterFluentValidation()
+    public static void RegisterFluentValidation(string startUpFile)
     {
-        var startup = GetStartup();
-        Console.WriteLine($"startup: {startup}");
+        var startup = GetStartup(startUpFile);
         var path = Path.Combine(startup, configFile);
 
         // Define the replacement line
@@ -106,9 +106,9 @@ public class RegisterServices
         configFile.Replace(path, build, replacement, usings);
     }
 
-    public static void RegisterCarter()
+    public static void RegisterCarter(string startup)
     {
-        var path = Path.Combine(GetStartup(), configFile);
+        var path = Path.Combine(GetStartup(startup), configFile);
 
         // Define the replacement line
         string replacement = $"\t\tservices.AddCarter();\n{build}";

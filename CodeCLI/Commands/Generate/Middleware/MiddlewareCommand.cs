@@ -10,6 +10,8 @@ public class MiddlewareCommand : BaseCommand
 {
     [CommandParameter(0, IsRequired = true, Description = "The name of the middleware.")]
     public string Name { get; set; } = string.Empty;
+    [CommandOption("startup", 's', Description = "The name of the startup class.")]
+    public string Startup { get; set; } = "Program.cs";
     public override ValueTask ExecuteCommandAsync(IConsole console, CancellationToken cancellationToken)
     {
         ICommandService commandService = CommandServiceFactory.GetMiddlewareService(Name, Path);
@@ -18,7 +20,7 @@ public class MiddlewareCommand : BaseCommand
 
         console.FileCreated(fileName);
 
-        RegisterServices.RegisterMiddleware(Name);
+        RegisterServices.RegisterMiddleware(Name, Startup);
 
         return ValueTask.CompletedTask;
     }
